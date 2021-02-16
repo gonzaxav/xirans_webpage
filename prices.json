@@ -84,9 +84,7 @@
                         }
                     ]
                 }
-            ]
-        },
-        {
+            ],
             "halfbody": [
                 {
                     "cleanColors": [
@@ -153,9 +151,7 @@
                         }
                     ]
                 }
-            ]
-        },
-        {
+            ],
             "thighs": [
                 {
                     "cleanColors": [
@@ -222,9 +218,7 @@
                         }
                     ]
                 }
-            ]
-        },
-        {
+            ],
             "full": [
                 {
                     "cleanColors": [
@@ -291,9 +285,7 @@
                         }
                     ]
                 }
-            ]
-        },
-        {
+            ],
             "other": [
                 {
                     "cleanColors": [
