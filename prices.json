@@ -22,63 +22,63 @@
                 {
                     "cleanColors": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "54",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "hybrid": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "42",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "coloredSketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "32",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "emote": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "sketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "27",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "doodle": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "scribble": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "logo": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "other": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
@@ -91,63 +91,63 @@
                 {
                     "cleanColors": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "72",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "hybrid": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "58",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "coloredSketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "39",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "emote": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "sketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "35",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "doodle": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "scribble": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "logo": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "other": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
@@ -160,63 +160,63 @@
                 {
                     "cleanColors": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "95",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "hybrid": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "72",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "coloredSketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "48",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "emote": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "sketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "40",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "doodle": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "scribble": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "logo": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "other": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
@@ -229,63 +229,63 @@
                 {
                     "cleanColors": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "110",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "hybrid": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "88",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "coloredSketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "55",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "emote": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "sketch": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "48",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "doodle": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "17",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "scribble": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "15",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "logo": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "other": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
@@ -298,63 +298,63 @@
                 {
                     "cleanColors": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "hybrid": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "coloredSketch": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "emote": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "25",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "sketch": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "doodle": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "scribble": [
                         {
-                            "isItPossible?": false,
+                            "isItPossible": false,
                             "value": "0",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "logo": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "100",
                             "dollarOrPercentage": "$"
                         }
                     ],
                     "other": [
                         {
-                            "isItPossible?": true,
+                            "isItPossible": true,
                             "value": "1",
                             "dollarOrPercentage": "$"
                         }
