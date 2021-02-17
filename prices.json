@@ -23,7 +23,7 @@
                     "cleanColors": [
                         {
                             "isItPossible": true,
-                            "value": "5493821742987",
+                            "value": "54",
                             "dollarOrPercentage": "$"
                         }
                     ],
@@ -391,6 +391,24 @@
                 {
                     "value": "130",
                     "dollarOrPercentage": "%"
+                }
+            ]
+        }
+    ],
+    "cheapshading": [
+        {
+            "doodle": [
+                {
+                    "yes": "5",
+                    "no": "0",
+                    "dollarOrPercentage": "$"
+                }
+            ],
+            "scribble": [
+                {
+                    "yes": "5",
+                    "no": "0",
+                    "dollarOrPercentage": "$"
                 }
             ]
         }
