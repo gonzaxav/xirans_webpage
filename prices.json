@@ -365,31 +365,31 @@
             ],
             "simple": [
                 {
-                    "value": "105",
+                    "value": "110",
                     "dollarOrPercentage": "%"
                 }
             ],
             "average": [
                 {
-                    "value": "110",
+                    "value": "125",
                     "dollarOrPercentage": "%"
                 }
             ],
             "somewhatComplex": [
                 {
-                    "value": "115",
+                    "value": "145",
                     "dollarOrPercentage": "%"
                 }
             ],
             "layeredClothing": [
                 {
-                    "value": "125",
+                    "value": "175",
                     "dollarOrPercentage": "%"
                 }
             ],
             "veryComplex": [
                 {
-                    "value": "130",
+                    "value": "190",
                     "dollarOrPercentage": "%"
                 }
             ]
