@@ -684,5 +684,94 @@
                 }
             ]
         }
+    ],
+    "background": [
+        {
+            "simple": [
+                {
+                    "minValue": "5",
+                    "maxValue": "20",
+                    "dollarOrPercentage": "$"
+                }
+            ],
+            "average": [
+                {
+                    "minValue": "30",
+                    "maxValue": "50",
+                    "dollarOrPercentage": "$"
+                }
+            ],
+            "somewhatcomplex": [
+                {
+                    "minValue": "50",
+                    "maxValue": "90",
+                    "dollarOrPercentage": "$"
+                }
+            ],
+            "verycomplex": [
+                {
+                    "minValue": "90",
+                    "maxValue": "180",
+                    "dollarOrPercentage": "$"
+                }
+            ]
+        }
+    ],
+    "private": [
+        {
+            "no": [
+                {
+                    "value": "100",
+                    "dollarOrPercentage": "%"
+                }
+            ],
+            "yes": [
+                {
+                    "value": "200",
+                    "dollarOrPercentage": "%"
+                }
+            ]
+        }
+    ],
+    "skipqueue": [
+        {
+            "addmetoqueue": [
+                {
+                    "value": "100",
+                    "dollarOrPercentage": "%"
+                }
+            ],
+            "skipqueue": [
+                {
+                    "amountOfPeopleInQueue": "5",
+                    "increaseValuePerPerson": "10",
+                    "value": "100",
+                    "dollarOrPercentage": "%"
+                }
+            ],
+            "rushpriority": [
+                {
+                    "value": "200",
+                    "dollarOrPercentage": "%"
+                }
+            ]
+        }
+    ],
+    "lewd": [
+        {
+            "no": [
+                {
+                    "value": "100",
+                    "dollarOrPercentage": "%"
+                }
+            ],
+            "yes": [
+                {
+                    "minValue": "15",
+                    "maxValue": "25",
+                    "dollarOrPercentage": "%"
+                }
+            ]
+        }
     ]
 }
