@@ -415,7 +415,7 @@
     ],
     "amountcharacters": [
         {
-            "1": [
+            "one": [
                 {
                     "cleanColors": [
                         {
@@ -482,7 +482,7 @@
                     ]
                 }
             ],
-            "2": [
+            "two": [
                 {
                     "cleanColors": [
                         {
@@ -549,7 +549,7 @@
                     ]
                 }
             ],
-            "3": [
+            "three": [
                 {
                     "cleanColors": [
                         {
@@ -616,7 +616,7 @@
                     ]
                 }
             ],
-            "4": [
+            "four": [
                 {
                     "cleanColors": [
                         {

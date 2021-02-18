@@ -7,6 +7,7 @@ var styleShading;
 var styleShadingRadio;
 var outfit;
 var outfitOptions;
+var amountCharactersRadio;
 
 function updateDesignCharacters() {
     let content = "";
@@ -105,6 +106,7 @@ function updateStyle() {
     }
 
     updateBody();
+    updateAmountCharacters();
 
     if (style.value == "choose") {
         hideStyleShading();
@@ -761,8 +763,176 @@ function updateOutfit(){
     }
 }
 
-function updateAmountCharacters(){
+function updateAmountCharacters() {
+    let bodyContent = "";
 
+    for (var i = 0; i < amountCharactersRadio.length; i++) {
+        if (amountCharactersRadio[i].checked) {
+            if (amountCharactersRadio[i].value == "1") {
+                if (style.value == "cleanColors") {
+                    if (pricesArray.amountcharacters[0].1[0].cleanColors[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].portrait[0].cleanColors[0].value;
+                    }
+                } else if (style.value == "hybrid") {
+                    if (pricesArray.body[0].portrait[0].hybrid[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].portrait[0].hybrid[0].value;
+                    }
+                } else if (style.value == "coloredSketch") {
+                    if (pricesArray.body[0].portrait[0].coloredSketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].coloredSketch[0].value;
+                    }
+                } else if (style.value == "emote") {
+                    if (pricesArray.body[0].portrait[0].emote[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].emote[0].dollarOrPercentage + pricesArray.body[0].portrait[0].emote[0].value;
+                    }
+                } else if (style.value == "sketch") {
+                    if (pricesArray.body[0].portrait[0].sketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].sketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].sketch[0].value;
+                    }
+                } else if (style.value == "doodle") {
+                    if (pricesArray.body[0].portrait[0].doodle[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].doodle[0].dollarOrPercentage + pricesArray.body[0].portrait[0].doodle[0].value;
+                    }
+                } else if (style.value == "scribble") {
+                    if (pricesArray.body[0].portrait[0].scribble[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].scribble[0].dollarOrPercentage + pricesArray.body[0].portrait[0].scribble[0].value;
+                    }
+                } else if (style.value == "logo") {
+                    if (pricesArray.body[0].portrait[0].logo[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].logo[0].dollarOrPercentage + pricesArray.body[0].portrait[0].logo[0].value;
+                    }
+                } else if (style.value == "other") {
+                    if (pricesArray.body[0].portrait[0].other[0].isItPossible){
+                        bodyContent = pricesArray.body[0].portrait[0].other[0].dollarOrPercentage + pricesArray.body[0].portrait[0].other[0].value;
+                    }
+                }
+            }
+            else if (amountCharactersRadio[i].value == "2") {
+                if (style.value == "cleanColors") {
+                    if (pricesArray.body[0].halfbody[0].cleanColors[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].cleanColors[0].value;
+                    }
+                } else if (style.value == "hybrid") {
+                    if (pricesArray.body[0].halfbody[0].hybrid[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].hybrid[0].value;
+                    }
+                } else if (style.value == "coloredSketch") {
+                    if (pricesArray.body[0].halfbody[0].coloredSketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].coloredSketch[0].value;
+                    }
+                } else if (style.value == "emote") {
+                    if (pricesArray.body[0].halfbody[0].emote[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].emote[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].emote[0].value;
+                    }
+                } else if (style.value == "sketch") {
+                    if (pricesArray.body[0].halfbody[0].sketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].sketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].sketch[0].value;
+                    }
+                } else if (style.value == "doodle") {
+                    if (pricesArray.body[0].halfbody[0].doodle[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].doodle[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].doodle[0].value;
+                    }
+                } else if (style.value == "scribble") {
+                    if (pricesArray.body[0].halfbody[0].scribble[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].scribble[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].scribble[0].value;
+                    }
+                } else if (style.value == "logo") {
+                    if (pricesArray.body[0].halfbody[0].logo[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].logo[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].logo[0].value;
+                    }
+                } else if (style.value == "other") {
+                    if (pricesArray.body[0].halfbody[0].other[0].isItPossible){
+                        bodyContent = pricesArray.body[0].halfbody[0].other[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].other[0].value;
+                    }
+                }
+            }
+            else if (amountCharactersRadio[i].value == "3") {
+                if (style.value == "cleanColors") {
+                    if (pricesArray.body[0].thighs[0].cleanColors[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].thighs[0].cleanColors[0].value;
+                    }
+                } else if (style.value == "hybrid") {
+                    if (pricesArray.body[0].thighs[0].hybrid[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].thighs[0].hybrid[0].value;
+                    }
+                } else if (style.value == "coloredSketch") {
+                    if (pricesArray.body[0].thighs[0].coloredSketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].coloredSketch[0].value;
+                    }
+                } else if (style.value == "emote") {
+                    if (pricesArray.body[0].thighs[0].emote[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].emote[0].dollarOrPercentage + pricesArray.body[0].thighs[0].emote[0].value;
+                    }
+                } else if (style.value == "sketch") {
+                    if (pricesArray.body[0].thighs[0].sketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].sketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].sketch[0].value;
+                    }
+                } else if (style.value == "doodle") {
+                    if (pricesArray.body[0].thighs[0].doodle[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].doodle[0].dollarOrPercentage + pricesArray.body[0].thighs[0].doodle[0].value;
+                    }
+                } else if (style.value == "scribble") {
+                    if (pricesArray.body[0].thighs[0].scribble[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].scribble[0].dollarOrPercentage + pricesArray.body[0].thighs[0].scribble[0].value;
+                    }
+                } else if (style.value == "logo") {
+                    if (pricesArray.body[0].thighs[0].logo[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].logo[0].dollarOrPercentage + pricesArray.body[0].thighs[0].logo[0].value;
+                    }
+                } else if (style.value == "other") {
+                    if (pricesArray.body[0].thighs[0].other[0].isItPossible){
+                        bodyContent = pricesArray.body[0].thighs[0].other[0].dollarOrPercentage + pricesArray.body[0].thighs[0].other[0].value;
+                    }
+                }
+            }
+            else if (amountCharactersRadio[i].value == "4") {
+                if (style.value == "cleanColors") {
+                    if (pricesArray.body[0].full[0].cleanColors[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].full[0].cleanColors[0].value;
+                    }
+                } else if (style.value == "hybrid") {
+                    if (pricesArray.body[0].full[0].hybrid[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].full[0].hybrid[0].value;
+                    }
+                } else if (style.value == "coloredSketch") {
+                    if (pricesArray.body[0].full[0].coloredSketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].full[0].coloredSketch[0].value;
+                    }
+                } else if (style.value == "emote") {
+                    if (pricesArray.body[0].full[0].emote[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].emote[0].dollarOrPercentage + pricesArray.body[0].full[0].emote[0].value;
+                    }
+                } else if (style.value == "sketch") {
+                    if (pricesArray.body[0].full[0].sketch[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].sketch[0].dollarOrPercentage + pricesArray.body[0].full[0].sketch[0].value;
+                    }
+                } else if (style.value == "doodle") {
+                    if (pricesArray.body[0].full[0].doodle[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].doodle[0].dollarOrPercentage + pricesArray.body[0].full[0].doodle[0].value;
+                    }
+                } else if (style.value == "scribble") {
+                    if (pricesArray.body[0].full[0].scribble[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].scribble[0].dollarOrPercentage + pricesArray.body[0].full[0].scribble[0].value;
+                    }
+                } else if (style.value == "logo") {
+                    if (pricesArray.body[0].full[0].logo[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].logo[0].dollarOrPercentage + pricesArray.body[0].full[0].logo[0].value;
+                    }
+                } else if (style.value == "other") {
+                    if (pricesArray.body[0].full[0].other[0].isItPossible){
+                        bodyContent = pricesArray.body[0].full[0].other[0].dollarOrPercentage + pricesArray.body[0].full[0].other[0].value;
+                    }
+                }
+            }
+        }
+    }
+
+    if (bodyContent == "") {
+        document.getElementById("bodyIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("bodyIDValue").classList.remove("d-none");
+        document.getElementById("bodyIDValue").innerText = bodyContent;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -780,7 +950,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             outfit = document.getElementById("inputOutfit");
             outfitOptions = document.getElementsByName("outfitOptions");
             updateOutfit();
-            
+            amountCharactersRadio = document.getElementsByName("amountCharacters");
             updateAmountCharacters();
         }
     });
