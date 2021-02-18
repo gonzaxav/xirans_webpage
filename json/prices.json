@@ -744,14 +744,16 @@
             "skipqueue": [
                 {
                     "amountOfPeopleInQueue": "5",
-                    "increaseValuePerPerson": "10",
+                    "increaseValuePerPerson": "5",
                     "value": "100",
                     "dollarOrPercentage": "%"
                 }
             ],
             "rushpriority": [
                 {
-                    "value": "200",
+                    "amountOfPeopleInQueue": "5",
+                    "increaseValuePerPerson": "5",
+                    "value": "150",
                     "dollarOrPercentage": "%"
                 }
             ]
@@ -767,8 +769,8 @@
             ],
             "yes": [
                 {
-                    "minValue": "15",
-                    "maxValue": "25",
+                    "minValue": "115",
+                    "maxValue": "125",
                     "dollarOrPercentage": "%"
                 }
             ]
