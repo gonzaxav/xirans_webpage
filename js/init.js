@@ -8,7 +8,7 @@ const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const CART_INFO_URL_2 = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
-const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/prices.json";
+const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/json/prices.json";
 
 const POST_NEW_COMMENT = "/new-comment";
 const GET_ALL = "/get_all";
