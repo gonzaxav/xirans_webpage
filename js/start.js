@@ -42,9 +42,13 @@ function updateDesignCharactersTextAndPrice() {
         if (designCharacters[i].checked) {
             if (designCharacters[i].value == "no") {
                 content = noCost;
+                numberDesigningCharacterMin = pricesArray.designing[0].no[0].value / 100;
+                numberDesigningCharacterMax = pricesArray.designing[0].no[0].value / 100;
             }
             else if (designCharacters[i].value == "yes") {
                 content = yesCost;
+                numberDesigningCharacterMin = pricesArray.designing[0].yes[0].minValue
+                numberDesigningCharacterMax
             }
         }
     }

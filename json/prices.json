@@ -9,8 +9,8 @@
             ],
             "yes": [
                 {
-                    "minValue": "10",
-                    "maxValue": "50",
+                    "minValue": "110",
+                    "maxValue": "150",
                     "dollarOrPercentage": "%"
                 }
             ]
