@@ -743,7 +743,6 @@
             ],
             "skipqueue": [
                 {
-                    "amountOfPeopleInQueue": "5",
                     "increaseValuePerPerson": "5",
                     "value": "100",
                     "dollarOrPercentage": "%"
@@ -751,12 +750,12 @@
             ],
             "rushpriority": [
                 {
-                    "amountOfPeopleInQueue": "5",
                     "increaseValuePerPerson": "5",
                     "value": "150",
                     "dollarOrPercentage": "%"
                 }
-            ]
+            ],
+            "amountOfPeopleInQueue": "5"
         }
     ],
     "lewd": [

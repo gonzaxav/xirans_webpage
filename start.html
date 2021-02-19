@@ -479,7 +479,8 @@
 
           <div class="col-1">
             <div class="row h-50"></div>
-            <p class="text-light text-center">50%</p>
+            <p class="text-light text-center d-none" id="skipIDValue">50%</p>
+            <span class="text-light" id="skipIDpeopleInQueue">Current number of people in queue:</span>
           </div>
 
           <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
@@ -489,23 +490,23 @@
 
               <label class="btn btn-secondary col" type="button" for="radioSkip1" data-toggle="button"
                 aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip1" value="1">
+                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip1" value="addqueue">
                 <span class="font-weight-bold">Add me to queue<br></span>
-                <span>Do not skip the line, I'm willing to wait.</span>
+                <span id="addtoqueueText">Do not skip the line, I'm willing to wait.</span>
               </label>
 
               <label class="btn btn-secondary col" type="button" for="radioSkip2" data-toggle="button"
                 aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip2" value="2">
+                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip2" value="skipqueue">
                 <span class="font-weight-bold">Skip queue<br></span>
-                <span>Skip the line; order will NOT be done ASAP</span>
+                <span id="skipqueueText">Skip the line; order will NOT be done ASAP</span>
               </label>
 
               <label class="btn btn-secondary col" type="button" for="radioSkip3" data-toggle="button"
                 aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip3" value="3">
+                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip3" value="skipqueueasap">
                 <span class="font-weight-bold">Rush/Priority<br></span>
-                <span>Skip the line; order done ASAP</span>
+                <span id="skipqueueasapText">Skip the line; order done ASAP</span>
               </label>
 
             </div>

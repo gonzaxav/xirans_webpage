@@ -1365,7 +1365,7 @@ function updatePrivateTextAndPrice() {
     let yesCost = (pricesArray.private[0].yes[0].value - 100) + pricesArray.private[0].yes[0].dollarOrPercentage;
 
     document.getElementById("noPrivateRadioText").innerText = `No, Xiran can post it wherever she wants (${noCost})`;
-    document.getElementById("yesPrivateRadioText").innerText = `Yes, I want Xiran to keep it off social media (this will double the price) (${yesCost})`;
+    document.getElementById("yesPrivateRadioText").innerText = `Yes, I want Xiran to keep it off social media (this will double the price) (+${yesCost})`;
 
     for (var i = 0; i < privateRadio.length; i++) {
         if (privateRadio[i].checked) {
@@ -1413,6 +1413,18 @@ function updateLewdTextAndPrice() {
     }
 }
 
+function updateSkipQueueButtons() {
+    let addtoqueueText = document.getElementById("addtoqueueText");
+    let skipqueueText = document.getElementById("skipqueueText");
+    let skipqueueasapText = document.getElementById("skipqueueasapText");
+    let skipIDpeopleInQueue = document.getElementById("skipIDpeopleInQueue");
+
+    addtoqueueText.innerHTML = `Do not skip the line, I'm willing to wait<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
+    skipqueueText.innerHTML = `Skip the line; order will NOT be done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
+    skipqueueasapText.innerHTML = `Skip the line; order done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
+    skipIDpeopleInQueue.innerHTML = `Current number of people in queue: <br>${(pricesArray.skipqueue[0].amountOfPeopleInQueue}`;
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRICES_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -1449,6 +1461,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             lewdRadio = document.getElementsByName("lewdRadio");
             updateLewdTextAndPrice();
+
+
+            updateSkipQueueButtons();
         }
     });
 });
