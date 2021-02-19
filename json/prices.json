@@ -1,21 +1,15 @@
 {
-    "designing": [
-        {
-            "no": [
-                {
-                    "value": "100",
-                    "dollarOrPercentage": "%"
-                }
-            ],
-            "yes": [
-                {
-                    "minValue": "110",
-                    "maxValue": "150",
-                    "dollarOrPercentage": "%"
-                }
-            ]
+    "designing": {
+        "no": {
+            "value": "100",
+            "dollarOrPercentage": "%"
+        },
+        "yes": {
+            "minValue": "110",
+            "maxValue": "150",
+            "dollarOrPercentage": "%"
         }
-    ],
+    },
     "body": [
         {
             "portrait": [

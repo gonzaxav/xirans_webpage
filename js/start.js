@@ -47,8 +47,8 @@ function updateDesignCharactersTextAndPrice() {
             }
             else if (designCharacters[i].value == "yes") {
                 content = yesCost;
-                numberDesigningCharacterMin = pricesArray.designing[0].yes[0].minValue
-                numberDesigningCharacterMax
+                numberDesigningCharacterMin = pricesArray.designing[0].yes[0].minValue / 100;
+                numberDesigningCharacterMax = pricesArray.designing[0].yes[0].maxValue / 100;
             }
         }
     }
@@ -85,9 +85,21 @@ function showStyleShading(){
         if (styleShadingRadio[i].checked) {
             if (styleShadingRadio[i].value == "no") {
                 content = noCost;
+                if (style.value == "doodle"){
+                    numberStyleShading = pricesArray.cheapshading[0].doodle[0].no;
+                } 
+                else if (style.value == "scribble"){
+                    numberStyleShading = pricesArray.cheapshading[0].scribble[0].no;
+                }
             }
             else if (styleShadingRadio[i].value == "yes") {
                 content = yesCost;
+                if (style.value == "doodle"){
+                    numberStyleShading = pricesArray.cheapshading[0].doodle[0].yes;
+                } 
+                else if (style.value == "scribble"){
+                    numberStyleShading = pricesArray.cheapshading[0].scribble[0].yes;
+                }
             }
         }
     }
@@ -569,6 +581,7 @@ function updateBodyButtons() {
 
 function updateBodyPrice() {
     let bodyContent = "";
+    let cost = 0;
 
     for (var i = 0; i < bodyRadio.length; i++) {
         if (bodyRadio[i].checked) {
@@ -576,38 +589,47 @@ function updateBodyPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.body[0].portrait[0].cleanColors[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].portrait[0].cleanColors[0].value;
+                        cost = pricesArray.body[0].portrait[0].cleanColors[0].value;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.body[0].portrait[0].hybrid[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].portrait[0].hybrid[0].value;
+                        cost = pricesArray.body[0].portrait[0].hybrid[0].value;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.body[0].portrait[0].coloredSketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].coloredSketch[0].value;
+                        cost = pricesArray.body[0].portrait[0].coloredSketch[0].value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body[0].portrait[0].emote[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].emote[0].dollarOrPercentage + pricesArray.body[0].portrait[0].emote[0].value;
+                        cost = pricesArray.body[0].portrait[0].emote[0].value;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.body[0].portrait[0].sketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].sketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].sketch[0].value;
+                        cost = pricesArray.body[0].portrait[0].sketch[0].value;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.body[0].portrait[0].doodle[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].doodle[0].dollarOrPercentage + pricesArray.body[0].portrait[0].doodle[0].value;
+                        cost = pricesArray.body[0].portrait[0].doodle[0].value;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.body[0].portrait[0].scribble[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].scribble[0].dollarOrPercentage + pricesArray.body[0].portrait[0].scribble[0].value;
+                        cost = pricesArray.body[0].portrait[0].scribble[0].value;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.body[0].portrait[0].logo[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].logo[0].dollarOrPercentage + pricesArray.body[0].portrait[0].logo[0].value;
+                        cost = pricesArray.body[0].portrait[0].logo[0].value;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.body[0].portrait[0].other[0].isItPossible){
                         bodyContent = pricesArray.body[0].portrait[0].other[0].dollarOrPercentage + pricesArray.body[0].portrait[0].other[0].value;
+                        cost = pricesArray.body[0].portrait[0].other[0].value;
                     }
                 }
             }
@@ -615,38 +637,47 @@ function updateBodyPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.body[0].halfbody[0].cleanColors[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].cleanColors[0].value;
+                        cost = pricesArray.body[0].halfbody[0].cleanColors[0].value;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.body[0].halfbody[0].hybrid[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].hybrid[0].value;
+                        cost = pricesArray.body[0].halfbody[0].hybrid[0].value;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.body[0].halfbody[0].coloredSketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].coloredSketch[0].value;
+                        cost = pricesArray.body[0].halfbody[0].coloredSketch[0].value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body[0].halfbody[0].emote[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].emote[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].emote[0].value;
+                        cost = pricesArray.body[0].halfbody[0].emote[0].value;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.body[0].halfbody[0].sketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].sketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].sketch[0].value;
+                        cost = pricesArray.body[0].halfbody[0].sketch[0].value;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.body[0].halfbody[0].doodle[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].doodle[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].doodle[0].value;
+                        cost = pricesArray.body[0].halfbody[0].doodle[0].value;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.body[0].halfbody[0].scribble[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].scribble[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].scribble[0].value;
+                        cost = pricesArray.body[0].halfbody[0].scribble[0].value;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.body[0].halfbody[0].logo[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].logo[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].logo[0].value;
+                        cost = pricesArray.body[0].halfbody[0].logo[0].value;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.body[0].halfbody[0].other[0].isItPossible){
                         bodyContent = pricesArray.body[0].halfbody[0].other[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].other[0].value;
+                        cost = pricesArray.body[0].halfbody[0].other[0].value;
                     }
                 }
             }
@@ -654,38 +685,47 @@ function updateBodyPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.body[0].thighs[0].cleanColors[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].thighs[0].cleanColors[0].value;
+                        cost = pricesArray.body[0].thighs[0].cleanColors[0].value;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.body[0].thighs[0].hybrid[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].thighs[0].hybrid[0].value;
+                        cost = pricesArray.body[0].thighs[0].hybrid[0].value;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.body[0].thighs[0].coloredSketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].coloredSketch[0].value;
+                        cost = pricesArray.body[0].thighs[0].coloredSketch[0].value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body[0].thighs[0].emote[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].emote[0].dollarOrPercentage + pricesArray.body[0].thighs[0].emote[0].value;
+                        cost = pricesArray.body[0].thighs[0].emote[0].value;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.body[0].thighs[0].sketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].sketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].sketch[0].value;
+                        cost = pricesArray.body[0].thighs[0].sketch[0].value;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.body[0].thighs[0].doodle[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].doodle[0].dollarOrPercentage + pricesArray.body[0].thighs[0].doodle[0].value;
+                        cost = pricesArray.body[0].thighs[0].doodle[0].value;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.body[0].thighs[0].scribble[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].scribble[0].dollarOrPercentage + pricesArray.body[0].thighs[0].scribble[0].value;
+                        cost = pricesArray.body[0].thighs[0].scribble[0].value;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.body[0].thighs[0].logo[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].logo[0].dollarOrPercentage + pricesArray.body[0].thighs[0].logo[0].value;
+                        cost = pricesArray.body[0].thighs[0].logo[0].value;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.body[0].thighs[0].other[0].isItPossible){
                         bodyContent = pricesArray.body[0].thighs[0].other[0].dollarOrPercentage + pricesArray.body[0].thighs[0].other[0].value;
+                        cost = pricesArray.body[0].thighs[0].other[0].value;
                     }
                 }
             }
@@ -693,38 +733,47 @@ function updateBodyPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.body[0].full[0].cleanColors[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].full[0].cleanColors[0].value;
+                        cost = pricesArray.body[0].full[0].cleanColors[0].value;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.body[0].full[0].hybrid[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].full[0].hybrid[0].value;
+                        cost = pricesArray.body[0].full[0].hybrid[0].value;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.body[0].full[0].coloredSketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].full[0].coloredSketch[0].value;
+                        cost = pricesArray.body[0].full[0].coloredSketch[0].value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body[0].full[0].emote[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].emote[0].dollarOrPercentage + pricesArray.body[0].full[0].emote[0].value;
+                        cost = pricesArray.body[0].full[0].emote[0].value;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.body[0].full[0].sketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].sketch[0].dollarOrPercentage + pricesArray.body[0].full[0].sketch[0].value;
+                        cost = pricesArray.body[0].full[0].sketch[0].value;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.body[0].full[0].doodle[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].doodle[0].dollarOrPercentage + pricesArray.body[0].full[0].doodle[0].value;
+                        cost = pricesArray.body[0].full[0].doodle[0].value;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.body[0].full[0].scribble[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].scribble[0].dollarOrPercentage + pricesArray.body[0].full[0].scribble[0].value;
+                        cost = pricesArray.body[0].full[0].scribble[0].value;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.body[0].full[0].logo[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].logo[0].dollarOrPercentage + pricesArray.body[0].full[0].logo[0].value;
+                        cost = pricesArray.body[0].full[0].logo[0].value;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.body[0].full[0].other[0].isItPossible){
                         bodyContent = pricesArray.body[0].full[0].other[0].dollarOrPercentage + pricesArray.body[0].full[0].other[0].value;
+                        cost = pricesArray.body[0].full[0].other[0].value;
                     }
                 }
             }
@@ -732,43 +781,54 @@ function updateBodyPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.body[0].other[0].cleanColors[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].other[0].cleanColors[0].value;
+                        cost = pricesArray.body[0].other[0].cleanColors[0].value;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.body[0].other[0].hybrid[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].other[0].hybrid[0].value;
+                        cost = pricesArray.body[0].other[0].hybrid[0].value;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.body[0].other[0].coloredSketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].other[0].coloredSketch[0].value;
+                        cost = pricesArray.body[0].other[0].coloredSketch[0].value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body[0].other[0].emote[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].emote[0].dollarOrPercentage + pricesArray.body[0].other[0].emote[0].value;
+                        cost = pricesArray.body[0].other[0].emote[0].value;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.body[0].other[0].sketch[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].sketch[0].dollarOrPercentage + pricesArray.body[0].other[0].sketch[0].value;
+                        cost = pricesArray.body[0].other[0].sketch[0].value;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.body[0].other[0].doodle[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].doodle[0].dollarOrPercentage + pricesArray.body[0].other[0].doodle[0].value;
+                        cost = pricesArray.body[0].other[0].doodle[0].value;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.body[0].other[0].scribble[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].scribble[0].dollarOrPercentage + pricesArray.body[0].other[0].scribble[0].value;
+                        cost = pricesArray.body[0].other[0].scribble[0].value;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.body[0].other[0].logo[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].logo[0].dollarOrPercentage + pricesArray.body[0].other[0].logo[0].value;
+                        cost = pricesArray.body[0].other[0].logo[0].value;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.body[0].other[0].other[0].isItPossible){
                         bodyContent = pricesArray.body[0].other[0].other[0].dollarOrPercentage + pricesArray.body[0].other[0].other[0].value;
+                        cost = pricesArray.body[0].other[0].other[0].value;
                     }
                 }
             }
         }
     }
+
+    numberBody = cost;
 
     if (bodyContent == "") {
         document.getElementById("bodyIDValue").classList.add("d-none");
@@ -1119,6 +1179,7 @@ function updateAmountCharactersButtons() {
 
 function updateAmountCharactersPrice() {
     let bodyContent = "";
+    let cost = 0;
 
     for (var i = 0; i < amountCharactersRadio.length; i++) {
         if (amountCharactersRadio[i].checked) {
@@ -1126,38 +1187,47 @@ function updateAmountCharactersPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.amountcharacters[0].one[0].cleanColors[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].one[0].cleanColors[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].cleanColors[0].value / 100;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.amountcharacters[0].one[0].hybrid[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].one[0].hybrid[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].hybrid[0].value / 100;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.amountcharacters[0].one[0].coloredSketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].coloredSketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].coloredSketch[0].value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters[0].one[0].emote[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].emote[0].value - 100) + pricesArray.amountcharacters[0].one[0].emote[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].emote[0].value / 100;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.amountcharacters[0].one[0].sketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].sketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].sketch[0].value / 100;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.amountcharacters[0].one[0].doodle[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].one[0].doodle[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].doodle[0].value / 100;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.amountcharacters[0].one[0].scribble[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].one[0].scribble[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].scribble[0].value / 100;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.amountcharacters[0].one[0].logo[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].logo[0].value - 100) + pricesArray.amountcharacters[0].one[0].logo[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].logo[0].value / 100;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.amountcharacters[0].one[0].other[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].one[0].other[0].value - 100) + pricesArray.amountcharacters[0].one[0].other[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].one[0].other[0].value / 100;
                     }
                 }
             }
@@ -1165,38 +1235,47 @@ function updateAmountCharactersPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.amountcharacters[0].two[0].cleanColors[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].two[0].cleanColors[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].cleanColors[0].value / 100;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.amountcharacters[0].two[0].hybrid[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].two[0].hybrid[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].hybrid[0].value / 100;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.amountcharacters[0].two[0].coloredSketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].coloredSketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].coloredSketch[0].value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters[0].two[0].emote[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].emote[0].value - 100) + pricesArray.amountcharacters[0].two[0].emote[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].emote[0].value / 100;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.amountcharacters[0].two[0].sketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].sketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].sketch[0].value / 100;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.amountcharacters[0].two[0].doodle[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].two[0].doodle[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].doodle[0].value / 100;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.amountcharacters[0].two[0].scribble[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].two[0].scribble[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].scribble[0].value / 100;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.amountcharacters[0].two[0].logo[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].logo[0].value - 100) + pricesArray.amountcharacters[0].two[0].logo[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].logo[0].value / 100;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.amountcharacters[0].two[0].other[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].two[0].other[0].value - 100) + pricesArray.amountcharacters[0].two[0].other[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].two[0].other[0].value / 100;
                     }
                 }
             }
@@ -1204,38 +1283,47 @@ function updateAmountCharactersPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.amountcharacters[0].three[0].cleanColors[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].three[0].cleanColors[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].cleanColors[0].value / 100;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.amountcharacters[0].three[0].hybrid[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].three[0].hybrid[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].hybrid[0].value / 100;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.amountcharacters[0].three[0].coloredSketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].coloredSketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].coloredSketch[0].value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters[0].three[0].emote[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].emote[0].value - 100) + pricesArray.amountcharacters[0].three[0].emote[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].emote[0].value / 100;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.amountcharacters[0].three[0].sketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].sketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].sketch[0].value / 100;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.amountcharacters[0].three[0].doodle[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].three[0].doodle[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].doodle[0].value / 100;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.amountcharacters[0].three[0].scribble[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].three[0].scribble[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].scribble[0].value / 100;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.amountcharacters[0].three[0].logo[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].logo[0].value - 100) + pricesArray.amountcharacters[0].three[0].logo[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].logo[0].value / 100;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.amountcharacters[0].three[0].other[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].three[0].other[0].value - 100) + pricesArray.amountcharacters[0].three[0].other[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].three[0].other[0].value / 100;
                     }
                 }
             }
@@ -1243,43 +1331,54 @@ function updateAmountCharactersPrice() {
                 if (style.value == "cleanColors") {
                     if (pricesArray.amountcharacters[0].four[0].cleanColors[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].four[0].cleanColors[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].cleanColors[0].value / 100;
                     }
                 } else if (style.value == "hybrid") {
                     if (pricesArray.amountcharacters[0].four[0].hybrid[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].four[0].hybrid[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].hybrid[0].value / 100;
                     }
                 } else if (style.value == "coloredSketch") {
                     if (pricesArray.amountcharacters[0].four[0].coloredSketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].coloredSketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].coloredSketch[0].value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters[0].four[0].emote[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].emote[0].value - 100) + pricesArray.amountcharacters[0].four[0].emote[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].emote[0].value / 100;
                     }
                 } else if (style.value == "sketch") {
                     if (pricesArray.amountcharacters[0].four[0].sketch[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].sketch[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].sketch[0].value / 100;
                     }
                 } else if (style.value == "doodle") {
                     if (pricesArray.amountcharacters[0].four[0].doodle[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].four[0].doodle[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].doodle[0].value / 100;
                     }
                 } else if (style.value == "scribble") {
                     if (pricesArray.amountcharacters[0].four[0].scribble[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].four[0].scribble[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].scribble[0].value / 100;
                     }
                 } else if (style.value == "logo") {
                     if (pricesArray.amountcharacters[0].four[0].logo[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].logo[0].value - 100) + pricesArray.amountcharacters[0].four[0].logo[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].logo[0].value / 100;
                     }
                 } else if (style.value == "other") {
                     if (pricesArray.amountcharacters[0].four[0].other[0].isItPossible){
                         bodyContent = (pricesArray.amountcharacters[0].four[0].other[0].value - 100) + pricesArray.amountcharacters[0].four[0].other[0].dollarOrPercentage;
+                        cost = pricesArray.amountcharacters[0].four[0].other[0].value / 100;
                     }
                 }
             }
         }
     }
+
+    numberAmountCharacters = cost;
 
     if (bodyContent == "") {
         document.getElementById("amountcharactersIDValue").classList.add("d-none");
