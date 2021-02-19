@@ -14,9 +14,24 @@ var privateRadio;
 var lewdRadio;
 var skipQueueRadio;
 
+var numberDesigningCharacterMin = 1.0;
+var numberDesigningCharacterMax = 1.0;
+var numberStyleShading = 0;
+var numberBody = 88;
+var numberAmountCharacters = 1.0;
+var numberOutfitComplexity = 1.681818;
+var numberBackgroundMin = 1.0;
+var numberBackgroundMax = 1.0;
+var numberPrivate = 1.0;
+var numberSkip = 1.0;
+var numberLewdMin = 1.0;
+var numberLewdMax = 1.0;
+
+
+
 function updateDesignCharactersTextAndPrice() {
     let content = "";
-    let noCost = pricesArray.designing[0].no[0].dollarOrPercentage + pricesArray.designing[0].no[0].value;
+    let noCost = (pricesArray.designing[0].no[0].value - 100) + pricesArray.designing[0].no[0].dollarOrPercentage;
     let yesCost = pricesArray.designing[0].yes[0].minValue;
     yesCost += " ~ " + pricesArray.designing[0].yes[0].maxValue + pricesArray.designing[0].yes[0].dollarOrPercentage;
 
@@ -151,9 +166,10 @@ function updateBodyButtons() {
     let fullbodyText = document.getElementById("fullbodyText");
     let otherText = document.getElementById("otherText");
 
-    for (let i=0;i<bodyButtons.length;i++){
-        bodyButtons[i].classList.remove("active");
-        bodyRadio[i].checked = false;
+    for (let i=0;i<bodyRadio.length;i++){
+        if (bodyRadio[i].checked){
+            bodyButtons[i].classList.add("active");
+        }
     }
 
     if (style.value == "choose") {
@@ -774,9 +790,10 @@ function updateAmountCharactersButtons() {
     let threeText = document.getElementById("threeText");
     let fourText = document.getElementById("fourText");
 
-    for (let i=0;i<amountCharactersButtons.length;i++){
-        amountCharactersButtons[i].classList.remove("active");
-        amountCharactersRadio[i].checked = false;
+    for (let i=0;i<amountCharactersRadio.length;i++){
+        if (amountCharactersRadio[i].checked){
+            amountCharactersButtons[i].classList.add("active");
+        }
     }
 
     if (style.value == "choose") {
@@ -1388,33 +1405,6 @@ function updatePrivateTextAndPrice() {
     }
 }
 
-function updateLewdTextAndPrice() {
-    let content = "";
-    let noCost = (pricesArray.lewd[0].no[0].value - 100) + pricesArray.lewd[0].no[0].dollarOrPercentage;
-    let yesCost = (pricesArray.lewd[0].yes[0].minValue - 100) + "~" + (pricesArray.lewd[0].yes[0].maxValue - 100) + pricesArray.lewd[0].yes[0].dollarOrPercentage;
-
-    document.getElementById("noLewdRadioText").innerText = `No, I'm innocent! (${noCost})`;
-    document.getElementById("yesLewdRadioText").innerText = `Yes, it's a lewd~ (${yesCost})`;
-
-    for (var i = 0; i < lewdRadio.length; i++) {
-        if (lewdRadio[i].checked) {
-            if (lewdRadio[i].value == "no") {
-                content = noCost;
-            }
-            else if (lewdRadio[i].value == "yes") {
-                content = yesCost;
-            }
-        }
-    }
-
-    if (content == "") {
-        document.getElementById("lewdIDValue").classList.add("d-none");
-    } else {
-        document.getElementById("lewdIDValue").classList.remove("d-none");
-        document.getElementById("lewdIDValue").innerText = content;
-    }
-}
-
 function updateSkipQueueButtons() {
     let content = "";
     let addtoqueueText = document.getElementById("addtoqueueText");
@@ -1435,6 +1425,12 @@ function updateSkipQueueButtons() {
             if (commissionsArray[i].idLabels[u] == "5f94fcab5edf3c4d70e9235f"){
                 peopleSkippingRushingQueue += 1;
             }
+        }
+    }
+
+    for (let i=0;i<skipQueueRadio.length;i++){
+        if (skipQueueRadio[i].checked){
+            skipQueueButtons[i].classList.add("active");
         }
     }
 
@@ -1465,6 +1461,41 @@ function updateSkipQueueButtons() {
     }
 }
 
+function updateLewdTextAndPrice() {
+    let content = "";
+    let noCost = (pricesArray.lewd[0].no[0].value - 100) + pricesArray.lewd[0].no[0].dollarOrPercentage;
+    let yesCost = (pricesArray.lewd[0].yes[0].minValue - 100) + "~" + (pricesArray.lewd[0].yes[0].maxValue - 100) + pricesArray.lewd[0].yes[0].dollarOrPercentage;
+
+    document.getElementById("noLewdRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
+    document.getElementById("yesLewdRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
+
+    for (var i = 0; i < lewdRadio.length; i++) {
+        if (lewdRadio[i].checked) {
+            if (lewdRadio[i].value == "no") {
+                content = noCost;
+            }
+            else if (lewdRadio[i].value == "yes") {
+                content = yesCost;
+            }
+        }
+    }
+
+    if (content == "") {
+        document.getElementById("lewdIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("lewdIDValue").classList.remove("d-none");
+        document.getElementById("lewdIDValue").innerText = content;
+    }
+}
+
+function updateTotal(){
+    var totalMin = 0;
+    var totalMax = 0;
+    totalMin = (((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) * numberLewdMin) * numberBackgroundMin) * numberSkip) * numberPrivate);
+    totalMax = (((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) * numberLewdMax) * numberBackgroundMax) * numberSkip) * numberPrivate);
+    //alert("totalMin: " + totalMin);
+    //alert("totalMax: " + totalMax);
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(AMOUNT_OF_COMMISSIONS_URL).then(function (resultObj) {
@@ -1508,7 +1539,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     updateLewdTextAndPrice();
         
                     skipQueueRadio = document.getElementsByName("skipQueueRadio");
+                    skipQueueButtons = document.getElementsByName("skipQueueButtons");
                     updateSkipQueueButtons();
+
+                    updateTotal();
                 }
             });
         }

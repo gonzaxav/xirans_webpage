@@ -502,7 +502,7 @@
 
             <div class="btn-group btn-group-toggle mb-2 mx-auto p-0 col-12" data-toggle="buttons">
 
-              <label class="btn btn-secondary col" type="button" for="radioSkip1" data-toggle="button"
+              <label class="btn btn-secondary col" name="skipQueueButtons" type="button" for="radioSkip1" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
                 <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip1" value="addqueue">
                 
@@ -520,7 +520,7 @@
                 
               </label>
 
-              <label class="btn btn-secondary col" type="button" for="radioSkip2" data-toggle="button"
+              <label class="btn btn-secondary col" name="skipQueueButtons" type="button" for="radioSkip2" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
                 <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip2" value="skipqueue">
 
@@ -537,7 +537,7 @@
                 <span id="skipIDpeopleSkipping"></span>
               </label>
 
-              <label class="btn btn-secondary col" type="button" for="radioSkip3" data-toggle="button"
+              <label class="btn btn-secondary col" name="skipQueueButtons" type="button" for="radioSkip3" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
                 <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip3" value="skipqueueasap">
 
@@ -581,13 +581,15 @@
             <div class="form-check">
               <input class="form-check-input" type="radio" name="lewdRadio" id="noLewdRadio" value="no" onchange="updateLewdTextAndPrice()">
               <label class="form-check-label text-light" for="noLewdRadio">
-                <span id="noLewdRadioText">No, I'm innocent!</span>
+                <span>No, I'm innocent!</span>
+                <span id="noLewdRadioText"></span>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="lewdRadio" id="yesLewdRadio" value="yes" onchange="updateLewdTextAndPrice()">
               <label class="form-check-label text-light" for="yesLewdRadio">
-                <span id="yesLewdRadioText">Yes, it's a lewd~</span>
+                <span>Yes, it's a lewd~</span>
+                <span id="yesLewdRadioText"></span>
               </label>
             </div>
           </div>
