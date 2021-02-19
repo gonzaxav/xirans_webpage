@@ -31,9 +31,9 @@ var numberLewdMax = 1.0;
 
 function updateDesignCharactersTextAndPrice() {
     let content = "";
-    let noCost = (pricesArray.designing[0].no[0].value - 100) + pricesArray.designing[0].no[0].dollarOrPercentage;
-    let yesCost = pricesArray.designing[0].yes[0].minValue;
-    yesCost += " ~ " + pricesArray.designing[0].yes[0].maxValue + pricesArray.designing[0].yes[0].dollarOrPercentage;
+    let noCost = (pricesArray.designing.no.value - 100) + pricesArray.designing.no.dollarOrPercentage;
+    let yesCost = (pricesArray.designing.yes.minValue - 100);
+    yesCost += " ~ " + (pricesArray.designing.yes.maxValue - 100) + pricesArray.designing.yes.dollarOrPercentage;
 
     document.getElementById("noDesignRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
     document.getElementById("yesDesignRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
@@ -42,13 +42,13 @@ function updateDesignCharactersTextAndPrice() {
         if (designCharacters[i].checked) {
             if (designCharacters[i].value == "no") {
                 content = noCost;
-                numberDesigningCharacterMin = pricesArray.designing[0].no[0].value / 100;
-                numberDesigningCharacterMax = pricesArray.designing[0].no[0].value / 100;
+                numberDesigningCharacterMin = pricesArray.designing.no.value / 100;
+                numberDesigningCharacterMax = pricesArray.designing.no.value / 100;
             }
             else if (designCharacters[i].value == "yes") {
                 content = yesCost;
-                numberDesigningCharacterMin = pricesArray.designing[0].yes[0].minValue / 100;
-                numberDesigningCharacterMax = pricesArray.designing[0].yes[0].maxValue / 100;
+                numberDesigningCharacterMin = pricesArray.designing.yes.minValue / 100;
+                numberDesigningCharacterMax = pricesArray.designing.yes.maxValue / 100;
             }
         }
     }
@@ -70,7 +70,7 @@ function showStyleShading(){
     if (style.value == "doodle"){
         noCost = pricesArray.cheapshading[0].doodle[0].dollarOrPercentage + pricesArray.cheapshading[0].doodle[0].no;
         yesCost = pricesArray.cheapshading[0].doodle[0].dollarOrPercentage + pricesArray.cheapshading[0].doodle[0].yes;
-    } 
+    }
     else if (style.value == "scribble"){
         noCost = pricesArray.cheapshading[0].scribble[0].dollarOrPercentage + pricesArray.cheapshading[0].scribble[0].no;
         yesCost = pricesArray.cheapshading[0].scribble[0].dollarOrPercentage + pricesArray.cheapshading[0].scribble[0].yes;
@@ -1390,6 +1390,7 @@ function updateAmountCharactersPrice() {
 
 function updateOutfitOptionsTextAndPrice(){
     var content = "";
+    var cost = 0;
 
     for (var i=0;i<outfitOptions.length;i++){
         if (i == 0){
@@ -1410,17 +1411,25 @@ function updateOutfitOptionsTextAndPrice(){
     if (outfit.value == "choose"){
     } else if (outfit.value == "verysimple"){
         content = (pricesArray.outfit[0].verySimple[0].value - 100) + pricesArray.outfit[0].verySimple[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].verySimple[0].value / 100;
     } else if (outfit.value == "simple"){
         content = (pricesArray.outfit[0].simple[0].value - 100) + pricesArray.outfit[0].simple[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].simple[0].value / 100;
     } else if (outfit.value == "average"){
         content = (pricesArray.outfit[0].average[0].value - 100) + pricesArray.outfit[0].average[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].average[0].value / 100;
     } else if (outfit.value == "somewhatcomplex"){
         content = (pricesArray.outfit[0].somewhatComplex[0].value - 100) + pricesArray.outfit[0].somewhatComplex[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].somewhatComplex[0].value / 100;
     } else if (outfit.value == "layeredclothing"){
         content = (pricesArray.outfit[0].layeredClothing[0].value - 100) + pricesArray.outfit[0].layeredClothing[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].layeredClothing[0].value / 100;
     } else if (outfit.value == "verycomplex"){
         content = (pricesArray.outfit[0].veryComplex[0].value - 100) + pricesArray.outfit[0].veryComplex[0].dollarOrPercentage;
+        cost = pricesArray.outfit[0].veryComplex[0].value / 100;
     }
+
+    numberOutfitComplexity = cost;
 
     if (content == "") {
         document.getElementById("outfitIDValue").classList.add("d-none");
