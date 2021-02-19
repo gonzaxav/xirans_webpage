@@ -1,4 +1,5 @@
 var pricesArray = [];
+var commissionsArray = [];
 var designCharacters;
 var style;
 var bodyRadio;
@@ -1417,53 +1418,66 @@ function updateSkipQueueButtons() {
     let addtoqueueText = document.getElementById("addtoqueueText");
     let skipqueueText = document.getElementById("skipqueueText");
     let skipqueueasapText = document.getElementById("skipqueueasapText");
-    let skipIDpeopleInQueue = document.getElementById("skipIDpeopleInQueue");
 
     addtoqueueText.innerHTML = `Do not skip the line, I'm willing to wait<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
     skipqueueText.innerHTML = `Skip the line; order will NOT be done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
     skipqueueasapText.innerHTML = `Skip the line; order done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
-    skipIDpeopleInQueue.innerHTML = `Current number of people in queue: <br>${(pricesArray.skipqueue[0].amountOfPeopleInQueue}`;
 }
 
+function updateSkipQueuePeopleInQueueButtons() {
+    let skipIDpeopleInQueue = document.getElementById("skipIDpeopleInQueue");
+
+    skipIDpeopleInQueue.innerHTML = `Current number of people in queue: ${(commissionsArray.length - 3)}`;
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRICES_URL).then(function (resultObj) {
+    getJSONData(AMOUNT_OF_COMMISSIONS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            pricesArray = resultObj.data;
+            commissionsArray = resultObj.data;
 
-            designCharacters = document.getElementsByName("designCharacterRadio");
-            updateDesignCharactersTextAndPrice();
-
-            style = document.getElementById("inputStyle");
-            styleShadingRadio = document.getElementsByName("styleShadingRadio");
-
-            bodyRadio = document.getElementsByName("amountBody");
-            bodyButtons = document.getElementsByName("buttonBody");
-
-            amountCharactersRadio = document.getElementsByName("amountCharacters");
-            amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
-
-            updateStyleShowShadingPriceAndCallOtherFunctions();
-            updateBodyPrice();
-            updateAmountCharactersPrice();
-
-            outfit = document.getElementById("inputOutfit");
-            outfitOptions = document.getElementsByName("outfitOptions");
-            updateOutfitOptionsTextAndPrice();
-
-            inputBackground = document.getElementById("inputBackground");
-            backgroundRadio = document.getElementsByName("backgroundRadio");
-            backgroundOptions = document.getElementsByName("backgroundOptions");
-            updateBackgroundYesNo();
-            updateBackgroundOptionsTextAndPrice();
-
-            privateRadio = document.getElementsByName("privateRadio");
-            updatePrivateTextAndPrice();
-
-            lewdRadio = document.getElementsByName("lewdRadio");
-            updateLewdTextAndPrice();
-
-
-            updateSkipQueueButtons();
+            getJSONData(PRICES_URL).then(function (resultObj) {
+                if (resultObj.status === "ok") {
+                    pricesArray = resultObj.data;
+        
+                    designCharacters = document.getElementsByName("designCharacterRadio");
+                    updateDesignCharactersTextAndPrice();
+        
+                    style = document.getElementById("inputStyle");
+                    styleShadingRadio = document.getElementsByName("styleShadingRadio");
+        
+                    bodyRadio = document.getElementsByName("amountBody");
+                    bodyButtons = document.getElementsByName("buttonBody");
+        
+                    amountCharactersRadio = document.getElementsByName("amountCharacters");
+                    amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
+        
+                    updateStyleShowShadingPriceAndCallOtherFunctions();
+                    updateBodyPrice();
+                    updateAmountCharactersPrice();
+        
+                    outfit = document.getElementById("inputOutfit");
+                    outfitOptions = document.getElementsByName("outfitOptions");
+                    updateOutfitOptionsTextAndPrice();
+        
+                    inputBackground = document.getElementById("inputBackground");
+                    backgroundRadio = document.getElementsByName("backgroundRadio");
+                    backgroundOptions = document.getElementsByName("backgroundOptions");
+                    updateBackgroundYesNo();
+                    updateBackgroundOptionsTextAndPrice();
+        
+                    privateRadio = document.getElementsByName("privateRadio");
+                    updatePrivateTextAndPrice();
+        
+                    lewdRadio = document.getElementsByName("lewdRadio");
+                    updateLewdTextAndPrice();
+        
+        
+                    updateSkipQueueButtons();
+                    updateSkipQueuePeopleInQueueButtons();
+                }
+            });
         }
     });
 });
