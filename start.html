@@ -83,14 +83,16 @@
               <input class="form-check-input" type="radio" name="designCharacterRadio" id="noDesignRadio" value="no"
                 onchange="updateDesignCharactersTextAndPrice()">
               <label class="form-check-label text-light" for="noDesignRadio">
-                <span id="noDesignRadioText">No, we are not designing a character</span>
+                <span>No, we are not designing a character</span>
+                <span id="noDesignRadioText"></span>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="designCharacterRadio" id="yesDesignRadio" value="yes"
                 onchange="updateDesignCharactersTextAndPrice()">
               <label class="form-check-label text-light" for="yesDesignRadio">
-                <span id="yesDesignRadioText">Yes, we are designing a new character</span>
+                <span>Yes, we are designing a new character</span>
+                <span id="yesDesignRadioText"></span>
               </label>
             </div>
           </div>
@@ -173,14 +175,16 @@
                 <input class="form-check-input" type="radio" name="styleShadingRadio" id="noStyleRadio" value="no"
                   onchange="showStyleShading()">
                 <label class="form-check-label text-light" for="noStyleRadio">
-                  <span id="noStyleShadingRadioText">No aditional shading</span>
+                  <span>No aditional shading</span>
+                  <span id="noStyleShadingRadioText"></span>
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="styleShadingRadio" id="yesStyleRadio" value="yes"
                   onchange="showStyleShading()">
                 <label class="form-check-label text-light" for="yesStyleRadio">
-                  <span id="yesStyleShadingRadioText">Yes I would like aditinal shading</span>
+                  <span>Yes I would like aditinal shading</span>
+                  <span id="yesStyleShadingRadioText"></span>
                 </label>
               </div>
             </div>
@@ -212,31 +216,36 @@
               <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody1" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
                 <input class="form-check-input" type="radio" name="amountBody" id="radioBody1" value="portrait">
-                <span id="portraitText">Portrait</span>
+                <span>Portrait</span>
+                <span id="portraitText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody2" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
                 <input class="form-check-input" type="radio" name="amountBody" id="radioBody2" value="halfbody">
-                <span id="halfbodyText">Halfbody</span>
+                <span>Halfbody</span>
+                <span id="halfbodyText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody3" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
                 <input class="form-check-input" type="radio" name="amountBody" id="radioBody3" value="thighs">
-                <span id="thigh-upText">Thigh-up</span>
+                <span>Thigh-up</span>
+                <span id="thigh-upText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody4" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
                 <input class="form-check-input" type="radio" name="amountBody" id="radioBody4" value="fullbody">
-                <span id="fullbodyText">Full body</span>
+                <span>Full body</span>
+                <span id="fullbodyText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody5" data-toggle="button"
                 aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
                 <input class="form-check-input" type="radio" name="amountBody" id="radioBody5" value="other">
-                <span id="otherText">Other</span>
+                <span>Other</span>
+                <span id="otherText"></span>
               </label>
 
             </div>
@@ -268,25 +277,29 @@
               <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount1"
                 data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateAmountCharactersPrice()">
                 <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount1" value="one">
-                <span id="oneText">1</span>
+                <span>1</span>
+                <span id="oneText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount2"
                 data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateAmountCharactersPrice()">
                 <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount2" value="two">
-                <span id="twoText">2</span>
+                <span>2</span>
+                <span id="twoText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount3"
                 data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateAmountCharactersPrice()">
                 <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount3" value="three">
-                <span id="threeText">3</span>
+                <span>3</span>
+                <span id="threeText"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount4"
                 data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateAmountCharactersPrice()">
                 <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount4" value="four">
-                <span id="fourText">4</span>
+                <span>4</span>
+                <span id="fourText"></span>
               </label>
 
             </div>
@@ -393,8 +406,8 @@
             <div class="form-check">
               <input class="form-check-input" type="radio" name="backgroundRadio" id="noBackgroundRadio" value="no" onchange="updateBackgroundYesNo()">
               <label class="form-check-label text-light" for="noBackgroundRadio">
-                No, I don't want a background; final image will have a gray or transparent background (specify in
-                comment box). ($0)
+                <span>No, I don't want a background; final image will have a gray or transparent background (specify in
+                comment box).</span> <span class="xiransgreen">($0)</span>
               </label>
             </div>
             <div class="form-check">
@@ -453,13 +466,15 @@
             <div class="form-check">
               <input class="form-check-input" type="radio" name="privateRadio" id="noPrivateRadio" value="no" onchange="updatePrivateTextAndPrice()">
               <label class="form-check-label text-light" for="noPrivateRadio">
-                <span id="noPrivateRadioText">No, Xiran can post it wherever she wants</span>
+                <span>No, Xiran can post it wherever she wants</span>
+                <span id="noPrivateRadioText"></span>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="privateRadio" id="yesPrivateRadio" value="yes" onchange="updatePrivateTextAndPrice()">
               <label class="form-check-label text-light" for="yesPrivateRadio">
-                <span id="yesPrivateRadioText">Yes, I want Xiran to keep it off social media (this will double the price)</span>
+                <span>Yes, I want Xiran to keep it off social media (this will double the price)</span>
+                <span id="yesPrivateRadioText"></span>
               </label>
             </div>
           </div>
@@ -485,29 +500,58 @@
           <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
             <h4 class="text-light">Skip Queue/Rush/Deadline</h4>
 
-            <span class="text-light" id="skipIDpeopleInQueue">Current number of people in queue:</span>
-
             <div class="btn-group btn-group-toggle mb-2 mx-auto p-0 col-12" data-toggle="buttons">
 
               <label class="btn btn-secondary col" type="button" for="radioSkip1" data-toggle="button"
-                aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip1" value="addqueue">
+                aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
+                <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip1" value="addqueue">
+                
                 <span class="font-weight-bold">Add me to queue<br></span>
-                <span id="addtoqueueText">Do not skip the line, I'm willing to wait.</span>
+                <span>Do not skip the line, I'm willing to wait</span>
+
+                <hr class="solid">
+
+                <span id="addtoqueueText" class="xiransgreen">+0%</span>
+
+                <hr class="solid">
+
+                <span>Total people in queue: </span>
+                <span id="skipIDpeopleInQueue"></span>
+                
               </label>
 
               <label class="btn btn-secondary col" type="button" for="radioSkip2" data-toggle="button"
-                aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip2" value="skipqueue">
+                aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
+                <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip2" value="skipqueue">
+
                 <span class="font-weight-bold">Skip queue<br></span>
-                <span id="skipqueueText">Skip the line; order will NOT be done ASAP</span>
+                <span>Skip the line; order will NOT be done ASAP</span>
+
+                <hr class="solid">
+
+                <span id="skipqueueText" class="xiransgreen">5</span>
+
+                <hr class="solid">
+
+                <span>People skipping queue: </span>
+                <span id="skipIDpeopleSkipping"></span>
               </label>
 
               <label class="btn btn-secondary col" type="button" for="radioSkip3" data-toggle="button"
-                aria-pressed="false" autocomplete="off">
-                <input class="form-check-input" type="radio" name="skipQueue" id="radioSkip3" value="skipqueueasap">
+                aria-pressed="false" autocomplete="off" onchange="updateSkipQueueButtons()">
+                <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip3" value="skipqueueasap">
+
                 <span class="font-weight-bold">Rush/Priority<br></span>
-                <span id="skipqueueasapText">Skip the line; order done ASAP</span>
+                <span>Skip the line; order will be done ASAP</span>
+
+                <hr class="solid">
+
+                <span id="skipqueueasapText" class="xiransgreen">5</span>
+
+                <hr class="solid">
+
+                <span>Rushed orders taking place: </span>
+                <span id="skipIDpeopleRushing"></span>
               </label>
 
             </div>

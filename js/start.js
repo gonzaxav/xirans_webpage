@@ -12,6 +12,7 @@ var amountCharactersRadio;
 var backgroundRadio;
 var privateRadio;
 var lewdRadio;
+var skipQueueRadio;
 
 function updateDesignCharactersTextAndPrice() {
     let content = "";
@@ -19,8 +20,8 @@ function updateDesignCharactersTextAndPrice() {
     let yesCost = pricesArray.designing[0].yes[0].minValue;
     yesCost += " ~ " + pricesArray.designing[0].yes[0].maxValue + pricesArray.designing[0].yes[0].dollarOrPercentage;
 
-    document.getElementById("noDesignRadioText").innerText = `No, we are not designing a character (${noCost})`;
-    document.getElementById("yesDesignRadioText").innerText = `Yes, we are designing a new character (${yesCost})`;
+    document.getElementById("noDesignRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
+    document.getElementById("yesDesignRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
 
     for (var i = 0; i < designCharacters.length; i++) {
         if (designCharacters[i].checked) {
@@ -56,8 +57,8 @@ function showStyleShading(){
         yesCost = pricesArray.cheapshading[0].scribble[0].dollarOrPercentage + pricesArray.cheapshading[0].scribble[0].yes;
     }
 
-    document.getElementById("noStyleShadingRadioText").innerText = `No aditional shading (${noCost})`;
-    document.getElementById("yesStyleShadingRadioText").innerText = `Yes I would like aditinal shading (${yesCost})`;
+    document.getElementById("noStyleShadingRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
+    document.getElementById("yesStyleShadingRadioText").innerHTML = `(<span class="xiransgreen">${yesCost}</span>)`;
 
     document.getElementById("styleShadingIDValue").classList.remove("d-none");
 
@@ -156,391 +157,391 @@ function updateBodyButtons() {
     }
 
     if (style.value == "choose") {
-        portraitText.innerHTML = `Portrait`;
+        portraitText.innerHTML = ``;
         disableBodyButton(0);
-        halfbodyText.innerHTML = `Halfbody`;
+        halfbodyText.innerHTML = ``;
         disableBodyButton(1);
-        thighsupText.innerHTML = `Thigh-up`;
+        thighsupText.innerHTML = ``;
         disableBodyButton(2);
-        fullbodyText.innerHTML = `Full body`;
+        fullbodyText.innerHTML = ``;
         disableBodyButton(3);
-        otherText.innerHTML = `Other`;
+        otherText.innerHTML = ``;
         disableBodyButton(4);
     }
     else if (style.value == "cleanColors") {
         if (pricesArray.body[0].portrait[0].cleanColors[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].portrait[0].cleanColors[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].portrait[0].cleanColors[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].cleanColors[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].cleanColors[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].cleanColors[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].cleanColors[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].thighs[0].cleanColors[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].thighs[0].cleanColors[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].cleanColors[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].full[0].cleanColors[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].full[0].cleanColors[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].cleanColors[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].other[0].cleanColors[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].cleanColors[0].dollarOrPercentage + pricesArray.body[0].other[0].cleanColors[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "hybrid") {
         if (pricesArray.body[0].portrait[0].hybrid[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].portrait[0].hybrid[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].portrait[0].hybrid[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].hybrid[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].hybrid[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].hybrid[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].hybrid[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].thighs[0].hybrid[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].thighs[0].hybrid[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].hybrid[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].full[0].hybrid[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].full[0].hybrid[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].hybrid[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].other[0].hybrid[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].hybrid[0].dollarOrPercentage + pricesArray.body[0].other[0].hybrid[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "coloredSketch") {
         if (pricesArray.body[0].portrait[0].coloredSketch[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].coloredSketch[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].coloredSketch[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].coloredSketch[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].coloredSketch[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].coloredSketch[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].coloredSketch[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].coloredSketch[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].coloredSketch[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].coloredSketch[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].full[0].coloredSketch[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].full[0].coloredSketch[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].coloredSketch[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].other[0].coloredSketch[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].coloredSketch[0].dollarOrPercentage + pricesArray.body[0].other[0].coloredSketch[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "emote") {
         if (pricesArray.body[0].portrait[0].emote[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].emote[0].dollarOrPercentage + pricesArray.body[0].portrait[0].emote[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].emote[0].dollarOrPercentage + pricesArray.body[0].portrait[0].emote[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].emote[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].emote[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].emote[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].emote[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].emote[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].emote[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].emote[0].dollarOrPercentage + pricesArray.body[0].thighs[0].emote[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].emote[0].dollarOrPercentage + pricesArray.body[0].thighs[0].emote[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].emote[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].emote[0].dollarOrPercentage + pricesArray.body[0].full[0].emote[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].emote[0].dollarOrPercentage + pricesArray.body[0].full[0].emote[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].emote[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].emote[0].dollarOrPercentage + pricesArray.body[0].other[0].emote[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].emote[0].dollarOrPercentage + pricesArray.body[0].other[0].emote[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "sketch") {
         if (pricesArray.body[0].portrait[0].sketch[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].sketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].sketch[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].sketch[0].dollarOrPercentage + pricesArray.body[0].portrait[0].sketch[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].sketch[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].sketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].sketch[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].sketch[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].sketch[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].sketch[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].sketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].sketch[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].sketch[0].dollarOrPercentage + pricesArray.body[0].thighs[0].sketch[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].sketch[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].sketch[0].dollarOrPercentage + pricesArray.body[0].full[0].sketch[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].sketch[0].dollarOrPercentage + pricesArray.body[0].full[0].sketch[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].sketch[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].sketch[0].dollarOrPercentage + pricesArray.body[0].other[0].sketch[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].sketch[0].dollarOrPercentage + pricesArray.body[0].other[0].sketch[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "doodle") {
         if (pricesArray.body[0].portrait[0].doodle[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].doodle[0].dollarOrPercentage + pricesArray.body[0].portrait[0].doodle[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].doodle[0].dollarOrPercentage + pricesArray.body[0].portrait[0].doodle[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].doodle[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].doodle[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].doodle[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].doodle[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].doodle[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].doodle[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].doodle[0].dollarOrPercentage + pricesArray.body[0].thighs[0].doodle[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].doodle[0].dollarOrPercentage + pricesArray.body[0].thighs[0].doodle[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].doodle[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].doodle[0].dollarOrPercentage + pricesArray.body[0].full[0].doodle[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].doodle[0].dollarOrPercentage + pricesArray.body[0].full[0].doodle[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].doodle[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].doodle[0].dollarOrPercentage + pricesArray.body[0].other[0].doodle[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].doodle[0].dollarOrPercentage + pricesArray.body[0].other[0].doodle[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "scribble") {
         if (pricesArray.body[0].portrait[0].scribble[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].scribble[0].dollarOrPercentage + pricesArray.body[0].portrait[0].scribble[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].scribble[0].dollarOrPercentage + pricesArray.body[0].portrait[0].scribble[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].scribble[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].scribble[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].scribble[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].scribble[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].scribble[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].scribble[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].scribble[0].dollarOrPercentage + pricesArray.body[0].thighs[0].scribble[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].scribble[0].dollarOrPercentage + pricesArray.body[0].thighs[0].scribble[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].scribble[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].scribble[0].dollarOrPercentage + pricesArray.body[0].full[0].scribble[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].scribble[0].dollarOrPercentage + pricesArray.body[0].full[0].scribble[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].scribble[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].scribble[0].dollarOrPercentage + pricesArray.body[0].other[0].scribble[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].scribble[0].dollarOrPercentage + pricesArray.body[0].other[0].scribble[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "logo") {
         if (pricesArray.body[0].portrait[0].logo[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].logo[0].dollarOrPercentage + pricesArray.body[0].portrait[0].logo[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].logo[0].dollarOrPercentage + pricesArray.body[0].portrait[0].logo[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].logo[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].logo[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].logo[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].logo[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].logo[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].logo[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].logo[0].dollarOrPercentage + pricesArray.body[0].thighs[0].logo[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].logo[0].dollarOrPercentage + pricesArray.body[0].thighs[0].logo[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].logo[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].logo[0].dollarOrPercentage + pricesArray.body[0].full[0].logo[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].logo[0].dollarOrPercentage + pricesArray.body[0].full[0].logo[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].logo[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].logo[0].dollarOrPercentage + pricesArray.body[0].other[0].logo[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].logo[0].dollarOrPercentage + pricesArray.body[0].other[0].logo[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     } 
     
     else if (style.value == "other") {
         if (pricesArray.body[0].portrait[0].other[0].isItPossible) {
-            portraitText.innerHTML = `Portrait<br>${pricesArray.body[0].portrait[0].other[0].dollarOrPercentage + pricesArray.body[0].portrait[0].other[0].value}`;
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].portrait[0].other[0].dollarOrPercentage + pricesArray.body[0].portrait[0].other[0].value}</span>`;
             enableBodyButton(0);
         } else {
-            portraitText.innerHTML = `Portrait`;
+            portraitText.innerHTML = ``;
             disableBodyButton(0);
         }
 
         if (pricesArray.body[0].halfbody[0].other[0].isItPossible) {
-            halfbodyText.innerHTML = `Halfbody<br>${pricesArray.body[0].halfbody[0].other[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].other[0].value}`;
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].halfbody[0].other[0].dollarOrPercentage + pricesArray.body[0].halfbody[0].other[0].value}</span>`;
             enableBodyButton(1);
         } else {
-            halfbodyText.innerHTML = `Halfbody`;
+            halfbodyText.innerHTML = ``;
             disableBodyButton(1);
         }
 
         if (pricesArray.body[0].thighs[0].other[0].isItPossible) {
-            thighsupText.innerHTML = `Thigh-up<br>${pricesArray.body[0].thighs[0].other[0].dollarOrPercentage + pricesArray.body[0].thighs[0].other[0].value}`;
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].thighs[0].other[0].dollarOrPercentage + pricesArray.body[0].thighs[0].other[0].value}</span>`;
             enableBodyButton(2);
         } else {
-            thighsupText.innerHTML = `Thigh-up`;
+            thighsupText.innerHTML = ``;
             disableBodyButton(2);
         }
 
         if (pricesArray.body[0].full[0].other[0].isItPossible) {
-            fullbodyText.innerHTML = `Full body<br>${pricesArray.body[0].full[0].other[0].dollarOrPercentage + pricesArray.body[0].full[0].other[0].value}`;
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].full[0].other[0].dollarOrPercentage + pricesArray.body[0].full[0].other[0].value}</span>`;
             enableBodyButton(3);
         } else {
-            fullbodyText.innerHTML = `Full body`;
+            fullbodyText.innerHTML = ``;
             disableBodyButton(3);
         }
 
         if (pricesArray.body[0].other[0].other[0].isItPossible) {
-            otherText.innerHTML = `Other<br>${pricesArray.body[0].other[0].other[0].dollarOrPercentage + pricesArray.body[0].other[0].other[0].value}`;
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body[0].other[0].other[0].dollarOrPercentage + pricesArray.body[0].other[0].other[0].value}</span>`;
             enableBodyButton(4);
         } else {
-            otherText.innerHTML = `Other`;
+            otherText.innerHTML = ``;
             disableBodyButton(4);
         }
     }
@@ -779,317 +780,317 @@ function updateAmountCharactersButtons() {
     }
 
     if (style.value == "choose") {
-        oneText.innerHTML = `1`;
+        oneText.innerHTML = ``;
         disableAmountCharactersButton(0);
-        twoText.innerHTML = `2`;
+        twoText.innerHTML = ``;
         disableAmountCharactersButton(1);
-        threeText.innerHTML = `3`;
+        threeText.innerHTML = ``;
         disableAmountCharactersButton(2);
-        fourText.innerHTML = `4`;
+        fourText.innerHTML = ``;
         disableAmountCharactersButton(3);
     }
     else if (style.value == "cleanColors") {
         if (pricesArray.amountcharacters[0].one[0].cleanColors[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].one[0].cleanColors[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].one[0].cleanColors[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].cleanColors[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].two[0].cleanColors[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].two[0].cleanColors[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].cleanColors[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].three[0].cleanColors[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].three[0].cleanColors[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].cleanColors[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].four[0].cleanColors[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].cleanColors[0].value - 100) + pricesArray.amountcharacters[0].four[0].cleanColors[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "hybrid") {
         if (pricesArray.amountcharacters[0].one[0].hybrid[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].one[0].hybrid[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].one[0].hybrid[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].hybrid[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].two[0].hybrid[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].two[0].hybrid[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].hybrid[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].three[0].hybrid[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].three[0].hybrid[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].hybrid[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].four[0].hybrid[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].hybrid[0].value - 100) + pricesArray.amountcharacters[0].four[0].hybrid[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "coloredSketch") {
         if (pricesArray.amountcharacters[0].one[0].coloredSketch[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].coloredSketch[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].coloredSketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].coloredSketch[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].coloredSketch[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].coloredSketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].coloredSketch[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].coloredSketch[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].coloredSketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].coloredSketch[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].coloredSketch[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].coloredSketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].coloredSketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "emote") {
         if (pricesArray.amountcharacters[0].one[0].emote[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].emote[0].value - 100) + pricesArray.amountcharacters[0].one[0].emote[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].emote[0].value - 100) + pricesArray.amountcharacters[0].one[0].emote[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].emote[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].emote[0].value - 100) + pricesArray.amountcharacters[0].two[0].emote[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].emote[0].value - 100) + pricesArray.amountcharacters[0].two[0].emote[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].emote[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].emote[0].value - 100) + pricesArray.amountcharacters[0].three[0].emote[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].emote[0].value - 100) + pricesArray.amountcharacters[0].three[0].emote[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].emote[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].emote[0].value - 100) + pricesArray.amountcharacters[0].four[0].emote[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].emote[0].value - 100) + pricesArray.amountcharacters[0].four[0].emote[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "sketch") {
         if (pricesArray.amountcharacters[0].one[0].sketch[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].sketch[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].one[0].sketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].sketch[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].sketch[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].two[0].sketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].sketch[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].sketch[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].three[0].sketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].sketch[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].sketch[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].sketch[0].value - 100) + pricesArray.amountcharacters[0].four[0].sketch[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "doodle") {
         if (pricesArray.amountcharacters[0].one[0].doodle[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].one[0].doodle[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].one[0].doodle[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].doodle[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].two[0].doodle[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].two[0].doodle[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].doodle[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].three[0].doodle[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].three[0].doodle[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].doodle[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].four[0].doodle[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].doodle[0].value - 100) + pricesArray.amountcharacters[0].four[0].doodle[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "scribble") {
         if (pricesArray.amountcharacters[0].one[0].scribble[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].one[0].scribble[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].one[0].scribble[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].scribble[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].two[0].scribble[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].two[0].scribble[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].scribble[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].three[0].scribble[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].three[0].scribble[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].scribble[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].four[0].scribble[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].scribble[0].value - 100) + pricesArray.amountcharacters[0].four[0].scribble[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "logo") {
         if (pricesArray.amountcharacters[0].one[0].logo[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].logo[0].value - 100) + pricesArray.amountcharacters[0].one[0].logo[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].logo[0].value - 100) + pricesArray.amountcharacters[0].one[0].logo[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].logo[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].logo[0].value - 100) + pricesArray.amountcharacters[0].two[0].logo[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].logo[0].value - 100) + pricesArray.amountcharacters[0].two[0].logo[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].logo[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].logo[0].value - 100) + pricesArray.amountcharacters[0].three[0].logo[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].logo[0].value - 100) + pricesArray.amountcharacters[0].three[0].logo[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].logo[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].logo[0].value - 100) + pricesArray.amountcharacters[0].four[0].logo[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].logo[0].value - 100) + pricesArray.amountcharacters[0].four[0].logo[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     } 
     
     else if (style.value == "other") {
         if (pricesArray.amountcharacters[0].one[0].other[0].isItPossible) {
-            oneText.innerHTML = `1<br>${(pricesArray.amountcharacters[0].one[0].other[0].value - 100) + pricesArray.amountcharacters[0].one[0].other[0].dollarOrPercentage}`;
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].one[0].other[0].value - 100) + pricesArray.amountcharacters[0].one[0].other[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(0);
         } else {
-            oneText.innerHTML = `1`;
+            oneText.innerHTML = ``;
             disableAmountCharactersButton(0);
         }
 
         if (pricesArray.amountcharacters[0].two[0].other[0].isItPossible) {
-            twoText.innerHTML = `2<br>${(pricesArray.amountcharacters[0].two[0].other[0].value - 100) + pricesArray.amountcharacters[0].two[0].other[0].dollarOrPercentage}`;
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].two[0].other[0].value - 100) + pricesArray.amountcharacters[0].two[0].other[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(1);
         } else {
-            twoText.innerHTML = `2`;
+            twoText.innerHTML = ``;
             disableAmountCharactersButton(1);
         }
 
         if (pricesArray.amountcharacters[0].three[0].other[0].isItPossible) {
-            threeText.innerHTML = `3<br>${(pricesArray.amountcharacters[0].three[0].other[0].value - 100) + pricesArray.amountcharacters[0].three[0].other[0].dollarOrPercentage}`;
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].three[0].other[0].value - 100) + pricesArray.amountcharacters[0].three[0].other[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(2);
         } else {
-            threeText.innerHTML = `3`;
+            threeText.innerHTML = ``;
             disableAmountCharactersButton(2);
         }
 
         if (pricesArray.amountcharacters[0].four[0].other[0].isItPossible) {
-            fourText.innerHTML = `4<br>${(pricesArray.amountcharacters[0].four[0].other[0].value - 100) + pricesArray.amountcharacters[0].four[0].other[0].dollarOrPercentage}`;
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters[0].four[0].other[0].value - 100) + pricesArray.amountcharacters[0].four[0].other[0].dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
-            fourText.innerHTML = `4`;
+            fourText.innerHTML = ``;
             disableAmountCharactersButton(3);
         }
     }
@@ -1365,8 +1366,8 @@ function updatePrivateTextAndPrice() {
     let noCost = (pricesArray.private[0].no[0].value - 100) + pricesArray.private[0].no[0].dollarOrPercentage;
     let yesCost = (pricesArray.private[0].yes[0].value - 100) + pricesArray.private[0].yes[0].dollarOrPercentage;
 
-    document.getElementById("noPrivateRadioText").innerText = `No, Xiran can post it wherever she wants (${noCost})`;
-    document.getElementById("yesPrivateRadioText").innerText = `Yes, I want Xiran to keep it off social media (this will double the price) (+${yesCost})`;
+    document.getElementById("noPrivateRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
+    document.getElementById("yesPrivateRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
 
     for (var i = 0; i < privateRadio.length; i++) {
         if (privateRadio[i].checked) {
@@ -1415,21 +1416,54 @@ function updateLewdTextAndPrice() {
 }
 
 function updateSkipQueueButtons() {
+    let content = "";
     let addtoqueueText = document.getElementById("addtoqueueText");
     let skipqueueText = document.getElementById("skipqueueText");
     let skipqueueasapText = document.getElementById("skipqueueasapText");
-
-    addtoqueueText.innerHTML = `Do not skip the line, I'm willing to wait<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
-    skipqueueText.innerHTML = `Skip the line; order will NOT be done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
-    skipqueueasapText.innerHTML = `Skip the line; order done ASAP<br>${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
-}
-
-function updateSkipQueuePeopleInQueueButtons() {
     let skipIDpeopleInQueue = document.getElementById("skipIDpeopleInQueue");
+    let skipIDpeopleSkipping = document.getElementById("skipIDpeopleSkipping");
+    let skipIDpeopleRushing = document.getElementById("skipIDpeopleRushing");
+    let peopleInQueue = commissionsArray.length - 3;
+    let peopleSkippingQueue = 0;
+    let peopleSkippingRushingQueue = 0;
 
-    skipIDpeopleInQueue.innerHTML = `Current number of people in queue: ${(commissionsArray.length - 3)}`;
+    for (var i=0;i<commissionsArray.length;i++){
+        for (var u=0;u<commissionsArray[i].idLabels.length;u++){
+            if (commissionsArray[i].idLabels[u] == "602f50f0929b6d86a5354893"){
+                peopleSkippingQueue += 1;
+            }
+            if (commissionsArray[i].idLabels[u] == "5f94fcab5edf3c4d70e9235f"){
+                peopleSkippingRushingQueue += 1;
+            }
+        }
+    }
+
+    addtoqueueText.innerHTML = `+${(pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage}`;
+    skipqueueText.innerHTML = `+${(pricesArray.skipqueue[0].skipqueue[0].value - 100) + pricesArray.skipqueue[0].skipqueue[0].increaseValuePerPerson*peopleInQueue + pricesArray.skipqueue[0].skipqueue[0].dollarOrPercentage}`;
+    skipqueueasapText.innerHTML = `+${(pricesArray.skipqueue[0].rushpriority[0].value - 100) + pricesArray.skipqueue[0].rushpriority[0].increaseValuePerPerson*(peopleInQueue+peopleSkippingQueue) + pricesArray.skipqueue[0].rushpriority[0].dollarOrPercentage}`;
+    skipIDpeopleInQueue.innerHTML = `${(peopleInQueue)}`;
+    skipIDpeopleSkipping.innerHTML = `${(peopleSkippingQueue)}`;
+    skipIDpeopleRushing.innerHTML = `${(peopleSkippingRushingQueue)}`;
+    
+    for (var i=0;i<skipQueueRadio.length;i++){
+        if (skipQueueRadio[i].checked){
+            if (skipQueueRadio[i].value == "addqueue"){
+                content = (pricesArray.skipqueue[0].addmetoqueue[0].value - 100) + pricesArray.skipqueue[0].addmetoqueue[0].dollarOrPercentage;
+            } else if (skipQueueRadio[i].value == "skipqueue"){
+                content = (pricesArray.skipqueue[0].skipqueue[0].value - 100) + pricesArray.skipqueue[0].skipqueue[0].increaseValuePerPerson*peopleInQueue + pricesArray.skipqueue[0].skipqueue[0].dollarOrPercentage
+            } else if (skipQueueRadio[i].value == "skipqueueasap"){
+                content = (pricesArray.skipqueue[0].rushpriority[0].value - 100) + pricesArray.skipqueue[0].rushpriority[0].increaseValuePerPerson*(peopleInQueue+peopleSkippingQueue) + pricesArray.skipqueue[0].rushpriority[0].dollarOrPercentage;
+            }
+        }
+    }
+
+    if (content == "") {
+        document.getElementById("skipIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("skipIDValue").classList.remove("d-none");
+        document.getElementById("skipIDValue").innerText = content;
+    }
 }
-
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -1473,9 +1507,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     lewdRadio = document.getElementsByName("lewdRadio");
                     updateLewdTextAndPrice();
         
-        
+                    skipQueueRadio = document.getElementsByName("skipQueueRadio");
                     updateSkipQueueButtons();
-                    updateSkipQueuePeopleInQueueButtons();
                 }
             });
         }
