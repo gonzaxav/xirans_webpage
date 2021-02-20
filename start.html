@@ -30,6 +30,63 @@
       <div class="container-fluid">
 
         <!------------------------------------------------------------------->
+
+        <div class="row mb-4">
+          <div class="col-0 col-lg-1 col-xl-2">
+
+          </div>
+
+          <div class="col-1">
+
+          </div>
+
+          <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
+
+            <div class="dropdown">
+              <button class="btn dropdown-toggle dropdown-toggle-fix" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="h4 text-light">Is this commission going to be used commercially? <i
+                    class="fas fa-question-circle"></i></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-fix" aria-labelledby="dropdownMenuButton">
+                <span class="dropdown-item dropdown-item-fix disabled"><strong>Is this commission going to be used
+                    commercially?</strong>: <br>Commercial
+                  work includes any art that will bring you profit sans emotes/badges made for Twitch/Discord. This
+                  applies to individuals and firms alike. Logos, Banners, and other "channel-related artwork" are
+                  considered commercial work, as they promote your channel and indirectly bring you income. Printing
+                  many copies and selling them does as well. Printing the artwork and
+                  hanging it on your wall / gifting it to a friend / etc., does not constitute as commercial work. If
+                  you aren't sure, please ask me! </span>
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="commercialRadio" id="noCommercialRadio" value="no"
+                onchange="updateCommercialRadios()">
+              <label class="form-check-label text-light" for="noCommercialRadio">
+                <span>No, this is not a commercial work</span>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="commercialRadio" id="yesCommercialRadio" value="yes"
+                onchange="updateCommercialRadios()">
+              <label class="form-check-label text-light" for="yesCommercialRadio">
+                <span>Yes, this will be used commercially</span>
+              </label>
+            </div>
+
+            <div class="p-5 d-none" id="commercialIDText">
+              <h4 class="text-center xiransred"><u>Please do not fill out this form; message Xiran directly!</u></h4>
+            </div>
+          </div>
+
+          <div class="col-0 col-sm-1 col-lg-2 col-xl-3">
+
+          </div>
+
+        </div>
+
+        <!------------------------------------------------------------------->
         <div class="row mb-4">
           <div class="col-0 col-lg-1 col-xl-2">
 
@@ -206,7 +263,7 @@
                 <label class="input-group-text" for="inputStyle">Style</label>
               </div>
               <select class="custom-select" id="inputStyle"
-                onchange="updateStyleShowShadingPriceAndCallOtherFunctions()">
+                onchange="updateStyleShowShadingPriceAndCallOtherFunctions(true)">
                 <option value="choose" selected>Choose...</option>
                 <option value="cleanColors">Clean Colors</option>
                 <option value="hybrid">Hybrid</option>
@@ -799,8 +856,9 @@
               </div>
             </div>
 
-            <span class="text-light"><a href="https://www.deviantart.com/xir4n/art/Commissions-Prices-ToS-FAQ-Info-OPEN-844947526" target="_blank"
-              class ="text-color-link">Terms of Service?</a></span>
+            <span class="text-light"><a
+                href="https://www.deviantart.com/xir4n/art/Commissions-Prices-ToS-FAQ-Info-OPEN-844947526"
+                target="_blank" class="text-color-link">Terms of Service?</a></span>
 
             <div class="form-check">
               <input class="form-check-input" type="radio" name="tosRadio" id="yesTosRadio">

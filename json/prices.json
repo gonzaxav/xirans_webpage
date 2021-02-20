@@ -533,5 +533,52 @@
             "maxValue": "125",
             "dollarOrPercentage": "%"
         }
+    },
+    "extras": {
+        "cleanColors": {
+            "isItPossible": true,
+            "value": "35",
+            "dollarOrPercentage": "$"
+        },
+        "hybrid": {
+            "isItPossible": true,
+            "value": "30",
+            "dollarOrPercentage": "$"
+        },
+        "coloredSketch": {
+            "isItPossible": true,
+            "value": "20",
+            "dollarOrPercentage": "$"
+        },
+        "emote": {
+            "isItPossible": false,
+            "value": "0",
+            "dollarOrPercentage": "$"
+        },
+        "sketch": {
+            "isItPossible": true,
+            "value": "10",
+            "dollarOrPercentage": "$"
+        },
+        "doodle": {
+            "isItPossible": true,
+            "value": "5",
+            "dollarOrPercentage": "$"
+        },
+        "scribble": {
+            "isItPossible": true,
+            "value": "3",
+            "dollarOrPercentage": "$"
+        },
+        "logo": {
+            "isItPossible": false,
+            "value": "0",
+            "dollarOrPercentage": "$"
+        },
+        "other": {
+            "isItPossible": false,
+            "value": "0",
+            "dollarOrPercentage": "$"
+        }
     }
 }

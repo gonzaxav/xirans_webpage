@@ -1,6 +1,6 @@
 var pricesArray = [];
 var commissionsArray = [];
-var designCharacters;
+var designCharactersRadio;
 var style;
 var bodyRadio;
 var bodyButtons;
@@ -31,7 +31,71 @@ var numberSkip = 1.0;
 var numberLewdMin = 1.0;
 var numberLewdMax = 1.0;
 
+///////////////////small functions///////////////////////////////
+function enableBodyButton(i) {
+    bodyButtons[i].classList.remove("disabled");
+    bodyButtons[i].classList.remove("disabledd");
+}
 
+function disableBodyButton(i) {
+    bodyButtons[i].classList.add("disabled");
+    bodyButtons[i].classList.add("disabledd");
+}
+
+function enableAmountCharactersButton(i) {
+    amountCharactersButtons[i].classList.remove("disabled");
+    amountCharactersButtons[i].classList.remove("disabledd");
+}
+
+function disableAmountCharactersButton(i) {
+    amountCharactersButtons[i].classList.add("disabled");
+    amountCharactersButtons[i].classList.add("disabledd");
+}
+
+function checkIfAButtonWasClicked(){
+    for (let i = 0; i < bodyRadio.length; i++) {
+        if (bodyRadio[i].checked) {
+            bodyButtons[i].classList.add("active");
+        }
+    }
+    for (let i = 0; i < amountCharactersRadio.length; i++) {
+        if (amountCharactersRadio[i].checked) {
+            amountCharactersButtons[i].classList.add("active");
+        }
+    }
+
+}
+
+function unselectThemAll(){
+    for (let i = 0; i < bodyRadio.length; i++) {
+        if (bodyRadio[i].checked) {
+            bodyButtons[i].classList.remove("active");
+            bodyRadio[i].checked = false;
+        }
+    }
+    for (let i = 0; i < amountCharactersRadio.length; i++) {
+        if (amountCharactersRadio[i].checked) {
+            amountCharactersButtons[i].classList.remove("active");
+            amountCharactersRadio[i].checked = false;
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////
+
+
+function updateCommercialRadios() {
+
+    for (var i = 0; i < commercialRadio.length; i++) {
+        if (commercialRadio[i].checked) {
+            if (commercialRadio[i].value == "no") {
+                document.getElementById("commercialIDText").classList.add("d-none");
+            }
+            else if (commercialRadio[i].value == "yes") {
+                document.getElementById("commercialIDText").classList.remove("d-none");
+            }
+        }
+    }
+}
 
 function updateDesignCharactersTextAndPrice() {
     let content = "";
@@ -42,14 +106,14 @@ function updateDesignCharactersTextAndPrice() {
     document.getElementById("noDesignRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
     document.getElementById("yesDesignRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
 
-    for (var i = 0; i < designCharacters.length; i++) {
-        if (designCharacters[i].checked) {
-            if (designCharacters[i].value == "no") {
+    for (var i = 0; i < designCharactersRadio.length; i++) {
+        if (designCharactersRadio[i].checked) {
+            if (designCharactersRadio[i].value == "no") {
                 content = noCost;
                 numberDesigningCharacterMin = Number(pricesArray.designing.no.value / 100);
                 numberDesigningCharacterMax = Number(pricesArray.designing.no.value / 100);
             }
-            else if (designCharacters[i].value == "yes") {
+            else if (designCharactersRadio[i].value == "yes") {
                 content = yesCost;
                 numberDesigningCharacterMin = Number(pricesArray.designing.yes.minValue / 100);
                 numberDesigningCharacterMax = Number(pricesArray.designing.yes.maxValue / 100);
@@ -127,9 +191,12 @@ function hideStyleShading() {
     document.getElementById("styleShadingIDValue").classList.add("d-none");
 }
 
-function updateStyleShowShadingPriceAndCallOtherFunctions() {
+function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     styleShading = document.getElementById("styleShadingID");
 
+    if (check == true){
+        unselectThemAll();
+    }
     updateBodyButtons();
     updateBodyPrice();
     updateAmountCharactersButtons();
@@ -175,28 +242,12 @@ function updateStyleShowShadingPriceAndCallOtherFunctions() {
     }
 }
 
-function enableBodyButton(i) {
-    bodyButtons[i].classList.remove("disabled");
-    bodyButtons[i].classList.remove("disabledd");
-}
-
-function disableBodyButton(i) {
-    bodyButtons[i].classList.add("disabled");
-    bodyButtons[i].classList.add("disabledd");
-}
-
 function updateBodyButtons() {
     let portraitText = document.getElementById("portraitText");
     let halfbodyText = document.getElementById("halfbodyText");
     let thighsupText = document.getElementById("thigh-upText");
     let fullbodyText = document.getElementById("fullbodyText");
     let otherText = document.getElementById("otherText");
-
-    for (let i = 0; i < bodyRadio.length; i++) {
-        if (bodyRadio[i].checked) {
-            bodyButtons[i].classList.add("active");
-        }
-    }
 
     if (style.value == "choose") {
         portraitText.innerHTML = ``;
@@ -849,27 +900,11 @@ function updateBodyPrice() {
     }
 }
 
-function enableAmountCharactersButton(i) {
-    amountCharactersButtons[i].classList.remove("disabled");
-    amountCharactersButtons[i].classList.remove("disabledd");
-}
-
-function disableAmountCharactersButton(i) {
-    amountCharactersButtons[i].classList.add("disabled");
-    amountCharactersButtons[i].classList.add("disabledd");
-}
-
 function updateAmountCharactersButtons() {
     let oneText = document.getElementById("oneText");
     let twoText = document.getElementById("twoText");
     let threeText = document.getElementById("threeText");
     let fourText = document.getElementById("fourText");
-
-    for (let i = 0; i < amountCharactersRadio.length; i++) {
-        if (amountCharactersRadio[i].checked) {
-            amountCharactersButtons[i].classList.add("active");
-        }
-    }
 
     if (style.value == "choose") {
         oneText.innerHTML = ``;
@@ -1671,7 +1706,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 if (resultObj.status === "ok") {
                     pricesArray = resultObj.data;
 
-                    designCharacters = document.getElementsByName("designCharacterRadio");
+                    commercialRadio = document.getElementsByName("commercialRadio");
+                    updateCommercialRadios();
+
+                    designCharactersRadio = document.getElementsByName("designCharacterRadio");
                     updateDesignCharactersTextAndPrice();
 
                     style = document.getElementById("inputStyle");
@@ -1683,7 +1721,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     amountCharactersRadio = document.getElementsByName("amountCharacters");
                     amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
 
-                    updateStyleShowShadingPriceAndCallOtherFunctions();
+                    updateStyleShowShadingPriceAndCallOtherFunctions(false);
+                    checkIfAButtonWasClicked();
                     updateBodyPrice();
                     updateAmountCharactersPrice();
 
