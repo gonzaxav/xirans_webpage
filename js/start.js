@@ -1688,6 +1688,66 @@ function updateLewdTextAndPrice() {
     }
 }
 
+function updateExtras(){
+    var numberPets = Number(document.getElementById("extraPetsInput").innerText);
+    var numberProps = Number(document.getElementById("extraPropsInput").innerText);
+    var numberWeapons = Number(document.getElementById("extraWeaponsInput").innerText);
+    var cost = 0;
+
+    if (style.value == "cleanColors") {
+        if (pricesArray.extras.cleanColors.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.cleanColors.value;
+        }
+    }
+    else if (style.value == "hybrid") {
+        if (pricesArray.extras.hybrid.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.value;
+        }
+    }
+    else if (style.value == "coloredSketch") {
+        if (pricesArray.extras.coloredSketch.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.value;
+        }
+    }
+    else if (style.value == "emote") {
+        if (pricesArray.extras.emote.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.emote.value;
+        }
+    }
+    else if (style.value == "sketch") {
+        if (pricesArray.extras.sketch.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sketch.value;
+        }
+    }
+    else if (style.value == "doodle") {
+        if (pricesArray.extras.doodle.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.doodle.value;
+        }
+    }
+    else if (style.value == "scribble") {
+        if (pricesArray.extras.scribble.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.scribble.value;
+        }
+    }
+    else if (style.value == "logo") {
+        if (pricesArray.extras.logo.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.logo.value;
+        }
+    }
+    else if (style.value == "other") {
+        if (pricesArray.extras.other.isItPossible){
+            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.value;
+        }
+    }
+    document.getElementById("extrasIDValue").classList.remove("d-none");
+    document.getElementById("extrasIDValue").innerText = `${cost}`;
+
+    if (style.value == "choose") {
+        document.getElementById("extrasIDValue").classList.add("d-none");
+    }
+
+}
+
 function updateTotal() {
     var totalMin = 0;
     var totalMax = 0;
