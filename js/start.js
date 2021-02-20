@@ -30,6 +30,7 @@ var numberPrivate = 1.0;
 var numberSkip = 1.0;
 var numberLewdMin = 1.0;
 var numberLewdMax = 1.0;
+var numberExtras = 0;
 
 ///////////////////small functions///////////////////////////////
 function enableBodyButton(i) {
@@ -1689,9 +1690,9 @@ function updateLewdTextAndPrice() {
 }
 
 function updateExtras(){
-    var numberPets = Number(document.getElementById("extraPetsInput").innerText);
-    var numberProps = Number(document.getElementById("extraPropsInput").innerText);
-    var numberWeapons = Number(document.getElementById("extraWeaponsInput").innerText);
+    var numberPets = Number(document.getElementById("extraPetsInput").value);
+    var numberProps = Number(document.getElementById("extraPropsInput").value);
+    var numberWeapons = Number(document.getElementById("extraWeaponsInput").value);
     var cost = 0;
 
     if (style.value == "cleanColors") {
@@ -1739,8 +1740,10 @@ function updateExtras(){
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.value;
         }
     }
+    numberExtras = cost;
+    updateTotal();
     document.getElementById("extrasIDValue").classList.remove("d-none");
-    document.getElementById("extrasIDValue").innerText = `${cost}`;
+    document.getElementById("extrasIDValue").innerText = `$${cost}`;
 
     if (style.value == "choose") {
         document.getElementById("extrasIDValue").classList.add("d-none");
@@ -1751,10 +1754,11 @@ function updateExtras(){
 function updateTotal() {
     var totalMin = 0;
     var totalMax = 0;
-    totalMin = (((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
-    totalMax = (((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
+    totalMin = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtras) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
+    totalMax = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtras) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
 
     document.getElementById("totalIDValue").innerText = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
+    document.getElementById("totalIDValue2").value = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -1806,6 +1810,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     skipQueueButtons = document.getElementsByName("skipQueueButtons");
                     updateSkipQueueButtons();
                     updateSkipQueuePrice();
+
+                    updateExtras();
 
                     updateTotal();
                 }
