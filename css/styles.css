@@ -2,7 +2,7 @@
     font-family: 'Raleway', serif !important;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   font-family: 'Josefin Sans', sans-serif !important;
 }
 
@@ -274,4 +274,40 @@ hr.solid{
 
 .xiransgreen{
   color: #7de896;
+}
+
+.dropdown-menu-fix{
+  background-color: #dfe2e8;
+}
+
+.dropdown-item-fix{
+  white-space:normal;
+  width: 370px;
+}
+
+.dropdown-toggle-fix{
+  white-space: normal;
+  text-align: left;
+}
+
+.dropdown-toggle::after{
+  color: white;
+}
+
+.btn.focus, .btn:focus{
+  box-shadow: 0 0 0 0 rgba(0,123,255,.25);
+}
+
+.dropdown-item.disabled, .dropdown-item:disabled {
+  color: #3e4346;
+}
+
+.text-color-link{
+  color:#76abee;
+  text-decoration: underline;
+}
+
+.text-color-link:hover{
+  color:#a9c7ee;
+  text-decoration: underline;
 }
