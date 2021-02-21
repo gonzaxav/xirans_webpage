@@ -294,6 +294,10 @@ hr.solid{
   text-align: left;
 }
 
+.btn-dark-fix{
+  background-color: #242526;
+}
+
 .dropdown-toggle::after{
   color: white;
 }
