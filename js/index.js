@@ -24,8 +24,8 @@ var numberStyleShading = 0;
 var numberBody = 0;
 var numberAmountCharacters = 1.0;
 var numberOutfitComplexity = 1.0;
-var numberBackgroundMin = 1.0;
-var numberBackgroundMax = 1.0;
+var numberBackgroundMin = 0;
+var numberBackgroundMax = 0;
 var numberPrivate = 1.0;
 var numberSkip = 1.0;
 var numberLewdMin = 1.0;
@@ -203,7 +203,7 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     updateAmountCharactersButtons();
     updateAmountCharactersPrice();
 
-    if (style.value == "choose") {
+    if (style.value == "") {
         hideStyleShading();
     }
     else if (style.value == "cleanColors") {
@@ -250,7 +250,7 @@ function updateBodyButtons() {
     let fullbodyText = document.getElementById("fullbodyText");
     let otherText = document.getElementById("otherText");
 
-    if (style.value == "choose") {
+    if (style.value == "") {
         portraitText.innerHTML = ``;
         disableBodyButton(0);
         halfbodyText.innerHTML = ``;
@@ -907,7 +907,7 @@ function updateAmountCharactersButtons() {
     let threeText = document.getElementById("threeText");
     let fourText = document.getElementById("fourText");
 
-    if (style.value == "choose") {
+    if (style.value == "") {
         oneText.innerHTML = ``;
         disableAmountCharactersButton(0);
         twoText.innerHTML = ``;
@@ -1456,7 +1456,7 @@ function updateOutfitOptionsTextAndPrice() {
         }
     }
 
-    if (outfit.value == "choose") {
+    if (outfit.value == "") {
     } else if (outfit.value == "verysimple") {
         content = (pricesArray.outfit.verySimple.value - 100) + pricesArray.outfit.verySimple.dollarOrPercentage;
         cost = pricesArray.outfit.verySimple.value / 100;
@@ -1494,6 +1494,9 @@ function updateBackgroundYesNo() {
             if (backgroundRadio[i].value == "no") {
                 document.getElementById("backgroundYesOptionsID").classList.add("d-none");
                 document.getElementById("backgroundIDValue").classList.add("d-none");
+                numberBackgroundMin = 0;
+                numberBackgroundMax = 0;
+                updateTotal();
             }
             else if (backgroundRadio[i].value == "yes") {
                 document.getElementById("backgroundYesOptionsID").classList.remove("d-none");
@@ -1745,7 +1748,7 @@ function updateExtras(){
     document.getElementById("extrasIDValue").classList.remove("d-none");
     document.getElementById("extrasIDValue").innerText = `$${cost}`;
 
-    if (style.value == "choose") {
+    if (style.value == "") {
         document.getElementById("extrasIDValue").classList.add("d-none");
     }
 
