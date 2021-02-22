@@ -14,6 +14,13 @@ var privateRadio;
 var lewdRadio;
 var skipQueueRadio;
 
+var carouselElements;
+var cp2pos = 0;
+var cp1pos = 0;
+var cnapos = 0;
+var cn1pos = 0;
+var cn2pos = 0;
+
 var peopleInQueue = 0;
 var peopleSkippingQueue = 0;
 var peopleSkippingRushingQueue = 0;
@@ -53,7 +60,7 @@ function disableAmountCharactersButton(i) {
     amountCharactersButtons[i].classList.add("disabledd");
 }
 
-function checkIfAButtonWasClicked(){
+function checkIfAButtonWasClicked() {
     for (let i = 0; i < bodyRadio.length; i++) {
         if (bodyRadio[i].checked) {
             bodyButtons[i].classList.add("active");
@@ -67,7 +74,7 @@ function checkIfAButtonWasClicked(){
 
 }
 
-function unselectThemAll(){
+function unselectThemAll() {
     for (let i = 0; i < bodyRadio.length; i++) {
         if (bodyRadio[i].checked) {
             bodyButtons[i].classList.remove("active");
@@ -79,6 +86,24 @@ function unselectThemAll(){
             amountCharactersButtons[i].classList.remove("active");
             amountCharactersRadio[i].checked = false;
         }
+    }
+}
+
+function checkNumber(number, min, max) {
+    if (number > max) {
+        return max;
+    } else if (number < min) {
+        return min;
+    } else {
+        return number;
+    }
+}
+
+function giveMeNextElementsNumber(number, length) {
+    if (number >= length) {
+        return 0;
+    } else {
+        return number;
     }
 }
 ////////////////////////////////////////////////////////////////////
@@ -195,7 +220,7 @@ function hideStyleShading() {
 function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     styleShading = document.getElementById("styleShadingID");
 
-    if (check == true){
+    if (check == true) {
         unselectThemAll();
     }
     updateBodyButtons();
@@ -1692,54 +1717,57 @@ function updateLewdTextAndPrice() {
     }
 }
 
-function updateExtras(){
+function updateExtras() {
     var numberPets = Number(document.getElementById("extraPetsInput").value);
     var numberProps = Number(document.getElementById("extraPropsInput").value);
     var numberWeapons = Number(document.getElementById("extraWeaponsInput").value);
+    document.getElementById("extraPetsInput").value = checkNumber(numberPets, 0, 10);
+    document.getElementById("extraPropsInput").value = checkNumber(numberProps, 0, 10);
+    document.getElementById("extraWeaponsInput").value = checkNumber(numberWeapons, 0, 10);
     var cost = 0;
 
     if (style.value == "cleanColors") {
-        if (pricesArray.extras.cleanColors.isItPossible){
+        if (pricesArray.extras.cleanColors.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.cleanColors.value;
         }
     }
     else if (style.value == "hybrid") {
-        if (pricesArray.extras.hybrid.isItPossible){
+        if (pricesArray.extras.hybrid.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.value;
         }
     }
     else if (style.value == "coloredSketch") {
-        if (pricesArray.extras.coloredSketch.isItPossible){
+        if (pricesArray.extras.coloredSketch.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.value;
         }
     }
     else if (style.value == "emote") {
-        if (pricesArray.extras.emote.isItPossible){
+        if (pricesArray.extras.emote.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.emote.value;
         }
     }
     else if (style.value == "sketch") {
-        if (pricesArray.extras.sketch.isItPossible){
+        if (pricesArray.extras.sketch.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sketch.value;
         }
     }
     else if (style.value == "doodle") {
-        if (pricesArray.extras.doodle.isItPossible){
+        if (pricesArray.extras.doodle.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.doodle.value;
         }
     }
     else if (style.value == "scribble") {
-        if (pricesArray.extras.scribble.isItPossible){
+        if (pricesArray.extras.scribble.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.scribble.value;
         }
     }
     else if (style.value == "logo") {
-        if (pricesArray.extras.logo.isItPossible){
+        if (pricesArray.extras.logo.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.logo.value;
         }
     }
     else if (style.value == "other") {
-        if (pricesArray.extras.other.isItPossible){
+        if (pricesArray.extras.other.isItPossible) {
             cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.value;
         }
     }
@@ -1752,6 +1780,54 @@ function updateExtras(){
         document.getElementById("extrasIDValue").classList.add("d-none");
     }
 
+}
+
+function carousel() {
+    // Set the date we're counting down to
+    carouselElements = document.getElementsByName("carouselElement");
+    cp2pos = 0;
+    cp1pos = 0;
+    cnapos = 0;
+    cn1pos = 0;
+    cn2pos = 0;
+
+    for (var i = 0; i < carouselElements.length; i++){
+        if (carouselElements[i].classList.contains("carousel-prev2")) {
+            cp2pos = i;
+        }
+        else if (carouselElements[i].classList.contains("carousel-prev1")) {
+            cp1pos = i;
+        }
+        else if (carouselElements[i].classList.contains("carousel-active")) {
+            cnapos = i;
+        } 
+        else if (carouselElements[i].classList.contains("carousel-next1")) {
+            cn1pos = i;
+        } 
+        else if (carouselElements[i].classList.contains("carousel-next2")) {
+            cn2pos = i;
+        }
+    }
+
+
+    // Update the count down every 3 second
+    setInterval(function () {
+        carouselElements[cp2pos].classList.remove("carousel-prev2");
+        carouselElements[cp1pos].classList.remove("carousel-prev1");
+        carouselElements[cnapos].classList.remove("carousel-active");
+        carouselElements[cn1pos].classList.remove("carousel-next1");
+        carouselElements[cn2pos].classList.remove("carousel-next2");
+        cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
+        cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
+        cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
+        cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
+        cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
+        carouselElements[cp2pos].classList.add("carousel-prev2");
+        carouselElements[cp1pos].classList.add("carousel-prev1");
+        carouselElements[cnapos].classList.add("carousel-active");
+        carouselElements[cn1pos].classList.add("carousel-next1");
+        carouselElements[cn2pos].classList.add("carousel-next2");
+    }, 5000);
 }
 
 function updateTotal() {
@@ -1817,6 +1893,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     updateExtras();
 
                     updateTotal();
+
+                    carousel();
                 }
             });
         }

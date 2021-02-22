@@ -124,15 +124,15 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Discord</span>
                   </div>
-                  <input type="text" class="form-control" name="Contact - Discord" placeholder="Name #1234" aria-label="Discord"
-                    aria-describedby="basic-addon1" required>
+                  <input type="text" class="form-control" name="Contact - Discord" placeholder="Name #1234"
+                    aria-label="Discord" aria-describedby="basic-addon1" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">PayPal E-mail</span>
                   </div>
-                  <input type="email" class="form-control" name="Contact - PayPal" placeholder="email@mail.com" aria-label="PayPal"
-                    aria-describedby="basic-addon1" required>
+                  <input type="email" class="form-control" name="Contact - PayPal" placeholder="email@mail.com"
+                    aria-label="PayPal" aria-describedby="basic-addon1" required>
                 </div>
               </div>
 
@@ -140,6 +140,58 @@
 
               </div>
 
+            </div>
+
+            <!------------------------------------------------------------------->
+
+            <div class="row mb-4">
+              <div class="col-1 col-lg-2 col-xl-3"></div>
+              <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
+                <div class="carousel" id="carousel">
+                  <div class="carousel-container">
+                    <div class="carousel-element carousel-prev2" name="carouselElement" id="1">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/19/49d7e83efd8f20b545532db3a4dc5a3a.png">
+                    </div>
+                    <div class="carousel-element carousel-prev1" name="carouselElement" id="2">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/01/27/4bc7f41a594dac1d0e2c58d202ab1552.png">
+                    </div>
+                    <div class="carousel-element carousel-active" name="carouselElement" id="3">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/11/a85f12f2d32992cb3a93512f4c1cab48.png">
+                    </div>
+                    <div class="carousel-element carousel-next1" name="carouselElement" id="4">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/04/2c4cefe15dacffb4bcb35f3569b9b325.png">
+                    </div>
+                    <div class="carousel-element carousel-next2" name="carouselElement" id="5">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/03/86057f0f97ac30fadb12ac0d95f44367.png">
+                    </div>
+                    <div class="carousel-element" name="carouselElement" id="6">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/19/49d7e83efd8f20b545532db3a4dc5a3a.png">
+                    </div>
+                    <div class="carousel-element" name="carouselElement" id="7">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/01/27/4bc7f41a594dac1d0e2c58d202ab1552.png">
+                    </div>
+                    <div class="carousel-element" name="carouselElement" id="8">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/11/a85f12f2d32992cb3a93512f4c1cab48.png">
+                    </div>
+                    <div class="carousel-element" name="carouselElement" id="9">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/04/2c4cefe15dacffb4bcb35f3569b9b325.png">
+                    </div>
+                    <div class="carousel-element" name="carouselElement" id="10">
+                      <img
+                        src="https://img-os-static.mihoyo.com/upload/2021/02/03/86057f0f97ac30fadb12ac0d95f44367.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!------------------------------------------------------------------->
@@ -194,7 +246,7 @@
                     <input class="form-check-input" type="radio" name="styleShadingRadio" id="noStyleRadio" value="no"
                       onchange="showStyleShading()">
                     <label class="form-check-label text-light" for="noStyleRadio">
-                      <span>No aditional shading</span>
+                      <span>No additional shading</span>
                       <span id="noStyleShadingRadioText"></span>
                     </label>
                   </div>
@@ -202,7 +254,7 @@
                     <input class="form-check-input" type="radio" name="styleShadingRadio" id="yesStyleRadio" value="yes"
                       onchange="showStyleShading()">
                     <label class="form-check-label text-light" for="yesStyleRadio">
-                      <span>Yes I would like aditinal shading</span>
+                      <span>Yes I would like additinal shading</span>
                       <span id="yesStyleShadingRadioText"></span>
                     </label>
                   </div>
@@ -245,35 +297,40 @@
 
                   <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody1"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
-                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody1" value="portrait" required>
+                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody1" value="portrait"
+                      required>
                     <span>Portrait</span>
                     <span id="portraitText"></span>
                   </label>
 
                   <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody2"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
-                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody2" value="halfbody" required>
+                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody2" value="halfbody"
+                      required>
                     <span>Halfbody</span>
                     <span id="halfbodyText"></span>
                   </label>
 
                   <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody3"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
-                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody3" value="thighs" required>
+                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody3" value="thighs"
+                      required>
                     <span>Thigh-up</span>
                     <span id="thigh-upText"></span>
                   </label>
 
                   <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody4"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
-                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody4" value="fullbody" required>
+                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody4" value="fullbody"
+                      required>
                     <span>Full body</span>
                     <span id="fullbodyText"></span>
                   </label>
 
                   <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody5"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateBodyPrice()">
-                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody5" value="other" required>
+                    <input class="form-check-input" type="radio" name="amountBody" id="radioBody5" value="other"
+                      required>
                     <span>Other</span>
                     <span id="otherText"></span>
                   </label>
@@ -322,7 +379,8 @@
                   <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount1"
                     data-toggle="button" aria-pressed="false" autocomplete="off"
                     onchange="updateAmountCharactersPrice()">
-                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount1" value="one" required>
+                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount1" value="one"
+                      required>
                     <span>1</span>
                     <span id="oneText"></span>
                   </label>
@@ -330,7 +388,8 @@
                   <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount2"
                     data-toggle="button" aria-pressed="false" autocomplete="off"
                     onchange="updateAmountCharactersPrice()">
-                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount2" value="two" required>
+                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount2" value="two"
+                      required>
                     <span>2</span>
                     <span id="twoText"></span>
                   </label>
@@ -338,8 +397,8 @@
                   <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount3"
                     data-toggle="button" aria-pressed="false" autocomplete="off"
                     onchange="updateAmountCharactersPrice()">
-                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount3"
-                      value="three" required>
+                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount3" value="three"
+                      required>
                     <span>3</span>
                     <span id="threeText"></span>
                   </label>
@@ -347,7 +406,8 @@
                   <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters" for="radioAmount4"
                     data-toggle="button" aria-pressed="false" autocomplete="off"
                     onchange="updateAmountCharactersPrice()">
-                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount4" value="four" required>
+                    <input class="form-check-input" type="radio" name="amountCharacters" id="radioAmount4" value="four"
+                      required>
                     <span>4</span>
                     <span id="fourText"></span>
                   </label>
@@ -549,7 +609,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Reference /<br>Description</span>
                   </div>
-                  <textarea class="form-control" name="Expression - Pose" placeholder="Type here..." aria-label="expressionPose" required></textarea>
+                  <textarea class="form-control" name="Expression - Pose" placeholder="Type here..."
+                    aria-label="expressionPose" required></textarea>
                 </div>
               </div>
 
@@ -599,7 +660,8 @@
                   <div class="input-group-prepend">
                     <label class="input-group-text" for="inputOutfit">Complexity</label>
                   </div>
-                  <select class="custom-select" id="inputOutfit" name="Outfit Complexity" onchange="updateOutfitOptionsTextAndPrice()" required>
+                  <select class="custom-select" id="inputOutfit" name="Outfit Complexity"
+                    onchange="updateOutfitOptionsTextAndPrice()" required>
                     <option value="" selected>Choose...</option>
                     <option value="verysimple" name="outfitOptions">Very simple (T-shirt + pants)</option>
                     <option value="simple" name="outfitOptions">Simple</option>
@@ -615,7 +677,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Description /<br>Comments</span>
                   </div>
-                  <textarea class="form-control" name="Outfit Description" placeholder="Type here..." aria-label="outfitDescription" required></textarea>
+                  <textarea class="form-control" name="Outfit Description" placeholder="Type here..."
+                    aria-label="outfitDescription" required></textarea>
                 </div>
               </div>
 
@@ -665,22 +728,22 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Pets</span>
                   </div>
-                  <input type="number" class="form-control" name="Pets" id="extraPetsInput" min="0" max="10" placeholder="0"
-                    aria-label="Pets" onchange="updateExtras()">
+                  <input type="number" class="form-control" name="Pets" id="extraPetsInput" min="0" max="10"
+                    placeholder="0" aria-label="Pets" onchange="updateExtras()">
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Props</span>
                   </div>
-                  <input type="number" class="form-control" name="Props" id="extraPropsInput" min="0" max="10" placeholder="0"
-                    aria-label="Props" onchange="updateExtras()">
+                  <input type="number" class="form-control" name="Props" id="extraPropsInput" min="0" max="10"
+                    placeholder="0" aria-label="Props" onchange="updateExtras()">
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Weapons</span>
                   </div>
-                  <input type="number" class="form-control" name="Weapons" id="extraWeaponsInput" min="0" max="10" placeholder="0"
-                    aria-label="Weapons" onchange="updateExtras()">
+                  <input type="number" class="form-control" name="Weapons" id="extraWeaponsInput" min="0" max="10"
+                    placeholder="0" aria-label="Weapons" onchange="updateExtras()">
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -751,7 +814,8 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="inputBackground">Complexity</label>
                     </div>
-                    <select class="custom-select" name="Background type" id="inputBackground" onchange="updateBackgroundOptionsTextAndPrice()">
+                    <select class="custom-select" name="Background type" id="inputBackground"
+                      onchange="updateBackgroundOptionsTextAndPrice()">
                       <option value="choose" selected>Choose...</option>
                       <option value="simple" name="backgroundOptions">Simple (Repeating pattern)</option>
                       <option value="average" name="backgroundOptions">Average</option>
@@ -818,7 +882,8 @@
 
                   <label class="btn btn-secondary col" name="skipQueueButtons" type="button" for="radioSkip1"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateSkipQueuePrice()">
-                    <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip1" value="addqueue" required>
+                    <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip1" value="addqueue"
+                      required>
 
                     <span class="font-weight-bold">Add me to queue<br></span>
                     <span>Do not skip the line, I'm willing to wait</span>
@@ -836,8 +901,8 @@
 
                   <label class="btn btn-secondary col" name="skipQueueButtons" type="button" for="radioSkip2"
                     data-toggle="button" aria-pressed="false" autocomplete="off" onchange="updateSkipQueuePrice()">
-                    <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip2"
-                      value="skipqueue" required>
+                    <input class="form-check-input" type="radio" name="skipQueueRadio" id="radioSkip2" value="skipqueue"
+                      required>
 
                     <span class="font-weight-bold">Skip queue<br></span>
                     <span>Skip the line; order will NOT be done ASAP</span>
@@ -967,7 +1032,8 @@
                     target="_blank" class="text-color-link">Terms of Service</a></span>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tosRadio" id="yesTosRadio" value="I agree" required>
+                  <input class="form-check-input" type="radio" name="tosRadio" id="yesTosRadio" value="I agree"
+                    required>
                   <label class="form-check-label text-light" for="yesTosRadio">
                     Yes, I read the Terms of Service & I agree to them
                   </label>
@@ -998,7 +1064,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Questions /<br>Concerns</span>
                   </div>
-                  <textarea class="form-control" name="Questions - Concerns" placeholder="Type here..." aria-label="questionsConcerns"></textarea>
+                  <textarea class="form-control" name="Questions - Concerns" placeholder="Type here..."
+                    aria-label="questionsConcerns"></textarea>
                 </div>
               </div>
 
@@ -1026,7 +1093,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Details</span>
                   </div>
-                  <textarea class="form-control" name="Any other details?" placeholder="Type here..." aria-label="details"></textarea>
+                  <textarea class="form-control" name="Any other details?" placeholder="Type here..."
+                    aria-label="details"></textarea>
                 </div>
               </div>
 
@@ -1044,7 +1112,7 @@
               </div>
 
               <div class="col-1">
-                
+
               </div>
 
               <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
@@ -1064,12 +1132,13 @@
             <div class="row">
               <div class="col-1 col-lg-2 col-xl-3"></div>
               <div class="col-11 col-sm-10 col-lg-8 col-xl-6">
-                <button class="btn btn-dark btn-dark-fix button-success pure-button button-xlarge btn-lg btn-block mx-auto">
+                <button
+                  class="btn btn-dark btn-dark-fix button-success pure-button button-xlarge btn-lg btn-block mx-auto">
                   <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
               </div>
               <div class="col-0 col-sm-1 col-lg-2 col-xl-3"></div>
             </div>
-            
+
 
           </div>
           <!------------------------------------------------------------------->
@@ -1077,7 +1146,8 @@
           <!-- Customise the Thankyou Message People See when they submit the form: -->
           <div class="container thankyou_message" style="display:none;">
             <h2 class="text-light text-center"><em>Thank you</em> for submitting a commission form!
-              <br>Xiran will contact you as soon as possible!</h2>
+              <br>Xiran will contact you as soon as possible!
+            </h2>
           </div>
 
         </form>
