@@ -228,6 +228,7 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     updateBodyPrice();
     updateAmountCharactersButtons();
     updateAmountCharactersPrice();
+    carouselChangeStyle();
 
     if (style.value == "") {
         hideStyleShading();
@@ -1952,6 +1953,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     updateTotal();
 
                     carouselAutomaticMoving();
+                    carouselChangeStyle();
                 }
             });
         }
