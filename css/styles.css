@@ -335,12 +335,8 @@ hr.solid{
 .carousel-element{
   position: absolute;
   overflow: hidden;
-  width: 453px;
-  height: 201px;
   z-index: 1;
   border-radius: 8px;
-  top: 40px;
-  left: 0px;
   -webkit-transition: all 3000ms cubic-bezier(.46,.03,.52,.96);
   -o-transition: all 3000ms cubic-bezier(.46,.03,.52,.96);
   transition: all 3000ms cubic-bezier(.46,.03,.52,.96);
@@ -355,32 +351,18 @@ hr.solid{
 }
 
 .carousel-prev2{
-  left: -100px;
   z-index: 10;
 }
 .carousel-prev1{
-  width: 528px;
-  height: 234px;
-  left: 0;
-  top: 20px;
   z-index: 30;
 }
 .carousel-active{
-  width: 604px;
-  height: 268px;
-  left: 158.5px;
-  top: 0;
   z-index: 50;
 }
 .carousel-next1{
-    width: 528px;
-    height: 234px;
-    left: 393px;
-    top: 20px;
     z-index: 30;
 }
 .carousel-next2{
-  left: 568px;
   z-index: 10;
 }
 
@@ -389,101 +371,182 @@ hr.solid{
   height: 100%;
 }
 
-@media only screen and (max-width:1200px) {
-  .carousel-element{
-  width: 45px;
-  height: 20px;
-  top: 40px;
-  left: 0px;
+
+
+@media only screen and (max-width:575px) {
+  .carousel-container{
+    height: 200px;
   }
+  .carousel-element{
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    }
   .carousel-prev2{
-    left: -10px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
   .carousel-prev1{
-    width: 52px;
-    height: 23px;
-    left: 0;
-    top: 20px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
   .carousel-active{
-    width: 60px;
-    height: 26px;
-    left: 15.5px;
-    top: 0;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
   .carousel-next1{
-      width: 528px;
-      height: 234px;
-      left: 393px;
-      top: 20px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
   .carousel-next2{
-    left: 568px;
+    left: 0px;
   }
 }
 
-@media only screen and (max-width:991px) {
-  .carousel-element{
-  width: 45px;
-  height: 20px;
-  top: 40px;
-  left: 0px;
+@media only screen and (min-width:576px) {
+  .carousel-container{
+    height: 200px;
   }
+  .carousel-element{
+    width: 333px;
+    height: 148px;
+    top: 24px;
+    left: 0px;
+    }
   .carousel-prev2{
-    left: -10px;
+    left: -40px;
   }
   .carousel-prev1{
-    width: 52px;
-    height: 23px;
-    left: 0;
-    top: 20px;
+    width: 389px;
+    height: 172px;
+    left: -40px;
+    top: 12px;
   }
   .carousel-active{
-    width: 60px;
-    height: 26px;
-    left: 15.5px;
+    width: 445px;
+    height: 197px;
+    left: -17px;
     top: 0;
   }
   .carousel-next1{
-      width: 528px;
-      height: 234px;
-      left: 393px;
-      top: 20px;
+    width: 389px;
+    height: 172px;
+    left: 66px;
+    top: 12px;
   }
   .carousel-next2{
-    left: 568px;
+    left: 122px;
   }
 }
 
-@media only screen and (max-width:576px) {
-  .carousel-element{
-  width: 45px;
-  height: 20px;
-  top: 40px;
-  left: 0px;
+@media only screen and (min-width:768px) {
+  .carousel-container{
+    height: 278px;
   }
+  .carousel-element{
+    width: 453px;
+    height: 201px;
+    top: 40px;
+    left: 0px;
+    }
   .carousel-prev2{
-    left: -10px;
+    left: -40px;
   }
   .carousel-prev1{
-    width: 52px;
-    height: 23px;
+    width: 528px;
+    height: 234px;
+    left: -40px;
+    top: 20px;
+  }
+  .carousel-active{
+    width: 604px;
+    height: 268px;
+    left: -17px;
+    top: 0;
+  }
+  .carousel-next1{
+    width: 528px;
+    height: 234px;
+    left: 93px;
+    top: 20px;
+  }
+  .carousel-next2{
+    left: 168px;
+  }
+}
+
+@media only screen and (min-width:992px) {
+  .carousel-container{
+    height: 278px;
+  }
+  .carousel-element{
+    width: 453px;
+    height: 201px;
+    top: 40px;
+    left: 0px;
+    }
+  .carousel-prev2{
+    left: -40px;
+  }
+  .carousel-prev1{
+    width: 528px;
+    height: 234px;
     left: 0;
     top: 20px;
   }
   .carousel-active{
-    width: 60px;
-    height: 26px;
-    left: 15.5px;
+    width: 604px;
+    height: 268px;
+    left: 83px;
+    top: 0;
+  }
+  .carousel-next1{
+    width: 528px;
+    height: 234px;
+    left: 242px;
+    top: 20px;
+  }
+  .carousel-next2{
+    left: 357px;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .carousel-container{
+    height: 278px;
+  }
+  .carousel-element{
+  width: 453px;
+  height: 201px;
+  top: 40px;
+  left: 0px;
+  }
+  .carousel-prev2{
+    left: -100px;
+  }
+  .carousel-prev1{
+    width: 528px;
+    height: 234px;
+    left: 0;
+    top: 20px;
+  }
+  .carousel-active{
+    width: 604px;
+    height: 268px;
+    left: 158px;
     top: 0;
   }
   .carousel-next1{
       width: 528px;
       height: 234px;
-      left: 393px;
+      left: 392px;
       top: 20px;
   }
   .carousel-next2{
-    left: 568px;
+    left: 567px;
   }
 }

@@ -20,6 +20,7 @@ var cp1pos = 0;
 var cnapos = 0;
 var cn1pos = 0;
 var cn2pos = 0;
+var carouselImg;
 
 var peopleInQueue = 0;
 var peopleSkippingQueue = 0;
@@ -1782,7 +1783,7 @@ function updateExtras() {
 
 }
 
-function carousel() {
+function carouselAutomaticMoving() {
     // Set the date we're counting down to
     carouselElements = document.getElementsByName("carouselElement");
     cp2pos = 0;
@@ -1828,6 +1829,62 @@ function carousel() {
         carouselElements[cn1pos].classList.add("carousel-next1");
         carouselElements[cn2pos].classList.add("carousel-next2");
     }, 5000);
+}
+
+function carouselChangeStyle() {
+    carouselImg = document.getElementsByName("carouselImg");
+
+    if (style.value == "") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.featured[i];
+        }
+    }
+    else if (style.value == "cleanColors") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.cleanColors[i];
+        }
+    }
+    else if (style.value == "hybrid") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.hybrid[i];
+        }
+    }
+    else if (style.value == "coloredSketch") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.coloredSketch[i];
+        }
+    }
+    else if (style.value == "emote") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.emote[i];
+        } 
+    }
+    else if (style.value == "sketch") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.sketch[i];
+        }
+    }
+    else if (style.value == "doodle") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.doodle[i];
+        }
+    }
+    else if (style.value == "scribble") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.scribble[i];
+        }
+    }
+    else if (style.value == "logo") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.logo[i];
+        }
+    }
+    else if (style.value == "other") {
+        for (var i = 0; i<carouselImg.length; i++){
+            carouselImg[i].src = pricesArray.carousel.other[i];
+        }
+    }
+    
 }
 
 function updateTotal() {
@@ -1894,7 +1951,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                     updateTotal();
 
-                    carousel();
+                    carouselAutomaticMoving();
                 }
             });
         }
