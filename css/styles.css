@@ -232,18 +232,36 @@ input[type=number].removeArrow {
   width: 150px;
 }
 
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #babfc5;
+  opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #babfc5;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: #babfc5;
+}
+
 .input-group-text{
-  background-color: #bec5cc;
-  color: #495057;
+  background-color: hsl(210, 12%, 33%);
+  color: hsl(213, 9%, 75%);
   font-weight: bold;
+  border-color: hsl(210, 14%, 27%);
 }
 
-.form-control{
-  background-color: #dfe2e8;
+.form-control, .form-control:focus{
+  color: #a3b7c0;
+  background-color: hsl(210, 10%, 17%);
+  border-color: hsl(210, 14%, 27%);
 }
 
-.form-control:focus, .custom-select{
-  background-color: #e6e9ee;
+.custom-select{
+  color: #babfc5;
+  background-color: hsl(210, 10%, 17%);
+  border-color: hsl(210, 14%, 27%);
 }
 
 label.btn-secondary{
@@ -318,6 +336,11 @@ hr.solid{
 .text-color-link:hover{
   color:#a9c7ee;
   text-decoration: underline;
+}
+
+.xiranssection{
+  background-color: #414850;
+  background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 29%), hsl(210, 10%, 23%));
 }
 
 .carousel{
