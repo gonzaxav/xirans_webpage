@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Xiran's Commission Information</title>
+  <title>&#9875; Xiran's Commission Form</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -245,6 +245,12 @@
                     </div>
                     <div class="carousel-element carousel-prev1" name="carouselElement">
                       <img name="carouselImg" src="https://i.imgur.com/TdXI0pN.png">
+                    </div>
+                    <div class="carousel-prev" onclick="carouselPrev()">
+                      <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="carousel-next" onclick="carouselNext()">
+                      <i class="fas fa-chevron-right"></i>
                     </div>
                   </div>
                 </div>
@@ -822,6 +828,12 @@
                       possible. The more people you skip, the more expensive it'll be.
                     </span>
                   </div>
+                </div>
+
+                <div>
+                  <span id="workInProgressPercent" class="text-light"></span><br>
+                  <span class="text-light">If it is your turn in queue and you're not ready, you may opt to be put on hold until you are. The queue includes everyone, but you may opt to disregard the ones on hold when you place your order.</span><br>
+                  <span class="text-light">People not on hold: </span><span id="queueNotHold" class="text-light"></span>
                 </div>
 
                 <div class="btn-group btn-group-toggle mb-2 mx-auto p-0 col-12" data-toggle="buttons">

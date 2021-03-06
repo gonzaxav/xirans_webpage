@@ -1,5 +1,6 @@
 var pricesArray = [];
 var commissionsArray = [];
+var workinprogressArray = [];
 var designCharactersRadio;
 var style;
 var bodyRadio;
@@ -21,10 +22,12 @@ var cnapos = 0;
 var cn1pos = 0;
 var cn2pos = 0;
 var carouselImg;
+var carouselClickedRecently = false;
 
 var peopleInQueue = 0;
 var peopleSkippingQueue = 0;
 var peopleSkippingRushingQueue = 0;
+var peopleInQueueNotHold = 0;
 
 var numberDesigningCharacterMin = 1.0;
 var numberDesigningCharacterMax = 1.0;
@@ -95,6 +98,14 @@ function checkNumber(number, min, max) {
         return max;
     } else if (number < min) {
         return min;
+    } else {
+        return number;
+    }
+}
+
+function giveMePrevElementsNumber(number, length) {
+    if (number < 0) {
+        return length - 1;
     } else {
         return number;
     }
@@ -1617,6 +1628,8 @@ function updatePrivateTextAndPrice() {
 }
 
 function updateSkipQueueButtons() {
+    let workInProgressPercentText = document.getElementById("workInProgressPercent");
+    let queueNotHoldText = document.getElementById("queueNotHold");
     let addtoqueueText = document.getElementById("addtoqueueText");
     let skipqueueText = document.getElementById("skipqueueText");
     let skipqueueasapText = document.getElementById("skipqueueasapText");
@@ -1626,6 +1639,7 @@ function updateSkipQueueButtons() {
     peopleInQueue = commissionsArray.length - 3;
     peopleSkippingQueue = 0;
     peopleSkippingRushingQueue = 0;
+    peopleInQueueNotHold = peopleInQueue;
 
     for (var i = 0; i < commissionsArray.length; i++) {
         for (var u = 0; u < commissionsArray[i].idLabels.length; u++) {
@@ -1635,8 +1649,43 @@ function updateSkipQueueButtons() {
             if (commissionsArray[i].idLabels[u] == "5f94fcab5edf3c4d70e9235f") {
                 peopleSkippingRushingQueue += 1;
             }
+            if (commissionsArray[i].idLabels[u] == "5fa49fc92673770b8d5c087d") {
+                peopleInQueueNotHold -= 1;
+            }
         }
     }
+
+    if (workinprogressArray.length <= 2) {
+        workInProgressPercentText.innerHTML = `Currently not working on anything OR discussing next client's commission. View my <a
+        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
+        target="_blank" class="text-color-link">Updated Queue</a> for more information.`
+    }
+    else if (workinprogressArray.length == 3) {
+        let completedPercent = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
+
+        workInProgressPercentText.innerHTML = `Current work in progress is <span class="xiransgreen font-weight-bold">${completedPercent}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
+        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
+        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+    }
+    else if (workinprogressArray.length == 4) {
+        let completedPercentFirst = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
+        let completedPercentSecond = ((workinprogressArray[3].badges.checkItemsChecked / workinprogressArray[3].badges.checkItems) * 100).toFixed(0);
+
+        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
+        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
+        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+    }
+    else if (workinprogressArray.length == 5) {
+        let completedPercentFirst = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
+        let completedPercentSecond = ((workinprogressArray[3].badges.checkItemsChecked / workinprogressArray[3].badges.checkItems) * 100).toFixed(0);
+        let completedPercentThird = ((workinprogressArray[4].badges.checkItemsChecked / workinprogressArray[4].badges.checkItems) * 100).toFixed(0);
+
+        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span>, <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentThird}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
+        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
+        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+    }
+
+    queueNotHoldText.innerText = peopleInQueueNotHold;
 
     for (let i = 0; i < skipQueueRadio.length; i++) {
         if (skipQueueRadio[i].checked) {
@@ -1784,16 +1833,10 @@ function updateExtras() {
 
 }
 
-function carouselAutomaticMoving() {
-    // Set the date we're counting down to
+function carouselStart() {
     carouselElements = document.getElementsByName("carouselElement");
-    cp2pos = 0;
-    cp1pos = 0;
-    cnapos = 0;
-    cn1pos = 0;
-    cn2pos = 0;
 
-    for (var i = 0; i < carouselElements.length; i++){
+    for (var i = 0; i < carouselElements.length; i++) {
         if (carouselElements[i].classList.contains("carousel-prev2")) {
             cp2pos = i;
         }
@@ -1802,90 +1845,134 @@ function carouselAutomaticMoving() {
         }
         else if (carouselElements[i].classList.contains("carousel-active")) {
             cnapos = i;
-        } 
+        }
         else if (carouselElements[i].classList.contains("carousel-next1")) {
             cn1pos = i;
-        } 
+        }
         else if (carouselElements[i].classList.contains("carousel-next2")) {
             cn2pos = i;
         }
     }
+    carouselAutomaticMoving();
+}
 
-
+function carouselAutomaticMoving() {
     // Update the count down every 3 second
     setInterval(function () {
-        carouselElements[cp2pos].classList.remove("carousel-prev2");
-        carouselElements[cp1pos].classList.remove("carousel-prev1");
-        carouselElements[cnapos].classList.remove("carousel-active");
-        carouselElements[cn1pos].classList.remove("carousel-next1");
-        carouselElements[cn2pos].classList.remove("carousel-next2");
-        cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
-        cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
-        cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
-        cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
-        cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
-        carouselElements[cp2pos].classList.add("carousel-prev2");
-        carouselElements[cp1pos].classList.add("carousel-prev1");
-        carouselElements[cnapos].classList.add("carousel-active");
-        carouselElements[cn1pos].classList.add("carousel-next1");
-        carouselElements[cn2pos].classList.add("carousel-next2");
-    }, 5000);
+        if (!carouselClickedRecently){
+            carouselElements[cp2pos].classList.remove("carousel-prev2");
+            carouselElements[cp1pos].classList.remove("carousel-prev1");
+            carouselElements[cnapos].classList.remove("carousel-active");
+            carouselElements[cn1pos].classList.remove("carousel-next1");
+            carouselElements[cn2pos].classList.remove("carousel-next2");
+            cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
+            cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
+            cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
+            cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
+            cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
+            carouselElements[cp2pos].classList.add("carousel-prev2");
+            carouselElements[cp1pos].classList.add("carousel-prev1");
+            carouselElements[cnapos].classList.add("carousel-active");
+            carouselElements[cn1pos].classList.add("carousel-next1");
+            carouselElements[cn2pos].classList.add("carousel-next2");
+        } else {
+            carouselClickedRecently = false;
+        }
+    }, 4000);
+}
+
+function carouselPrev() {
+    carouselElements[cp2pos].classList.remove("carousel-prev2");
+    carouselElements[cp1pos].classList.remove("carousel-prev1");
+    carouselElements[cnapos].classList.remove("carousel-active");
+    carouselElements[cn1pos].classList.remove("carousel-next1");
+    carouselElements[cn2pos].classList.remove("carousel-next2");
+    cp2pos = giveMePrevElementsNumber(cp2pos - 1, carouselElements.length);
+    cp1pos = giveMePrevElementsNumber(cp1pos - 1, carouselElements.length);
+    cnapos = giveMePrevElementsNumber(cnapos - 1, carouselElements.length);
+    cn1pos = giveMePrevElementsNumber(cn1pos - 1, carouselElements.length);
+    cn2pos = giveMePrevElementsNumber(cn2pos - 1, carouselElements.length);
+    carouselElements[cp2pos].classList.add("carousel-prev2");
+    carouselElements[cp1pos].classList.add("carousel-prev1");
+    carouselElements[cnapos].classList.add("carousel-active");
+    carouselElements[cn1pos].classList.add("carousel-next1");
+    carouselElements[cn2pos].classList.add("carousel-next2");
+    carouselClickedRecently = true;
+}
+
+function carouselNext() {
+    carouselElements[cp2pos].classList.remove("carousel-prev2");
+    carouselElements[cp1pos].classList.remove("carousel-prev1");
+    carouselElements[cnapos].classList.remove("carousel-active");
+    carouselElements[cn1pos].classList.remove("carousel-next1");
+    carouselElements[cn2pos].classList.remove("carousel-next2");
+    cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
+    cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
+    cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
+    cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
+    cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
+    carouselElements[cp2pos].classList.add("carousel-prev2");
+    carouselElements[cp1pos].classList.add("carousel-prev1");
+    carouselElements[cnapos].classList.add("carousel-active");
+    carouselElements[cn1pos].classList.add("carousel-next1");
+    carouselElements[cn2pos].classList.add("carousel-next2");
+    carouselClickedRecently = true;
 }
 
 function carouselChangeStyle() {
     carouselImg = document.getElementsByName("carouselImg");
 
     if (style.value == "") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.featured[i];
         }
     }
     else if (style.value == "cleanColors") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.cleanColors[i];
         }
     }
     else if (style.value == "hybrid") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.hybrid[i];
         }
     }
     else if (style.value == "coloredSketch") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.coloredSketch[i];
         }
     }
     else if (style.value == "emote") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.emote[i];
-        } 
+        }
     }
     else if (style.value == "sketch") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.sketch[i];
         }
     }
     else if (style.value == "doodle") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.doodle[i];
         }
     }
     else if (style.value == "scribble") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.scribble[i];
         }
     }
     else if (style.value == "logo") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.logo[i];
         }
     }
     else if (style.value == "other") {
-        for (var i = 0; i<carouselImg.length; i++){
+        for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.other[i];
         }
     }
-    
+
 }
 
 function updateTotal() {
@@ -1903,57 +1990,63 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             commissionsArray = resultObj.data;
 
-            getJSONData(PRICES_URL).then(function (resultObj) {
+            getJSONData(WORK_IN_PROGRESS_URL).then(function (resultObj) {
                 if (resultObj.status === "ok") {
-                    pricesArray = resultObj.data;
+                    workinprogressArray = resultObj.data;
 
-                    commercialRadio = document.getElementsByName("commercialRadio");
-                    updateCommercialRadios();
+                    getJSONData(PRICES_URL).then(function (resultObj) {
+                        if (resultObj.status === "ok") {
+                            pricesArray = resultObj.data;
 
-                    designCharactersRadio = document.getElementsByName("designCharacterRadio");
-                    updateDesignCharactersTextAndPrice();
+                            commercialRadio = document.getElementsByName("commercialRadio");
+                            updateCommercialRadios();
 
-                    style = document.getElementById("inputStyle");
-                    styleShadingRadio = document.getElementsByName("styleShadingRadio");
+                            designCharactersRadio = document.getElementsByName("designCharacterRadio");
+                            updateDesignCharactersTextAndPrice();
 
-                    bodyRadio = document.getElementsByName("amountBody");
-                    bodyButtons = document.getElementsByName("buttonBody");
+                            style = document.getElementById("inputStyle");
+                            styleShadingRadio = document.getElementsByName("styleShadingRadio");
 
-                    amountCharactersRadio = document.getElementsByName("amountCharacters");
-                    amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
+                            bodyRadio = document.getElementsByName("amountBody");
+                            bodyButtons = document.getElementsByName("buttonBody");
 
-                    updateStyleShowShadingPriceAndCallOtherFunctions(false);
-                    checkIfAButtonWasClicked();
-                    updateBodyPrice();
-                    updateAmountCharactersPrice();
+                            amountCharactersRadio = document.getElementsByName("amountCharacters");
+                            amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
 
-                    outfit = document.getElementById("inputOutfit");
-                    outfitOptions = document.getElementsByName("outfitOptions");
-                    updateOutfitOptionsTextAndPrice();
+                            updateStyleShowShadingPriceAndCallOtherFunctions(false);
+                            checkIfAButtonWasClicked();
+                            updateBodyPrice();
+                            updateAmountCharactersPrice();
 
-                    inputBackground = document.getElementById("inputBackground");
-                    backgroundRadio = document.getElementsByName("backgroundRadio");
-                    backgroundOptions = document.getElementsByName("backgroundOptions");
-                    updateBackgroundYesNo();
-                    updateBackgroundOptionsTextAndPrice();
+                            outfit = document.getElementById("inputOutfit");
+                            outfitOptions = document.getElementsByName("outfitOptions");
+                            updateOutfitOptionsTextAndPrice();
 
-                    privateRadio = document.getElementsByName("privateRadio");
-                    updatePrivateTextAndPrice();
+                            inputBackground = document.getElementById("inputBackground");
+                            backgroundRadio = document.getElementsByName("backgroundRadio");
+                            backgroundOptions = document.getElementsByName("backgroundOptions");
+                            updateBackgroundYesNo();
+                            updateBackgroundOptionsTextAndPrice();
 
-                    lewdRadio = document.getElementsByName("lewdRadio");
-                    updateLewdTextAndPrice();
+                            privateRadio = document.getElementsByName("privateRadio");
+                            updatePrivateTextAndPrice();
 
-                    skipQueueRadio = document.getElementsByName("skipQueueRadio");
-                    skipQueueButtons = document.getElementsByName("skipQueueButtons");
-                    updateSkipQueueButtons();
-                    updateSkipQueuePrice();
+                            lewdRadio = document.getElementsByName("lewdRadio");
+                            updateLewdTextAndPrice();
 
-                    updateExtras();
+                            skipQueueRadio = document.getElementsByName("skipQueueRadio");
+                            skipQueueButtons = document.getElementsByName("skipQueueButtons");
+                            updateSkipQueueButtons();
+                            updateSkipQueuePrice();
 
-                    updateTotal();
+                            updateExtras();
 
-                    carouselAutomaticMoving();
-                    carouselChangeStyle();
+                            updateTotal();
+
+                            carouselStart();
+                            carouselChangeStyle();
+                        }
+                    });
                 }
             });
         }

@@ -10,6 +10,7 @@ const CART_INFO_URL_2 = "https://japdevdep.github.io/ecommerce-api/cart/654.json
 
 const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/json/prices.json";
 const AMOUNT_OF_COMMISSIONS_URL = "https://api.trello.com/1/lists/5f7cb19ee26f79442887834e/cards";
+const WORK_IN_PROGRESS_URL = "https://api.trello.com/1/lists/5f7cb19e78b3ae03f247d058/cards";
 
 const POST_NEW_COMMENT = "/new-comment";
 const GET_ALL = "/get_all";

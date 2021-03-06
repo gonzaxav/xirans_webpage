@@ -360,9 +360,9 @@ hr.solid{
   overflow: hidden;
   z-index: 1;
   border-radius: 8px;
-  -webkit-transition: all 2000ms cubic-bezier(.46,.03,.52,.96);
-  -o-transition: all 2000ms cubic-bezier(.46,.03,.52,.96);
-  transition: all 2000ms cubic-bezier(.46,.03,.52,.96);
+  -webkit-transition: all 1000ms cubic-bezier(.46,.03,.52,.96);
+  -o-transition: all 1000ms cubic-bezier(.46,.03,.52,.96);
+  transition: all 1000ms cubic-bezier(.46,.03,.52,.96);
   background-color: #ccc;
   -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
@@ -371,6 +371,41 @@ hr.solid{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -41px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  z-index: 55;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+.carousel-prev:hover, .carousel-next:hover {
+  background-color: rgba(96, 220, 123, 0.8);
+}
+
+.carousel-prev{
+  left: 80px;
+}
+
+.carousel-next{
+  right: 80px;
 }
 
 .carousel-prev2{
