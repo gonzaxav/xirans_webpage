@@ -1711,7 +1711,7 @@ function updateExtras() {
     numberExtrasMax = maxCost;
     updateTotal();
     document.getElementById("extrasIDValue").classList.remove("d-none");
-    document.getElementById("extrasIDValue").innerText = `$${cost}`;
+    document.getElementById("extrasIDValue").innerText = `$${minCost} ~ $${maxCost}`;
 
     if (style.value == "") {
         document.getElementById("extrasIDValue").classList.add("d-none");
