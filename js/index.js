@@ -1599,6 +1599,7 @@ function updateExtras() {
     else if (style.value == "hybrid") {
         if (pricesArray.extras.hybrid.isItPossible) {
             minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.maxValue;
             extrasSection.classList.remove("d-none");
         } else {
             numberExtrasMin = 0;
