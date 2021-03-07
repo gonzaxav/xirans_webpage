@@ -42,7 +42,8 @@ var numberPrivate = 1.0;
 var numberSkip = 1.0;
 var numberLewdMin = 1.0;
 var numberLewdMax = 1.0;
-var numberExtras = 0;
+var numberExtrasMin = 0;
+var numberExtrasMax = 0;
 
 ///////////////////small functions///////////////////////////////
 function enableBodyButton(i) {
@@ -118,6 +119,44 @@ function giveMeNextElementsNumber(number, length) {
     } else {
         return number;
     }
+}
+
+function carouselPrev() {
+    carouselElements[cp2pos].classList.remove("carousel-prev2");
+    carouselElements[cp1pos].classList.remove("carousel-prev1");
+    carouselElements[cnapos].classList.remove("carousel-active");
+    carouselElements[cn1pos].classList.remove("carousel-next1");
+    carouselElements[cn2pos].classList.remove("carousel-next2");
+    cp2pos = giveMePrevElementsNumber(cp2pos - 1, carouselElements.length);
+    cp1pos = giveMePrevElementsNumber(cp1pos - 1, carouselElements.length);
+    cnapos = giveMePrevElementsNumber(cnapos - 1, carouselElements.length);
+    cn1pos = giveMePrevElementsNumber(cn1pos - 1, carouselElements.length);
+    cn2pos = giveMePrevElementsNumber(cn2pos - 1, carouselElements.length);
+    carouselElements[cp2pos].classList.add("carousel-prev2");
+    carouselElements[cp1pos].classList.add("carousel-prev1");
+    carouselElements[cnapos].classList.add("carousel-active");
+    carouselElements[cn1pos].classList.add("carousel-next1");
+    carouselElements[cn2pos].classList.add("carousel-next2");
+    carouselClickedRecently = true;
+}
+
+function carouselNext() {
+    carouselElements[cp2pos].classList.remove("carousel-prev2");
+    carouselElements[cp1pos].classList.remove("carousel-prev1");
+    carouselElements[cnapos].classList.remove("carousel-active");
+    carouselElements[cn1pos].classList.remove("carousel-next1");
+    carouselElements[cn2pos].classList.remove("carousel-next2");
+    cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
+    cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
+    cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
+    cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
+    cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
+    carouselElements[cp2pos].classList.add("carousel-prev2");
+    carouselElements[cp1pos].classList.add("carousel-prev1");
+    carouselElements[cnapos].classList.add("carousel-active");
+    carouselElements[cn1pos].classList.add("carousel-next1");
+    carouselElements[cn2pos].classList.add("carousel-next2");
+    carouselClickedRecently = true;
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -241,6 +280,7 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     updateAmountCharactersButtons();
     updateAmountCharactersPrice();
     carouselChangeStyle();
+    updateExtras();
 
     if (style.value == "") {
         hideStyleShading();
@@ -1527,6 +1567,177 @@ function updateOutfitOptionsTextAndPrice() {
     }
 }
 
+function updateExtras() {
+    var Pets = document.getElementById("extraPetsInput");
+    var Props = document.getElementById("extraPropsInput");
+    var Weapons = document.getElementById("extraWeaponsInput");
+    var numberPets = parseInt(Pets.innerText);
+    var numberProps = parseInt(Props.innerText);
+    var numberWeapons = parseInt(Weapons.innerText);
+    Pets.innerText = checkNumber(numberPets, 0, 10);
+    Props.innerText = checkNumber(numberProps, 0, 10);
+    Weapons.innerText = checkNumber(numberWeapons, 0, 10);
+    var minCost = 0;
+    var maxCost = 0;
+
+    var extrasSection = document.getElementById("extrasSection");
+
+    if (style.value == "cleanColors") {
+        if (pricesArray.extras.cleanColors.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.cleanColors.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.cleanColors.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "hybrid") {
+        if (pricesArray.extras.hybrid.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.minValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "coloredSketch") {
+        if (pricesArray.extras.coloredSketch.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "emote") {
+        if (pricesArray.extras.emote.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.emote.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.emote.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "sketch") {
+        if (pricesArray.extras.sketch.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sketch.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sketch.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "doodle") {
+        if (pricesArray.extras.doodle.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.doodle.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.doodle.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "scribble") {
+        if (pricesArray.extras.scribble.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.scribble.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.scribble.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "logo") {
+        if (pricesArray.extras.logo.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.logo.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.logo.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "other") {
+        if (pricesArray.extras.other.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    numberExtrasMin = minCost;
+    numberExtrasMax = maxCost;
+    updateTotal();
+    document.getElementById("extrasIDValue").classList.remove("d-none");
+    document.getElementById("extrasIDValue").innerText = `$${cost}`;
+
+    if (style.value == "") {
+        document.getElementById("extrasIDValue").classList.add("d-none");
+    }
+
+}
+
+function changeExtras(type, amount) {
+    var Pets = document.getElementById("extraPetsInput");
+    var Props = document.getElementById("extraPropsInput");
+    var Weapons = document.getElementById("extraWeaponsInput");
+    var numberPets = parseInt(Pets.innerText);
+    var numberProps = parseInt(Props.innerText);
+    var numberWeapons = parseInt(Weapons.innerText);
+
+    if (type == "pets") {
+        Pets.innerText = checkNumber(numberPets + amount, 0, 10);
+    } else if (type == "props") {
+        Props.innerText = checkNumber(numberProps + amount, 0, 10);
+    } else if (type == "weapons") {
+        Weapons.innerText = checkNumber(numberWeapons + amount, 0, 10);
+    }
+
+    updateExtras();
+}
+
 function updateBackgroundYesNo() {
     for (var i = 0; i < backgroundRadio.length; i++) {
         if (backgroundRadio[i].checked) {
@@ -1765,71 +1976,6 @@ function updateLewdTextAndPrice() {
     }
 }
 
-function updateExtras() {
-    var numberPets = Number(document.getElementById("extraPetsInput").value);
-    var numberProps = Number(document.getElementById("extraPropsInput").value);
-    var numberWeapons = Number(document.getElementById("extraWeaponsInput").value);
-    document.getElementById("extraPetsInput").value = checkNumber(numberPets, 0, 10);
-    document.getElementById("extraPropsInput").value = checkNumber(numberProps, 0, 10);
-    document.getElementById("extraWeaponsInput").value = checkNumber(numberWeapons, 0, 10);
-    var cost = 0;
-
-    if (style.value == "cleanColors") {
-        if (pricesArray.extras.cleanColors.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.cleanColors.value;
-        }
-    }
-    else if (style.value == "hybrid") {
-        if (pricesArray.extras.hybrid.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.hybrid.value;
-        }
-    }
-    else if (style.value == "coloredSketch") {
-        if (pricesArray.extras.coloredSketch.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.value;
-        }
-    }
-    else if (style.value == "emote") {
-        if (pricesArray.extras.emote.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.emote.value;
-        }
-    }
-    else if (style.value == "sketch") {
-        if (pricesArray.extras.sketch.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sketch.value;
-        }
-    }
-    else if (style.value == "doodle") {
-        if (pricesArray.extras.doodle.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.doodle.value;
-        }
-    }
-    else if (style.value == "scribble") {
-        if (pricesArray.extras.scribble.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.scribble.value;
-        }
-    }
-    else if (style.value == "logo") {
-        if (pricesArray.extras.logo.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.logo.value;
-        }
-    }
-    else if (style.value == "other") {
-        if (pricesArray.extras.other.isItPossible) {
-            cost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.other.value;
-        }
-    }
-    numberExtras = cost;
-    updateTotal();
-    document.getElementById("extrasIDValue").classList.remove("d-none");
-    document.getElementById("extrasIDValue").innerText = `$${cost}`;
-
-    if (style.value == "") {
-        document.getElementById("extrasIDValue").classList.add("d-none");
-    }
-
-}
-
 function carouselStart() {
     carouselElements = document.getElementsByName("carouselElement");
 
@@ -1856,7 +2002,7 @@ function carouselStart() {
 function carouselAutomaticMoving() {
     // Update the count down every 3 second
     setInterval(function () {
-        if (!carouselClickedRecently){
+        if (!carouselClickedRecently) {
             carouselElements[cp2pos].classList.remove("carousel-prev2");
             carouselElements[cp1pos].classList.remove("carousel-prev1");
             carouselElements[cnapos].classList.remove("carousel-active");
@@ -1876,44 +2022,6 @@ function carouselAutomaticMoving() {
             carouselClickedRecently = false;
         }
     }, 4000);
-}
-
-function carouselPrev() {
-    carouselElements[cp2pos].classList.remove("carousel-prev2");
-    carouselElements[cp1pos].classList.remove("carousel-prev1");
-    carouselElements[cnapos].classList.remove("carousel-active");
-    carouselElements[cn1pos].classList.remove("carousel-next1");
-    carouselElements[cn2pos].classList.remove("carousel-next2");
-    cp2pos = giveMePrevElementsNumber(cp2pos - 1, carouselElements.length);
-    cp1pos = giveMePrevElementsNumber(cp1pos - 1, carouselElements.length);
-    cnapos = giveMePrevElementsNumber(cnapos - 1, carouselElements.length);
-    cn1pos = giveMePrevElementsNumber(cn1pos - 1, carouselElements.length);
-    cn2pos = giveMePrevElementsNumber(cn2pos - 1, carouselElements.length);
-    carouselElements[cp2pos].classList.add("carousel-prev2");
-    carouselElements[cp1pos].classList.add("carousel-prev1");
-    carouselElements[cnapos].classList.add("carousel-active");
-    carouselElements[cn1pos].classList.add("carousel-next1");
-    carouselElements[cn2pos].classList.add("carousel-next2");
-    carouselClickedRecently = true;
-}
-
-function carouselNext() {
-    carouselElements[cp2pos].classList.remove("carousel-prev2");
-    carouselElements[cp1pos].classList.remove("carousel-prev1");
-    carouselElements[cnapos].classList.remove("carousel-active");
-    carouselElements[cn1pos].classList.remove("carousel-next1");
-    carouselElements[cn2pos].classList.remove("carousel-next2");
-    cp2pos = giveMeNextElementsNumber(cp2pos + 1, carouselElements.length);
-    cp1pos = giveMeNextElementsNumber(cp1pos + 1, carouselElements.length);
-    cnapos = giveMeNextElementsNumber(cnapos + 1, carouselElements.length);
-    cn1pos = giveMeNextElementsNumber(cn1pos + 1, carouselElements.length);
-    cn2pos = giveMeNextElementsNumber(cn2pos + 1, carouselElements.length);
-    carouselElements[cp2pos].classList.add("carousel-prev2");
-    carouselElements[cp1pos].classList.add("carousel-prev1");
-    carouselElements[cnapos].classList.add("carousel-active");
-    carouselElements[cn1pos].classList.add("carousel-next1");
-    carouselElements[cn2pos].classList.add("carousel-next2");
-    carouselClickedRecently = true;
 }
 
 function carouselChangeStyle() {
@@ -1975,8 +2083,8 @@ function carouselChangeStyle() {
 function updateTotal() {
     var totalMin = 0;
     var totalMax = 0;
-    totalMin = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtras) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
-    totalMax = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtras) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
+    totalMin = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtrasMin) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
+    totalMax = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtrasMax) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
 
     document.getElementById("totalIDValue").innerText = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
     document.getElementById("totalIDValue2").value = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
@@ -2048,4 +2156,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
             });
         }
     });
+    document.getElementById("btnPetsMinus").addEventListener("click", function () {
+        changeExtras("pets", -1)
+    }, false);
+    document.getElementById("btnPetsPlus").addEventListener("click", function () {
+        changeExtras("pets", 1)
+    }, false);
+    document.getElementById("btnPropsMinus").addEventListener("click", function () {
+        changeExtras("props", -1)
+    }, false);
+    document.getElementById("btnPropsPlus").addEventListener("click", function () {
+        changeExtras("props", 1)
+    }, false);
+    document.getElementById("btnWeaponsMinus").addEventListener("click", function () {
+        changeExtras("weapons", -1)
+    }, false);
+    document.getElementById("btnWeaponsPlus").addEventListener("click", function () {
+        changeExtras("weapons", 1)
+    }, false);
 });

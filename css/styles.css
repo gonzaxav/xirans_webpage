@@ -264,6 +264,10 @@ input[type=number].removeArrow {
   border-color: hsl(210, 14%, 27%);
 }
 
+.input-group-text-xiran{
+  background-color: hsl(210, 10%, 17%);
+}
+
 label.btn-secondary{
   border: 2px solid #5a6269;
 }
@@ -294,6 +298,12 @@ hr.solid{
   color: #7de896;
 }
 
+.btnxiransgreen{
+  color: #212529;
+  background-color: #babfc5;
+  border-color: #babfc5;
+}
+
 .xiransred{
   color: #e87d7d;
 }
@@ -314,6 +324,16 @@ hr.solid{
 
 .btn-dark-fix{
   background-color: #242526;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
 }
 
 @media only screen and (max-width:576px) {

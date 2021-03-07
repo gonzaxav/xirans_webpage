@@ -652,7 +652,7 @@
 
             <!------------------------------------------------------------------->
 
-            <div class="row mb-4 xiranssection p-2">
+            <div class="row mb-4 xiranssection p-2" id="extrasSection">
 
 
               <div class="col-1">
@@ -688,23 +688,65 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Pets</span>
                   </div>
-                  <input type="number" class="form-control" name="Pets" id="extraPetsInput" min="0" max="10"
+
+                  <div class="input-group-append">
+                    <div class="input-group-text input-group-text-xiran">
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnPetsMinus"><i
+                          class="fas fa-minus"></i></button>
+                      <span class="xiransgreen mx-2" id="extraPetsInput" name="Pets">0</span>
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnPetsPlus"><i
+                          class="fas fa-plus"></i></button>
+                    </div>
+                  </div>
+
+                  <!--
+                    <input type="number" class="form-control" name="Pets" id="extraPetsInput" min="0" max="10"
                     placeholder="0" aria-label="Pets" onchange="updateExtras()">
+                  -->
                 </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Props</span>
                   </div>
+
+                  <div class="input-group-append">
+                    <div class="input-group-text input-group-text-xiran">
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnPropsMinus"><i
+                          class="fas fa-minus"></i></button>
+                      <span class="xiransgreen mx-2" id="extraPropsInput" name="Props">0</span>
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnPropsPlus"><i
+                          class="fas fa-plus"></i></button>
+                    </div>
+                  </div>
+
+                  <!--
                   <input type="number" class="form-control" name="Props" id="extraPropsInput" min="0" max="10"
                     placeholder="0" aria-label="Props" onchange="updateExtras()">
+                    -->
                 </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Weapons</span>
                   </div>
+
+                  <div class="input-group-append">
+                    <div class="input-group-text input-group-text-xiran">
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnWeaponsMinus"><i
+                          class="fas fa-minus"></i></button>
+                      <span class="xiransgreen mx-2" id="extraWeaponsInput" name="Weapons">0</span>
+                      <button type="button" class="btn btnxiransgreen btn-circle" id="btnWeaponsPlus"><i
+                          class="fas fa-plus"></i></button>
+                    </div>
+                  </div>
+
+                  <!--
                   <input type="number" class="form-control" name="Weapons" id="extraWeaponsInput" min="0" max="10"
                     placeholder="0" aria-label="Weapons" onchange="updateExtras()">
+                    -->
                 </div>
+
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">References /<br>Comments</span>
@@ -815,17 +857,20 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-fix" aria-labelledby="dropdownMenuButton">
                     <span class="dropdown-item dropdown-item-fix disabled"><strong>Skip Queue/Rush/Deadline</strong>:
-                      <br><i>I work on one commission at a time with the exception of rush/priority orders.</i> <br><u>Add me to queue</u>
+                      <br><i>I work on one commission at a time with the exception of rush/priority orders.</i>
+                      <br><u>Add me to queue</u>
                       - you will be added to the end of the queue, and I will contact you as soon as
                       I
                       get to your turn.
-                      <br><u>Skip queue</u> - you will skip the queue, and I will work on your commission after I finish the
+                      <br><u>Skip queue</u> - you will skip the queue, and I will work on your commission after I finish
+                      the
                       Skip queue - you will skip the queue, and I will work on your commission after I finish the
                       commission
                       I'm currently working on. This will not be done ASAP, I will work at my normal speed. The more
                       people
                       you skip, the more expensive it'll be.
-                      <br><u>Rush/Priority</u> - skip the queue and skip the commission I'm currently working on. I will work on it
+                      <br><u>Rush/Priority</u> - skip the queue and skip the commission I'm currently working on. I will
+                      work on it
                       ASAP, during every waking moment of my day to get your commission done as quickly as physically
                       possible. The more people you skip, the more expensive it'll be.
                     </span>
