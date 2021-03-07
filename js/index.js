@@ -28,6 +28,7 @@ var peopleInQueue = 0;
 var peopleSkippingQueue = 0;
 var peopleSkippingRushingQueue = 0;
 var peopleInQueueNotHold = 0;
+var peopleInQueueHold = 0;
 
 var numberDesigningCharacterMin = 1.0;
 var numberDesigningCharacterMax = 1.0;
@@ -1630,6 +1631,7 @@ function updatePrivateTextAndPrice() {
 function updateSkipQueueButtons() {
     let workInProgressPercentText = document.getElementById("workInProgressPercent");
     let queueNotHoldText = document.getElementById("queueNotHold");
+    let queueHoldText = document.getElementById("queueHold");
     let addtoqueueText = document.getElementById("addtoqueueText");
     let skipqueueText = document.getElementById("skipqueueText");
     let skipqueueasapText = document.getElementById("skipqueueasapText");
@@ -1655,37 +1657,32 @@ function updateSkipQueueButtons() {
         }
     }
 
+    peopleInQueueHold = peopleInQueue - peopleInQueueNotHold;
+
     if (workinprogressArray.length <= 2) {
-        workInProgressPercentText.innerHTML = `Currently not working on anything OR discussing next client's commission. View my <a
-        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
-        target="_blank" class="text-color-link">Updated Queue</a> for more information.`
+        workInProgressPercentText.innerHTML = `<span class="xiransgreen">Currently not working on anything OR discussing next client's commission.</span>`
     }
     else if (workinprogressArray.length == 3) {
         let completedPercent = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
 
-        workInProgressPercentText.innerHTML = `Current work in progress is <span class="xiransgreen font-weight-bold">${completedPercent}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
-        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
-        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+        workInProgressPercentText.innerHTML = `Current work in progress is <span class="xiransgreen font-weight-bold">${completedPercent}%</span> complete.`
     }
     else if (workinprogressArray.length == 4) {
         let completedPercentFirst = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
         let completedPercentSecond = ((workinprogressArray[3].badges.checkItemsChecked / workinprogressArray[3].badges.checkItems) * 100).toFixed(0);
 
-        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
-        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
-        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> complete.`
     }
     else if (workinprogressArray.length == 5) {
         let completedPercentFirst = ((workinprogressArray[2].badges.checkItemsChecked / workinprogressArray[2].badges.checkItems) * 100).toFixed(0);
         let completedPercentSecond = ((workinprogressArray[3].badges.checkItemsChecked / workinprogressArray[3].badges.checkItems) * 100).toFixed(0);
         let completedPercentThird = ((workinprogressArray[4].badges.checkItemsChecked / workinprogressArray[4].badges.checkItems) * 100).toFixed(0);
 
-        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span>, <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentThird}%</span> complete. I work on one commission at a time with the exception of rush/priority orders. View my <span class="text-light"><a
-        href="https://trello.com/b/Fm0ALCT7/xirans-art-commissions"
-        target="_blank" class="text-color-link">Updated Queue</a></span> for more details.`
+        workInProgressPercentText.innerHTML = `Currently working on more than 1 commission. They are <span class="xiransgreen font-weight-bold">${completedPercentFirst}%</span>, <span class="xiransgreen font-weight-bold">${completedPercentSecond}%</span> & <span class="xiransgreen font-weight-bold">${completedPercentThird}%</span> complete.`
     }
 
     queueNotHoldText.innerText = peopleInQueueNotHold;
+    queueHoldText.innerText = peopleInQueueHold;
 
     for (let i = 0; i < skipQueueRadio.length; i++) {
         if (skipQueueRadio[i].checked) {

@@ -316,6 +316,17 @@ hr.solid{
   background-color: #242526;
 }
 
+@media only screen and (max-width:576px) {
+  .btn-group {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
 .dropdown-toggle::after{
   color: white;
 }
@@ -351,7 +362,6 @@ hr.solid{
 .carousel-container{
   position: relative;
   width: 100%;
-  height: 288px;
   overflow: normal;
 }
 
@@ -373,10 +383,37 @@ hr.solid{
   user-select: none;
 }
 
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.carousel-element::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #000;
+  opacity: 0.5;
+  -webkit-transition: opacity 1000ms linear;
+  -o-transition: opacity 1000ms linear;
+  transition: opacity 1000ms linear;
+}
+
+.carousel-element.carousel-active::after {
+  opacity: 0;
+}
+
 .carousel-prev, .carousel-next {
   position: absolute;
   top: 50%;
-  margin-top: -41px;
+  margin-top: -30px;
   width: 60px;
   height: 60px;
   background-color: rgba(0,0,0,0.6);
@@ -395,17 +432,12 @@ hr.solid{
   -ms-flex-pack: center;
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.6);
+  -webkit-transition: background-color 150ms linear;
+  -o-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
 }
 .carousel-prev:hover, .carousel-next:hover {
   background-color: rgba(96, 220, 123, 0.8);
-}
-
-.carousel-prev{
-  left: 80px;
-}
-
-.carousel-next{
-  right: 80px;
 }
 
 .carousel-prev2{
@@ -431,9 +463,9 @@ hr.solid{
 
 
 
-@media only screen and (max-width:575px) {
+@media only screen and (max-width:576px) {
   .carousel-container{
-    height: 200px;
+    width: 100%;
   }
   .carousel-element{
     width: 100%;
@@ -455,6 +487,8 @@ hr.solid{
     width: 100%;
     top: 0px;
     left: 0px;
+
+    position: relative;
   }
   .carousel-next1{
     width: 100%;
@@ -463,6 +497,18 @@ hr.solid{
   }
   .carousel-next2{
     left: 0px;
+  }
+  .carousel-prev{
+    float: left;
+
+    position: static;
+    margin-top: 10px;
+  }
+  .carousel-next{
+    float: right;
+
+    position: static;
+    margin-top: 10px;
   }
 }
 
@@ -489,17 +535,23 @@ hr.solid{
   .carousel-active{
     width: 445px;
     height: 197px;
-    left: -17px;
+    left: -12.5px;
     top: 0;
   }
   .carousel-next1{
     width: 389px;
     height: 172px;
-    left: 66px;
+    left: 71px;
     top: 12px;
   }
   .carousel-next2{
-    left: 122px;
+    left: 127px;
+  }
+  .carousel-prev{
+    left: -70px;
+  }
+  .carousel-next{
+    right: -70px;
   }
 }
 
@@ -538,6 +590,12 @@ hr.solid{
   .carousel-next2{
     left: 168px;
   }
+  .carousel-prev{
+    left: -80px;
+  }
+  .carousel-next{
+    right: -80px;
+  }
 }
 
 @media only screen and (min-width:992px) {
@@ -575,6 +633,12 @@ hr.solid{
   .carousel-next2{
     left: 357px;
   }
+  .carousel-prev{
+    left: 15px;
+  }
+  .carousel-next{
+    right: 15px;
+  }
 }
 
 @media only screen and (min-width:1200px) {
@@ -611,5 +675,11 @@ hr.solid{
   }
   .carousel-next2{
     left: 567px;
+  }
+  .carousel-prev{
+    left: 80px;
+  }
+  .carousel-next{
+    right: 80px;
   }
 }
