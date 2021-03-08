@@ -476,6 +476,11 @@
         }
     },
     "background": {
+        "none": {
+            "minValue": "0",
+            "maxValue": "0",
+            "dollarOrPercentage": "$"
+        },
         "simple": {
             "minValue": "5",
             "maxValue": "20",
