@@ -2072,8 +2072,7 @@ function updateTotal() {
     totalMin = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtrasMin) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
     totalMax = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtrasMax) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
 
-    document.getElementById("totalIDValue").innerText = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
-    document.getElementById("totalIDValue2").value = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`
+    document.getElementById("totalIDValue").innerText = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`;
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -2092,16 +2091,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             commercialRadio = document.getElementsByName("Is commercial");
                             updateCommercialRadios();
 
-                            designCharactersRadio = document.getElementsByName("designCharacterRadio");
+                            designCharactersRadio = document.getElementsByName("Design Character?");
                             updateDesignCharactersTextAndPrice();
 
                             style = document.getElementById("inputStyle");
-                            styleShadingRadio = document.getElementsByName("styleShadingRadio");
+                            styleShadingRadio = document.getElementsByName("Doodle/Scribble Shading");
 
-                            bodyRadio = document.getElementsByName("amountBody");
+                            bodyRadio = document.getElementsByName("Body Amount");
                             bodyButtons = document.getElementsByName("buttonBody");
 
-                            amountCharactersRadio = document.getElementsByName("amountCharacters");
+                            amountCharactersRadio = document.getElementsByName("How many characters");
                             amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
 
                             updateStyleShowShadingPriceAndCallOtherFunctions(false);
@@ -2117,13 +2116,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             backgroundOptions = document.getElementsByName("backgroundOptions");
                             updateBackgroundOptionsTextAndPrice();
 
-                            privateRadio = document.getElementsByName("privateRadio");
+                            privateRadio = document.getElementsByName("Private?");
                             updatePrivateTextAndPrice();
 
-                            lewdRadio = document.getElementsByName("lewdRadio");
+                            lewdRadio = document.getElementsByName("Lewd?");
                             updateLewdTextAndPrice();
 
-                            skipQueueRadio = document.getElementsByName("skipQueueRadio");
+                            skipQueueRadio = document.getElementsByName("RUSH/Skip Queue/Add Queue");
                             skipQueueButtons = document.getElementsByName("skipQueueButtons");
                             updateSkipQueueButtons();
                             updateSkipQueuePrice();
