@@ -29,22 +29,24 @@
     <div class="album py-5 bg-dark">
       <div class="container">
 
-        <div class="row mb-4 p-2">
-          <div class="col">
-            <h1 class="text-light">Xiran's Commission Form</h1>
-            <h4 class="text-light">If you're looking to commission me, please fill out this form! Keep in mind that
-              the prices are a rough estimate, and that final price will be quoted to you if your proposal gets accepted.
-            </h4>
-          </div>
-        </div>
-
-
         <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
           action="https://script.google.com/macros/s/AKfycbyRzY6ZoyFiIKBqLdsioUg2goaWK1qwUfQGQZw_K4XK0wfWL6LJ/exec">
           <!-- change the form action to your script url -->
 
-          <!------------------------------------------------------------------->
           <div class="form-elements">
+            <div class="row mb-4 p-2">
+              <div class="col">
+                <h1 class="text-light">Xiran's Commission Form</h1>
+                <h4 class="text-light">If you're looking to commission me, please fill out this form! Keep in mind that
+                  the prices are a rough estimate, and that final price will be quoted to you if your proposal gets
+                  accepted.
+                </h4>
+              </div>
+            </div>
+
+
+            <!------------------------------------------------------------------->
+
             <div class="row mb-4 xiranssection p-2">
 
               <div class="col-1"></div>
@@ -72,15 +74,15 @@
                 </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="commercialRadio" id="noCommercialRadio" value="no"
+                  <input class="form-check-input" type="radio" name="Is commercial" id="noCommercialRadio" value="no"
                     onchange="updateCommercialRadios()" required>
                   <label class="form-check-label text-light" for="noCommercialRadio">
                     <span>No, this is not a commercial work</span>
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="commercialRadio" id="yesCommercialRadio"
-                    value="yes" onchange="updateCommercialRadios()" required>
+                  <input class="form-check-input" type="radio" name="Is commercial" id="yesCommercialRadio" value="yes"
+                    onchange="updateCommercialRadios()" required>
                   <label class="form-check-label text-light" for="yesCommercialRadio">
                     <span>Yes, this will be used commercially</span>
                   </label>
@@ -695,16 +697,11 @@
                     <div class="input-group-text input-group-text-xiran">
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnPetsMinus"><i
                           class="fas fa-minus"></i></button>
-                      <span class="xiransgreen mx-2" id="extraPetsInput" name="Pets">0</span>
+                      <output class="xiransgreen mx-2" id="extraPetsInput" name="Pets">0</output>
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnPetsPlus"><i
                           class="fas fa-plus"></i></button>
                     </div>
                   </div>
-
-                  <!--
-                    <input type="number" class="form-control" name="Pets" id="extraPetsInput" min="0" max="10"
-                    placeholder="0" aria-label="Pets" onchange="updateExtras()">
-                  -->
                 </div>
 
                 <div class="input-group mb-3">
@@ -716,16 +713,11 @@
                     <div class="input-group-text input-group-text-xiran">
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnPropsMinus"><i
                           class="fas fa-minus"></i></button>
-                      <span class="xiransgreen mx-2" id="extraPropsInput" name="Props">0</span>
+                      <output class="xiransgreen mx-2" id="extraPropsInput" name="Props">0</output>
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnPropsPlus"><i
                           class="fas fa-plus"></i></button>
                     </div>
                   </div>
-
-                  <!--
-                  <input type="number" class="form-control" name="Props" id="extraPropsInput" min="0" max="10"
-                    placeholder="0" aria-label="Props" onchange="updateExtras()">
-                    -->
                 </div>
 
                 <div class="input-group mb-3">
@@ -737,16 +729,11 @@
                     <div class="input-group-text input-group-text-xiran">
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnWeaponsMinus"><i
                           class="fas fa-minus"></i></button>
-                      <span class="xiransgreen mx-2" id="extraWeaponsInput" name="Weapons">0</span>
+                      <output class="xiransgreen mx-2" id="extraWeaponsInput" name="Weapons">0</output>
                       <button type="button" class="btn btnxiransgreen btn-circle" id="btnWeaponsPlus"><i
                           class="fas fa-plus"></i></button>
                     </div>
                   </div>
-
-                  <!--
-                  <input type="number" class="form-control" name="Weapons" id="extraWeaponsInput" min="0" max="10"
-                    placeholder="0" aria-label="Weapons" onchange="updateExtras()">
-                    -->
                 </div>
 
                 <div class="input-group">
@@ -791,23 +778,6 @@
                   </div>
                 </div>
 
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="backgroundRadio" id="noBackgroundRadio" value="no"
-                    onchange="updateBackgroundYesNo()" required>
-                  <label class="form-check-label text-light" for="noBackgroundRadio">
-                    <span>No, I don't want a background; final image will have a gray or transparent background (specify
-                      in
-                      comment box).</span> <span class="xiransgreen">($0)</span>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="backgroundRadio" id="yesBackgroundRadio"
-                    value="yes" onchange="updateBackgroundYesNo()" required>
-                  <label class="form-check-label text-light" for="yesBackgroundRadio">
-                    Yes, I would like a background.
-                  </label>
-                </div>
-
                 <div id="backgroundYesOptionsID">
                   <span class="text-light">This is subject to change based on my judgement.</span>
                   <div class="input-group mb-3">
@@ -817,6 +787,7 @@
                     <select class="custom-select" name="Background type" id="inputBackground"
                       onchange="updateBackgroundOptionsTextAndPrice()">
                       <option value="choose" selected>Choose...</option>
+                      <option value="none" name="backgroundOptions">None (Solid color or transparent)</option>
                       <option value="simple" name="backgroundOptions">Simple (Repeating pattern)</option>
                       <option value="average" name="backgroundOptions">Average</option>
                       <option value="somewhatcomplex" name="backgroundOptions">Somewhat complex</option>

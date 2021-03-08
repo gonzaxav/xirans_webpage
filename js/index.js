@@ -10,7 +10,6 @@ var styleShadingRadio;
 var outfit;
 var outfitOptions;
 var amountCharactersRadio;
-var backgroundRadio;
 var privateRadio;
 var lewdRadio;
 var skipQueueRadio;
@@ -1739,26 +1738,6 @@ function changeExtras(type, amount) {
     updateExtras();
 }
 
-function updateBackgroundYesNo() {
-    for (var i = 0; i < backgroundRadio.length; i++) {
-        if (backgroundRadio[i].checked) {
-            if (backgroundRadio[i].value == "no") {
-                document.getElementById("backgroundYesOptionsID").classList.add("d-none");
-                document.getElementById("backgroundIDValue").classList.add("d-none");
-                numberBackgroundMin = 0;
-                numberBackgroundMax = 0;
-                updateTotal();
-            }
-            else if (backgroundRadio[i].value == "yes") {
-                document.getElementById("backgroundYesOptionsID").classList.remove("d-none");
-                if (inputBackground.value != "choose") {
-                    document.getElementById("backgroundIDValue").classList.remove("d-none");
-                }
-            }
-        }
-    }
-}
-
 function updateBackgroundOptionsTextAndPrice() {
     var content = "";
     var costMin = 0;
@@ -1766,17 +1745,23 @@ function updateBackgroundOptionsTextAndPrice() {
 
     for (var i = 0; i < backgroundOptions.length; i++) {
         if (i == 0) {
-            backgroundOptions[i].innerText = "Simple (Repeating pattern) +" + pricesArray.background.simple.dollarOrPercentage + pricesArray.background.simple.minValue + "~" + pricesArray.background.simple.maxValue;
+            backgroundOptions[i].innerText = "None (Solid color or transparent) +" + pricesArray.background.none.dollarOrPercentage + pricesArray.background.none.maxValue;
         } else if (i == 1) {
-            backgroundOptions[i].innerText = "Average +" + pricesArray.background.average.dollarOrPercentage + pricesArray.background.average.minValue + "~" + pricesArray.background.average.maxValue;
+            backgroundOptions[i].innerText = "Simple (Repeating pattern) +" + pricesArray.background.simple.dollarOrPercentage + pricesArray.background.simple.minValue + "~" + pricesArray.background.simple.maxValue;
         } else if (i == 2) {
-            backgroundOptions[i].innerText = "Somewhat complex +" + pricesArray.background.somewhatcomplex.dollarOrPercentage + pricesArray.background.somewhatcomplex.minValue + "~" + pricesArray.background.somewhatcomplex.maxValue;
+            backgroundOptions[i].innerText = "Average +" + pricesArray.background.average.dollarOrPercentage + pricesArray.background.average.minValue + "~" + pricesArray.background.average.maxValue;
         } else if (i == 3) {
+            backgroundOptions[i].innerText = "Somewhat complex +" + pricesArray.background.somewhatcomplex.dollarOrPercentage + pricesArray.background.somewhatcomplex.minValue + "~" + pricesArray.background.somewhatcomplex.maxValue;
+        } else if (i == 4) {
             backgroundOptions[i].innerText = "Very complex (Fully rendered scene integrating the character(s)) +" + pricesArray.background.verycomplex.dollarOrPercentage + pricesArray.background.verycomplex.minValue + "~" + pricesArray.background.verycomplex.maxValue;
         }
     }
 
     if (inputBackground.value == "choose") {
+    } else if (inputBackground.value == "none") {
+        content = pricesArray.background.none.dollarOrPercentage + pricesArray.background.none.minValue + "~" + pricesArray.background.none.maxValue;
+        costMin = pricesArray.background.none.minValue;
+        costMax = pricesArray.background.none.maxValue;
     } else if (inputBackground.value == "simple") {
         content = pricesArray.background.simple.dollarOrPercentage + pricesArray.background.simple.minValue + "~" + pricesArray.background.simple.maxValue;
         costMin = pricesArray.background.simple.minValue;
@@ -2104,7 +2089,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         if (resultObj.status === "ok") {
                             pricesArray = resultObj.data;
 
-                            commercialRadio = document.getElementsByName("commercialRadio");
+                            commercialRadio = document.getElementsByName("Is commercial");
                             updateCommercialRadios();
 
                             designCharactersRadio = document.getElementsByName("designCharacterRadio");
@@ -2129,9 +2114,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             updateOutfitOptionsTextAndPrice();
 
                             inputBackground = document.getElementById("inputBackground");
-                            backgroundRadio = document.getElementsByName("backgroundRadio");
                             backgroundOptions = document.getElementsByName("backgroundOptions");
-                            updateBackgroundYesNo();
                             updateBackgroundOptionsTextAndPrice();
 
                             privateRadio = document.getElementsByName("privateRadio");
