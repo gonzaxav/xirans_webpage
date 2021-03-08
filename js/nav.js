@@ -20,6 +20,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     </li>
                 </ul>
             </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item col active d-flex align-items-center justify-content-center">
+                        <a class="nav-link" href="calculator.html">
+                            Xiran's Calculator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </nav>
     `

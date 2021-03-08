@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html class="bg-dark" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>&#9875; Xiran's Commission Form</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navID">
+
+    </div>
+
+    <main role="main">
+        <div class="album py-5 bg-dark">
+            <div class="container">
+
+                <div class="row mb-4 p-2">
+                    <div class="col">
+                        <h1 class="text-light">Xiran's Calculator</h1>
+                    </div>
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="styleShadingIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Style 
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputStyle">Style</label>
+                            </div>
+                            <select class="custom-select" id="inputStyle" name="Style"
+                                onchange="updateStyleShowShadingPriceAndCallOtherFunctions(true)" required>
+                                <option value="" selected>Choose...</option>
+                                <option value="cleanColors">Clean Colors</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="coloredSketch">Colored Sketch</option>
+                                <option value="emote">Emote</option>
+                                <option value="sketch">Sketch</option>
+                                <option value="doodle">Doodle</option>
+                                <option value="scribble">Scribble</option>
+                                <option value="logo">Logo (.PSD)</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3" id="styleShadingID">
+                            <h4 class="text-light">If Doodle/Scribble: Shading?</h4>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Doodle/Scribble Shading"
+                                    id="noStyleRadio" value="no" onchange="showStyleShading()">
+                                <label class="form-check-label text-light" for="noStyleRadio">
+                                    <span>No additional shading</span>
+                                    <span id="noStyleShadingRadioText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Doodle/Scribble Shading"
+                                    id="yesStyleRadio" value="yes" onchange="showStyleShading()">
+                                <label class="form-check-label text-light" for="yesStyleRadio">
+                                    <span>Yes I would like additinal shading</span>
+                                    <span id="yesStyleShadingRadioText"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="bodyIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Body 
+                            </span>
+                        </div>
+
+                        <div class="btn-group btn-group-toggle mb-2 mx-auto p-0 col-12" data-toggle="buttons">
+
+                            <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody1"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateBodyPrice()">
+                                <input class="form-check-input" type="radio" name="Body Amount" id="radioBody1"
+                                    value="portrait" required>
+                                <span>Portrait</span>
+                                <span id="portraitText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody2"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateBodyPrice()">
+                                <input class="form-check-input" type="radio" name="Body Amount" id="radioBody2"
+                                    value="halfbody" required>
+                                <span>Halfbody</span>
+                                <span id="halfbodyText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody3"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateBodyPrice()">
+                                <input class="form-check-input" type="radio" name="Body Amount" id="radioBody3"
+                                    value="thighs" required>
+                                <span>Thigh-up</span>
+                                <span id="thigh-upText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody4"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateBodyPrice()">
+                                <input class="form-check-input" type="radio" name="Body Amount" id="radioBody4"
+                                    value="fullbody" required>
+                                <span>Full body</span>
+                                <span id="fullbodyText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonBody" for="radioBody5"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateBodyPrice()">
+                                <input class="form-check-input" type="radio" name="Body Amount" id="radioBody5"
+                                    value="other" required>
+                                <span>Other</span>
+                                <span id="otherText"></span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="amountcharactersIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Solo, Duo, or Multiple Characters 
+                            </span>
+                        </div>
+
+                        <div class="btn-group btn-group-toggle mb-2 mx-auto p-0 col-12" data-toggle="buttons">
+
+                            <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters"
+                                for="radioAmount1" data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateAmountCharactersPrice()">
+                                <input class="form-check-input" type="radio" name="How many characters"
+                                    id="radioAmount1" value="one" required>
+                                <span>1</span>
+                                <span id="oneText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters"
+                                for="radioAmount2" data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateAmountCharactersPrice()">
+                                <input class="form-check-input" type="radio" name="How many characters"
+                                    id="radioAmount2" value="two" required>
+                                <span>2</span>
+                                <span id="twoText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters"
+                                for="radioAmount3" data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateAmountCharactersPrice()">
+                                <input class="form-check-input" type="radio" name="How many characters"
+                                    id="radioAmount3" value="three" required>
+                                <span>3</span>
+                                <span id="threeText"></span>
+                            </label>
+
+                            <label class="btn btn-secondary col" type="button" name="buttonAmountCharacters"
+                                for="radioAmount4" data-toggle="button" aria-pressed="false" autocomplete="off"
+                                onchange="updateAmountCharactersPrice()">
+                                <input class="form-check-input" type="radio" name="How many characters"
+                                    id="radioAmount4" value="four" required>
+                                <span>4</span>
+                                <span id="fourText"></span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="designingCharIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Are we designing a character from scratch?
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-50% (without the %)" id="designCharacter" onchange="updateDesignCharactersPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="lewdIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Lewd? 
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-25% (without the %)"  id="lewd" onchange="updateLewdPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="outfitIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Outfit Complexity 
+                            </span>
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)" id="outfitComplexity" onchange="updateOutfitOptionsPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2" id="extrasSection">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="extrasIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                                <span class="h4 text-light">
+                                    Pets/Props/Weapons
+                                </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Pets $</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasPets" onchange="updateExtrasPrice()">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Props $</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasProps" onchange="updateExtrasPrice()">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Weapons $</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasWeapons" onchange="updateExtrasPrice()">
+                        </div>
+
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="backgroundIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div class="dropdown">
+                                <span class="h4 text-light">
+                                    Background 
+                                </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: $0-180 (without the $)" id="background" onchange="updateBackgroundPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="skipIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                                <span class="h4 text-light">
+                                    Skip Queue/Rush/Deadline 
+                                </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)" id="skipqueue" onchange="updateSkipQueuePrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="privateIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Private? 
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Private?" id="noPrivateRadio" value="no" onchange="updatePrivatePrice()">
+                                <label class="form-check-label text-light" for="noStyleRadio">
+                                    <span>Not private</span>
+                                    <span id="noPrivateText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Private?" id="yesPrivateRadio" value="yes" onchange="updatePrivatePrice()">
+                                <label class="form-check-label text-light" for="yesStyleRadio">
+                                    <span>Yes, its private (100%)</span>
+                                    <span id="yesPrivateText"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="text-light text-center d-none" id="otherFeesIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Other fees
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: $30 (without the $)" id="otherfees" onchange="updateOtherFeesPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+                        <span class="h4 text-light text-left">Total: </span>
+                        <output class="h4 text-light text-center" id="totalIDValue" name="TOTAL">$0.00</output>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+        </div>
+    </main>
+
+    <footer class="bg-dark text-muted">
+        <div class="container">
+
+        </div>
+    </footer>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+
+</html>
