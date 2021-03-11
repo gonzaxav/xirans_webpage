@@ -299,6 +299,56 @@ hr.solid{
   box-shadow: 0 0 5px 2px hsl(210, 10%, 17%);
 }
 
+.bg-loyalty{
+  background-color: hsl(180, 20%, 30%) !important;
+  box-shadow: 0 0 5px 2px hsl(210, 10%, 17%);
+}
+
+.bg-friend{
+  background-color: hsl(340, 20%, 30%) !important;
+  box-shadow: 0 0 5px 2px hsl(210, 10%, 17%);
+}
+
+.bg-twitch{
+  background-color: hsl(273, 20%, 30%) !important;
+  box-shadow: 0 0 5px 2px hsl(210, 10%, 17%);
+}
+
+.bg-bigcommission{
+  background-color: hsl(153, 20%, 30%) !important;
+  box-shadow: 0 0 5px 2px hsl(210, 10%, 17%);
+}
+
+.nav-sticky{
+  position: sticky;
+  top: 0px;
+  z-index: 999999;
+}
+
+.total-sticky{
+  position: sticky;
+  bottom: 0px;
+  z-index: 999999;
+}
+
+.total-border{
+  border-top: 2px solid #292e33;
+  border-bottom: 2px solid #292e33;
+}
+
+.alert-fix-info{
+  position: static;
+  width: 100%;
+  transform: translate(0, 0);
+  background-color: hsl(189, 25%, 70%);
+}
+
+.alert-fix-danger{
+  position: static;
+  width: 100%;
+  transform: translate(0, 0);
+}
+
 .xiransgreen{
   color: #7de896;
 }
@@ -377,6 +427,11 @@ hr.solid{
 .xiranssection{
   background-color: #414850;
   background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 29%), hsl(210, 10%, 23%));
+}
+
+.xiranssectiondarker{
+  background-color: #414850;
+  background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 15%), hsl(210, 10%, 23%));
 }
 
 ul {
