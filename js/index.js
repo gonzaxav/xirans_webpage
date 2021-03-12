@@ -280,6 +280,8 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     updateAmountCharactersPrice();
     carouselChangeStyle();
     updateExtras();
+    document.getElementById("howManyEmotesID").classList.add("d-none");
+    updateHowManyEmotesTextAndPrice();
 
     if (style.value == "") {
         hideStyleShading();
@@ -298,6 +300,7 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
 
     else if (style.value == "emote") {
         hideStyleShading();
+        document.getElementById("howManyEmotesID").classList.remove("d-none");
     }
 
     else if (style.value == "sketch") {
@@ -1512,6 +1515,42 @@ function updateAmountCharactersPrice() {
         document.getElementById("amountcharactersIDValue").classList.remove("d-none");
         document.getElementById("amountcharactersIDValue").innerText = bodyContent;
     }
+}
+
+function updateHowManyEmotesTextAndPrice(){
+    var one = document.getElementById("oneEmoteText");
+    var two = document.getElementById("twoEmoteText");
+    var three = document.getElementById("threeEmoteText");
+    var four = document.getElementById("fourEmoteText");
+    var five = document.getElementById("fiveEmoteText");
+
+    if (pricesArray.emotesAmount.one.discount){
+        one.innerHTML = `1 emote`;
+    } else {
+        one.innerHTML = `1 emote ` + `<span class="xiransgreen>"(-${pricesArray.emotesAmount.one.dollarOrPercentage}${pricesArray.emotesAmount.one.amount})</span>`;
+    }
+    if (pricesArray.emotesAmount.two.discount){
+        two.innerHTML = `2 emotes`;
+    } else {
+        two.innerHTML = `2 emotes ` + `<span class="xiransgreen>"(-${pricesArray.emotesAmount.two.dollarOrPercentage}${pricesArray.emotesAmount.two.amount})</span>`;
+    }
+    if (pricesArray.emotesAmount.one.discount){
+        three.innerHTML = `3 emotes`;
+    } else {
+        three.innerHTML = `3 emotes ` + `<span class="xiransgreen>"(-${pricesArray.emotesAmount.three.dollarOrPercentage}${pricesArray.emotesAmount.three.amount})</span>`;
+    }
+    if (pricesArray.emotesAmount.four.discount){
+        four.innerHTML = `4 emotes`;
+    } else {
+        four.innerHTML = `4 emotes ` + `<span class="xiransgreen>"(-${pricesArray.emotesAmount.four.dollarOrPercentage}${pricesArray.emotesAmount.four.amount})</span>`;
+    }
+    if (pricesArray.emotesAmount.five.discount){
+        five.innerHTML = `5 emotes`;
+    } else {
+        five.innerHTML = `5 emotes ` + `<span class="xiransgreen>"(-${pricesArray.emotesAmount.five.dollarOrPercentage}${pricesArray.emotesAmount.five.amount})</span>`;
+    }
+    
+
 }
 
 function updateOutfitOptionsTextAndPrice() {

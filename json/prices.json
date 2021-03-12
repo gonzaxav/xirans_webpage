@@ -475,6 +475,33 @@
             }
         }
     },
+    "emotesAmount": {
+        "one": {
+            "discount": "false",
+            "amount": "0",
+            "dollarOrPercentage": "$"
+        },
+        "two": {
+            "discount": "false",
+            "amount": "0",
+            "dollarOrPercentage": "$"
+        },
+        "three": {
+            "discount": "true",
+            "amount": "5",
+            "dollarOrPercentage": "$"
+        },
+        "four": {
+            "discount": "true",
+            "amount": "5",
+            "dollarOrPercentage": "$"
+        },
+        "five": {
+            "discount": "true",
+            "amount": "15",
+            "dollarOrPercentage": "$"
+        }
+    },
     "background": {
         "none": {
             "minValue": "0",
