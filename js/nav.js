@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 <ul class="navbar-nav w-100">
                     <li class="nav-item col active d-flex align-items-center justify-content-center">
                         <a class="nav-link" href="discounts.html">
-                            <i class="fas fa-tag"></i>
+                            <i class="fas fa-chart-line"></i>
                             Discounts
                         </a>
                     </li>

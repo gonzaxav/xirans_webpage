@@ -8,6 +8,10 @@ function cleanArray(){
     }
 }
 
+function toggleDiscountDetails(){
+    document.getElementById("discountDetailsID").classList.toggle("d-none");
+}
+
 function selectBGColor(from){
     if (from == "Milestone"){
         return `<div class="card text-white bg-loyalty mx-auto" style="width: 18rem;">`;
@@ -43,7 +47,7 @@ function checkDiscount(){
     var content = "";
 
     for (var i = 0; i < discountsArray.length; i++){
-        if (discountsArray[i][0] == name){
+        if (discountsArray[i][0] == name && name.length != 0){
             found = true;
 
             content += `

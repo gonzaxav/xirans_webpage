@@ -322,13 +322,13 @@ hr.solid{
 .nav-sticky{
   position: sticky;
   top: 0px;
-  z-index: 999999;
+  z-index: 999;
 }
 
 .total-sticky{
   position: sticky;
   bottom: 0px;
-  z-index: 999999;
+  z-index: 999;
 }
 
 .total-border{
@@ -424,6 +424,10 @@ hr.solid{
   text-decoration: underline;
 }
 
+.text-light2{
+  color: #c5ccd1 !important;
+}
+
 .xiranssection{
   background-color: #414850;
   background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 29%), hsl(210, 10%, 23%));
@@ -434,7 +438,7 @@ hr.solid{
   background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 15%), hsl(210, 10%, 23%));
 }
 
-ul {
+ul.remove {
   list-style-type: none;
   margin: 0;
   padding: 0;
