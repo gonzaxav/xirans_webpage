@@ -477,27 +477,27 @@
     },
     "emotesAmount": {
         "one": {
-            "discount": "false",
+            "discount": false,
             "amount": "0",
             "dollarOrPercentage": "$"
         },
         "two": {
-            "discount": "false",
+            "discount": false,
             "amount": "0",
             "dollarOrPercentage": "$"
         },
         "three": {
-            "discount": "true",
+            "discount": true,
             "amount": "5",
             "dollarOrPercentage": "$"
         },
         "four": {
-            "discount": "true",
+            "discount": true,
             "amount": "5",
             "dollarOrPercentage": "$"
         },
         "five": {
-            "discount": "true",
+            "discount": true,
             "amount": "15",
             "dollarOrPercentage": "$"
         }
