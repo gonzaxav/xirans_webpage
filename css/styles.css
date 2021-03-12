@@ -332,8 +332,7 @@ hr.solid{
 }
 
 .total-border{
-  border-top: 2px solid #292e33;
-  border-bottom: 2px solid #292e33;
+  border-top: 2px solid hsl(210, 10%, 12%);
 }
 
 .alert-fix-info{
@@ -435,7 +434,7 @@ hr.solid{
 
 .xiranssectiondarker{
   background-color: #414850;
-  background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 15%), hsl(210, 10%, 23%));
+  background-image: linear-gradient(to left, hsl(210, 10%, 23%), hsl(210, 10%, 15%), hsl(210, 10%, 10%), hsl(210, 10%, 15%),hsl(210, 10%, 23%));
 }
 
 ul.remove {
