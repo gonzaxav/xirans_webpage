@@ -356,6 +356,14 @@ hr.solid{
   color: #e8b67d;
 }
 
+.xiranspurple{
+  color: #b98fe9;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .xiranstextshadow{
+  text-shadow: 1px 1px #0f0f0f;
+}
+
 .btnxiransgreen{
   color: #212529;
   background-color: #babfc5;

@@ -31,7 +31,9 @@
                 <div class="row mb-4 p-2">
                     <div class="col text-light">
                         <h1>Check what discounts you have available!</h1>
-                        <h4>Just type your discord name.</h4>
+                        <h4>Copy-paste your handle exactly how it appears on Discord. Make sure there's no random spaces.<br>
+                            Contact me if you have any issues.
+                        </h4>
                     </div>
                 </div>
 
@@ -57,69 +59,100 @@
 
                 <div>
                     <button id="btnCheckDiscount"
-                        class="btn btn-dark btn-dark-fix button-success pure-button button-xlarge btn-lg btn-block mx-auto mb-3" onclick="toggleDiscountDetails()">
+                        class="btn btn-dark btn-dark-fix button-success pure-button button-xlarge btn-lg btn-block mx-auto mb-3"
+                        onclick="toggleDiscountDetails()">
                         <i class="fas fa-cookie-bite"></i>&nbsp;Discount Details</button>
                 </div>
 
-                <div class="row d-none" id="discountDetailsID">
+                <div class="row xiranstextshadow d-none" id="discountDetailsID">
                     <div class="col">
                         <div class="text-light mb-3 xiranssection p-2">
-                            <p><strong>♥ Refer-a-friend</strong>: They get a 5% discount & you get a 5% discount on your next
-                                eligible
-                                commission. <i class="xiransgreen">CAN be paired with other discounts.</i></p>
-                            <p class="text-light2 pl-4">For return & first-time client pairs only. Referrer receives 5% discount
-                                towards their next
-                                eligible commission of choice if their friend places an order & goes through with it. Subtotal
-                                must be $30+ per client.</p>
+                            <p><strong>♥ Refer-a-friend</strong>: They get a <span class="xiransorange">5%</span> discount & you get a <span class="xiransorange">5%</span> discount on your
+                                next eligible commission. <i class="xiransgreen">CAN be paired with other discounts.</i></p>
+                            <p class="text-light2 pl-4">For return & first-time client pairs only. Referrer receives <span class="xiransorange">5%</span>
+                                discount towards their next
+                                eligible commission of choice if their friend places an order & goes through with it.
+                                Minimum <span class="xiranspurple">$30+</span> total per client.</p>
                         </div>
                         <div class="text-light mb-3 xiranssection p-2">
-                            <p><strong>♥ Twitch channel points</strong>: hang out with me on-stream to passively earn channel
-                                points & redeem flat amount discounts! Subscribers earn channel points faster. <i
+                            <p><strong>♥ Twitch channel points</strong>: hang out with me on-stream to passively earn
+                                channel points & redeem flat amount discounts! Subscribers earn channel points faster. <i
                                     class="xiransred">Cannot be transferred or paired with other discounts.</i></p>
-                            <p class="text-light2 pl-4">$5 Off | Minimum $30 total<br>
-                                $10 Off | Minimum $60 total<br>
-                                $25 Off | Minimum $100 total</p>
+                            <p class="text-light2 pl-4">
+                                <span class="xiransorange">$5 Off</span> | Minimum <span class="xiranspurple">$30</span> total<br>
+                                <span class="xiransorange">$10 Off</span> | Minimum <span class="xiranspurple">$60</span> total<br>
+                                <span class="xiransorange">$25 Off</span> | Minimum <span class="xiranspurple">$100</span> total
+                            </p>
                         </div>
                         <div class="text-light mb-3 xiranssection p-2">
-                            <p><strong>♥ Emotes/Badges</strong>: 3 for $70 (save $5) | 5 for $110 (save $15) || <i
+                            <p><strong>♥ Emotes/Badges</strong>: 3 for <span class="xiransgreen">$70</span> (save <span class="xiransorange">$5</span>) | 5 for <span class="xiransgreen">$110</span> (save <span class="xiransorange">$15</span>). <i
                                     class="xiransred">Cannot be paired with other discounts.</i></p>
-                            <p class="text-light2 pl-4">Order must be placed as one. Cannot be stacked with previous orders (Ex:
+                            <p class="text-light2 pl-4">Order must be placed as one. Cannot be stacked with previous
+                                orders (Ex:
                                 place an order for x1 emote, and then place another order for x4 emotes).</p>
                         </div>
                         <div class="text-light mb-3 xiranssection p-2">
-                            <p><strong>♥ Loyalty Milestones</strong>: Reach milestones & receive a % discount! Orders placed
-                                between milestones retain their normal price. Order total must be $50+ to qualify towards
-                                Loyalty. (Ex: x1 emote ($25 total) in 1 order does not qualify towards Loyalty. x2 emotes ($50
-                                total) in 1 order qualify.) Milestones cannot be saved and/or stacked together. If you do not
-                                use your milestone discount, it will be forfeited. <i class="xiransred">Cannot be transferred or
-                                    paired with other discounts.</i></p>
-                            <p class="text-light2 pl-4">Milestones get reset if you do not place an order for 1 year (i.e., if
-                                you last placed x5 orders back in 420 B.C., your Loyalty is at 0. If you place 1 order every 11
-                                months, your Loyalty counter does not reset.) Orders must have no more than 2 characters to be
+                            <p><strong>♥ Big Commissions:</strong> Place a single order for over a certain amount to
+                                receive a discount
+                                for your next qualified order! Tipping to your order to reach that number qualifies.
+                                Donations do not qualify. <i class="xiransred">Cannot be transferred or paired with
+                                    other discounts.</i></p>
+                            <p class="text-light2 pl-4">
+                                <span class="xiransgreen">$250+</span> <i class="fas fa-angle-right"></i> <span class="xiransorange">$15 Off</span> | Minimum <span class="xiranspurple">$30</span> total<br>
+                                <span class="xiransgreen">$300+</span> <i class="fas fa-angle-right"></i> <span class="xiransorange">$20 Off</span> | Minimum <span class="xiranspurple">$40</span> total<br>
+                                <span class="xiransgreen">$350+</span> <i class="fas fa-angle-right"></i> <span class="xiransorange">$25 Off</span> | Minimum <span class="xiranspurple">$50</span> total<br>
+                                <span class="xiransgreen">$400+</span> <i class="fas fa-angle-right"></i> <span class="xiransorange">$30 Off</span> | Minimum <span class="xiranspurple">$60</span> total<br>
+                                <span class="xiransgreen">$500+</span> <i class="fas fa-angle-right"></i> <span class="xiransorange">$50 Off</span> | Minimum <span class="xiranspurple">$100</span> total
+                            </p>
+                        </div>
+                        <div class="text-light mb-3 xiranssection p-2">
+                            <p><strong>♥ Loyalty Milestones</strong>: Reach milestones & receive a % discount! Orders
+                                placed between milestones retain their normal price. Order total must be <span class="xiranspurple">$50+</span> to qualify
+                                towards Loyalty & to receive the discount. (Ex: x1 emote ($25 total) in 1 order does not qualify
+                                towards Loyalty. x2 emotes ($50 total) in 1 order qualify.) Milestones cannot be saved
+                                and/or
+                                stacked together. If you do not use your milestone discount, it will be forfeited.
+                                <i class="xiransred">Cannot be transferred or paired with other discounts.</i>
+                            </p>
+                            <p class="text-light2 pl-4">Milestones get reset if you do not place an order for 1 year
+                                (i.e., if
+                                you last placed x5 orders back in 420 B.C., your Loyalty is at 0. If you place 1 order
+                                every 11
+                                months, your Loyalty counter does not reset.) Orders must have no more than 2 characters
+                                to be
                                 eligible.</p>
                             <ul class="text-light2 pl-5">
-                                <li>x3: 5% off (your third order gets 5% off)</li>
-                                <li>x5: 7% off</li>
-                                <li>x10/15/20: 10% off</li>
-                                <li>x25/30/35/40/45: 15% off</li>
-                                <li>x50: 20% off</li>
+                                <li>x3: <span class="xiransorange">5% off</span> (your third order gets <span class="xiransorange">5% off</span>)</li>
+                                <li>x5: <span class="xiransorange">7% off</span></li>
+                                <li>x10/15/20: <span class="xiransorange">10% off</span></li>
+                                <li>x25/30/35/40/45: <span class="xiransorange">15% off</span></li>
+                                <li>x50: <span class="xiransorange">20% off</span></li>
                             </ul>
                         </div>
                         <div class="text-light mb-3 xiranssection p-2">
                             <p><strong>Note</strong>:</p>
                             <ul class="remove xiransdiamond text-light">
-                                <li>Rush/Priority/Private/Commercial type commissions cannot have any discounts applied to them.</li>
-                                <li>Lewd/Character Design type commissions may only have flat amount discounts applied. If it's a milestone commission, you may opt to apply a maximum of a 5% discount and opt to forfeit the rest. (Ex.: 15th commission, should have 10% off, but you want lewd, so maximum 5% off.)                        </li>
-                                <li>All discounts get applied to the total (not subtotal). If you have 2 stackable discounts, one gets applied first, then the other.</li>
-                                <li>If you have 2+ unstackable discounts pending, you may choose which one you want first - unless the commission is a loyalty milestone. Unused milestone discounts get forfeited.</li>
-                                <li>If you have previously placed several orders, you may inquire about redeeming Loyalty Milestone discounts.</li>
-                                <li>All %-based discounts are capped to a 30$ maximum.</li>
-                                <li>All discounts are subject to Xiran's approval. If I feel like a discount will demotivate me, I will decline your commission.</li>
+                                <li>Rush/Priority/Private/Commercial type commissions cannot have any discounts applied
+                                    to them.</li>
+                                <li>Lewd/Character Design type commissions may only have flat amount discounts applied.
+                                    If it's a milestone commission, you may opt to apply a maximum of a <span class="xiransorange">5%</span> discount and
+                                    opt to forfeit the rest. (Ex.: 15th commission, should have <span class="xiransorange">10% off</span>, but you want
+                                    lewd, so maximum <span class="xiransorange">5%</span> off.) </li>
+                                <li>All discounts get applied to the total (not subtotal). If you have 2 stackable
+                                    discounts, one gets applied first, then the other.</li>
+                                <li>If you have 2+ unstackable discounts pending, you may choose which one you want
+                                    first - unless the commission is a loyalty milestone. Unused milestone discounts get
+                                    forfeited.</li>
+                                <li>If you have previously placed several orders, you may inquire about redeeming
+                                    Loyalty Milestone discounts.</li>
+                                <li>All %-based discounts are capped to a <span class="xiransorange">$30</span> maximum.</li>
+                                <li>All discounts are subject to Xiran's approval. If I feel like a discount will
+                                    demotivate me, I will decline your commission.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </main>
