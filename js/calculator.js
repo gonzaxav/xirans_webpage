@@ -10,6 +10,7 @@ var styleShadingRadio;
 var outfit;
 var outfitOptions;
 var amountCharactersRadio;
+var amountEmotesRadio;
 var privateRadio;
 var lewdRadio;
 var skipQueueRadio;
@@ -196,6 +197,8 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     updateAmountCharactersButtons();
     updateAmountCharactersPrice();
     updateExtrasPrice();
+    document.getElementById("howManyEmotesID").classList.add("d-none");
+    updateHowManyEmotesText();
 
     if (style.value == "") {
         hideStyleShading();
@@ -214,6 +217,10 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
 
     else if (style.value == "emote") {
         hideStyleShading();
+        bodyRadio[4].checked = true;
+        bodyButtons[4].classList.add("active");
+        updateBodyPrice();
+        document.getElementById("howManyEmotesID").classList.remove("d-none");
     }
 
     else if (style.value == "sketch") {
@@ -1430,6 +1437,80 @@ function updateAmountCharactersPrice() {
     }
 }
 
+function updateHowManyEmotesText(){
+    for (var i = 0; i < amountEmotesRadio.length; i++) {
+        amountEmotesRadio[i].checked = false;
+    }
+    document.getElementById("howManyEmotesIDValue").classList.add("d-none");
+
+    var one = document.getElementById("oneEmoteText");
+    var two = document.getElementById("twoEmoteText");
+    var three = document.getElementById("threeEmoteText");
+    var four = document.getElementById("fourEmoteText");
+    var five = document.getElementById("fiveEmoteText");
+    var costForAnEmote = pricesArray.body.other.emote.value;
+
+    if (!pricesArray.emotesAmount.one.discount){
+        one.innerHTML = `1 emote&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.one.dollarOrPercentage} ${costForAnEmote*1}</span>`;
+    } else {
+        one.innerHTML = `1 emote&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.one.dollarOrPercentage} ${(costForAnEmote*1)-pricesArray.emotesAmount.one.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.one.dollarOrPercentage} ${pricesArray.emotesAmount.one.amount} OFF!</span>`;
+    }
+    if (!pricesArray.emotesAmount.two.discount){
+        two.innerHTML = `2 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${costForAnEmote*2}</span>`;
+    } else {
+        two.innerHTML = `2 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${(costForAnEmote*2)-pricesArray.emotesAmount.two.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${pricesArray.emotesAmount.two.amount} OFF!</span>`;
+    }
+    if (!pricesArray.emotesAmount.three.discount){
+        three.innerHTML = `3 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${costForAnEmote*3}</span>`;
+    } else {
+        three.innerHTML = `3 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${(costForAnEmote*3)-pricesArray.emotesAmount.three.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${pricesArray.emotesAmount.three.amount} OFF!</span>`;
+    }
+    if (!pricesArray.emotesAmount.four.discount){
+        four.innerHTML = `4 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${costForAnEmote*4}</span>`;
+    } else {
+        four.innerHTML = `4 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${(costForAnEmote*4)-pricesArray.emotesAmount.four.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${pricesArray.emotesAmount.four.amount} OFF!</span>`;
+    }
+    if (!pricesArray.emotesAmount.five.discount){
+        five.innerHTML = `5 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${costForAnEmote*5}</span>`;
+    } else {
+        five.innerHTML = `5 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${(costForAnEmote*5)-pricesArray.emotesAmount.five.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${pricesArray.emotesAmount.five.amount} OFF!</span>`;
+    }
+    
+
+}
+
+function updateHowManyEmotesPrice(){
+    var costForAnEmote = pricesArray.body.other.emote.value;
+    var content = 0;
+
+    for (var i = 0; i < amountEmotesRadio.length; i++) {
+        if (amountEmotesRadio[i].checked) {
+            if (amountEmotesRadio[i].value == "oneEmote") {
+                content = (costForAnEmote*1)-pricesArray.emotesAmount.one.amount;
+            } else if (amountEmotesRadio[i].value == "twoEmote") {
+                content = (costForAnEmote*2)-pricesArray.emotesAmount.two.amount;
+            } else if (amountEmotesRadio[i].value == "threeEmote") {
+                content = (costForAnEmote*3)-pricesArray.emotesAmount.three.amount;
+            } else if (amountEmotesRadio[i].value == "fourEmote") {
+                content = (costForAnEmote*4)-pricesArray.emotesAmount.four.amount;
+            } else if (amountEmotesRadio[i].value == "fiveEmote") {
+                content = (costForAnEmote*5)-pricesArray.emotesAmount.five.amount;
+            }
+        }
+    }
+
+    numberBody = content;
+
+    updateTotal();
+
+    if (content == "") {
+        document.getElementById("howManyEmotesIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("howManyEmotesIDValue").classList.remove("d-none");
+        document.getElementById("howManyEmotesIDValue").innerText = "$" + content;
+    }
+}
+
 function updateOutfitOptionsPrice() {
     let cost = document.getElementById("outfitComplexity").value;
 
@@ -1577,6 +1658,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             amountCharactersRadio = document.getElementsByName("How many characters");
                             amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
 
+                            amountEmotesRadio = document.getElementsByName("How many emotes?");
+
                             privateRadio = document.getElementsByName("Private?");
 
                             updateOtherFeesPrice();
@@ -1585,6 +1668,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             checkIfAButtonWasClicked();
                             updateBodyPrice();
                             updateAmountCharactersPrice();
+                            updateHowManyEmotesPrice();
                             updateOutfitOptionsPrice();
                             updateExtrasPrice();
                             updateBackgroundPrice();

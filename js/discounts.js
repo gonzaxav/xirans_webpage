@@ -89,7 +89,7 @@ function checkDiscount(){
                     <hr>
                     <p class="mb-0">
                     You currently do not have any discounts available.<br>
-                    For more information, please visit [this page].
+                    Click the Discount Details button below for more information on how to acquire discounts!
                     </p>
                 </div>
                 `
