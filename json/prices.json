@@ -14,12 +14,12 @@
         "portrait": {
             "cleanColors": {
                 "isItPossible": true,
-                "value": "54",
+                "value": "80",
                 "dollarOrPercentage": "$"
             },
             "hybrid": {
                 "isItPossible": true,
-                "value": "42",
+                "value": "55",
                 "dollarOrPercentage": "$"
             },
             "coloredSketch": {
@@ -61,12 +61,12 @@
         "halfbody": {
             "cleanColors": {
                 "isItPossible": true,
-                "value": "72",
+                "value": "110",
                 "dollarOrPercentage": "$"
             },
             "hybrid": {
                 "isItPossible": true,
-                "value": "58",
+                "value": "70",
                 "dollarOrPercentage": "$"
             },
             "coloredSketch": {
@@ -108,12 +108,12 @@
         "thighs": {
             "cleanColors": {
                 "isItPossible": true,
-                "value": "95",
+                "value": "135",
                 "dollarOrPercentage": "$"
             },
             "hybrid": {
                 "isItPossible": true,
-                "value": "72",
+                "value": "85",
                 "dollarOrPercentage": "$"
             },
             "coloredSketch": {
@@ -155,12 +155,12 @@
         "full": {
             "cleanColors": {
                 "isItPossible": true,
-                "value": "110",
+                "value": "160",
                 "dollarOrPercentage": "$"
             },
             "hybrid": {
                 "isItPossible": true,
-                "value": "88",
+                "value": "100",
                 "dollarOrPercentage": "$"
             },
             "coloredSketch": {
