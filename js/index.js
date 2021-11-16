@@ -275,17 +275,31 @@ function hideStyleShading() {
 function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     styleShading = document.getElementById("styleShadingID");
 
+    updateBodyButtons();
+    updateHowManyEmotesText();
+
+    if (style.value != "emote") {
+        for (var i = 0; i < amountEmotesRadio.length; i++) {
+            amountEmotesRadio[i].checked = false;
+        }
+
+        updateBodyPrice();
+    }
+    else if (style.value == "emote"){
+        updateBodyPrice();
+        updateHowManyEmotesPrice();
+    }
+
     if (check == true) {
         unselectThemAll();
     }
-    updateBodyButtons();
-    updateBodyPrice();
+
     updateAmountCharactersButtons();
     updateAmountCharactersPrice();
     carouselChangeStyle();
     updateExtras();
     document.getElementById("howManyEmotesID").classList.add("d-none");
-    updateHowManyEmotesText();
+
 
     if (style.value == "") {
         hideStyleShading();
@@ -306,7 +320,6 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
         hideStyleShading();
         bodyRadio[4].checked = true;
         bodyButtons[4].classList.add("active");
-        updateBodyPrice();
         document.getElementById("howManyEmotesID").classList.remove("d-none");
     }
 
@@ -1526,7 +1539,7 @@ function updateAmountCharactersPrice() {
 
 function updateHowManyEmotesText(){
     for (var i = 0; i < amountEmotesRadio.length; i++) {
-        amountEmotesRadio[i].checked = false;
+        //amountEmotesRadio[i].checked = false;
     }
     document.getElementById("howManyEmotesIDValue").classList.add("d-none");
 
@@ -2225,9 +2238,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                             updateStyleShowShadingPriceAndCallOtherFunctions(false);
                             checkIfAButtonWasClicked();
-                            updateBodyPrice();
-                            updateAmountCharactersPrice();
-                            updateHowManyEmotesPrice();
+                            //updateBodyPrice();
+                            //updateAmountCharactersPrice();
+                            //updateHowManyEmotesPrice();
 
                             outfit = document.getElementById("inputOutfit");
                             outfitOptions = document.getElementsByName("outfitOptions");
@@ -2250,10 +2263,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                             updateExtras();
 
-                            updateTotal();
-
                             carouselStart();
                             carouselChangeStyle();
+
+                            updateTotal();
                         }
                     });
                 }
