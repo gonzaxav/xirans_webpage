@@ -271,6 +271,10 @@ function hideStyleShading() {
     styleShading.classList.add("d-none");
     document.getElementById("styleShadingIDValue").classList.add("d-none");
 
+    for (var i = 0; i < styleShadingRadio.length; i++) {
+        styleShadingRadio[i].checked = false
+    }
+
     numberStyleShading = 0;
     updateTotal();
     document.getElementById("styleShadingIDValue").innerText = pricesArray.cheapshading.doodle.dollarOrPercentage + pricesArray.cheapshading.doodle.no;
