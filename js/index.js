@@ -275,6 +275,10 @@ function hideStyleShading() {
 function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     styleShading = document.getElementById("styleShadingID");
 
+    if (check == true) {
+        unselectThemAll();
+    }
+
     updateBodyButtons();
     updateHowManyEmotesText();
 
@@ -288,10 +292,6 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     else if (style.value == "emote"){
         updateBodyPrice();
         updateHowManyEmotesPrice();
-    }
-
-    if (check == true) {
-        unselectThemAll();
     }
 
     updateAmountCharactersButtons();
