@@ -270,6 +270,10 @@ function showStyleShading() {
 function hideStyleShading() {
     styleShading.classList.add("d-none");
     document.getElementById("styleShadingIDValue").classList.add("d-none");
+
+    numberStyleShading = 0;
+    updateTotal();
+    document.getElementById("styleShadingIDValue").innerText = pricesArray.cheapshading.doodle.dollarOrPercentage + pricesArray.cheapshading.doodle.no;
 }
 
 function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
