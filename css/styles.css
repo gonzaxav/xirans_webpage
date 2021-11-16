@@ -490,13 +490,33 @@ li.xiransindent {
   -o-transition: all 1000ms cubic-bezier(.46,.03,.52,.96);
   transition: all 1000ms cubic-bezier(.46,.03,.52,.96);
   background-color: #ccc;
-  -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 1vw 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 1vw 0px rgba(0,0,0,0.5);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.carousel-img-text-div{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-img-text{
+  font-weight: 500;
+  padding: .375rem .75rem;
+  background-color: rgba(9, 19, 37, 0.5);
+  border: 1px solid hsl(210, 50%, 83%);
+  border-radius: .25rem;
+  -webkit-box-shadow: 0px 0px 1vw 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 1vw 0px rgba(0,0,0,0.5);
+}
+
+.carousel-img-text{
+  color: #f8f9fa !important;
+  text-align: center;
 }
 
 *, ::before, ::after {
@@ -587,7 +607,6 @@ li.xiransindent {
     width: 100%;
     top: 0px;
     left: 0px;
-    box-shadow: 0 0 0 5px #24282c;
     }
   .carousel-prev2{
     width: 100%;
@@ -637,7 +656,6 @@ li.xiransindent {
     height: 148px;
     top: 24px;
     left: 0px;
-    box-shadow: 0 0 0 5px #0003;
     }
   .carousel-prev2{
     left: -40px;
@@ -680,7 +698,6 @@ li.xiransindent {
     height: 201px;
     top: 40px;
     left: 0px;
-    box-shadow: 0 0 0 5px #0003;
     }
   .carousel-prev2{
     left: -40px;
@@ -723,7 +740,6 @@ li.xiransindent {
     height: 201px;
     top: 40px;
     left: 0px;
-    box-shadow: 0 0 0 5px #0003;
     }
   .carousel-prev2{
     left: -40px;
@@ -766,7 +782,6 @@ li.xiransindent {
   height: 201px;
   top: 40px;
   left: 0px;
-  box-shadow: 0 0 0 5px #0003;
   }
   .carousel-prev2{
     left: -100px;

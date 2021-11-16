@@ -1,13 +1,3 @@
-const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
-const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
-const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
-const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
-const CART_INFO_URL_2 = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
-
 const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/json/prices.json";
 const AMOUNT_OF_COMMISSIONS_URL = "https://api.trello.com/1/lists/5f7cb19ee26f79442887834e/cards";
 const WORK_IN_PROGRESS_URL = "https://api.trello.com/1/lists/5f7cb19e78b3ae03f247d058/cards";

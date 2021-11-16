@@ -16,14 +16,16 @@ var privateRadio;
 var lewdRadio;
 var skipQueueRadio;
 
-var carouselElements;
+var carouselElements = [];
 var cp2pos = 0;
 var cp1pos = 0;
 var cnapos = 0;
 var cn1pos = 0;
 var cn2pos = 0;
-var carouselImg;
+var carouselImg = [];
 var carouselClickedRecently = false;
+var carouselMouseOver = false;
+var carouselImgTextElements = [];
 
 var peopleInQueue = 0;
 var peopleSkippingQueue = 0;
@@ -1970,7 +1972,12 @@ function updateSkipQueueButtons() {
     }
 
     addtoqueueText.innerHTML = `+${(pricesArray.skipqueue.addmetoqueue.value - 100) + pricesArray.skipqueue.addmetoqueue.dollarOrPercentage}`;
-    skipqueueText.innerHTML = `+${(pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue + pricesArray.skipqueue.skipqueue.dollarOrPercentage}`;
+    if (peopleInQueue == 0){
+        skipqueueText.innerHTML = `+${(pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue + pricesArray.skipqueue.skipqueue.dollarOrPercentage}`;
+    }
+    else if (peopleInQueue > 0){
+        skipqueueText.innerHTML = `+${(pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * (peopleInQueue + 1) + pricesArray.skipqueue.skipqueue.dollarOrPercentage}`;
+    }
     skipqueueasapText.innerHTML = `+${(pricesArray.skipqueue.rushpriority.value - 100) + pricesArray.skipqueue.rushpriority.increaseValuePerPerson * (peopleInQueue + peopleSkippingQueue) + pricesArray.skipqueue.rushpriority.dollarOrPercentage}`;
     skipIDpeopleInQueue.innerHTML = `${(peopleInQueue)}`;
     skipIDpeopleSkipping.innerHTML = `${(peopleSkippingQueue)}`;
@@ -1987,8 +1994,15 @@ function updateSkipQueuePrice() {
                 content = (pricesArray.skipqueue.addmetoqueue.value - 100) + pricesArray.skipqueue.addmetoqueue.dollarOrPercentage;
                 cost = pricesArray.skipqueue.addmetoqueue.value / 100;
             } else if (skipQueueRadio[i].value == "skipqueue") {
-                content = (pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue + pricesArray.skipqueue.skipqueue.dollarOrPercentage;
-                cost = (Number(pricesArray.skipqueue.skipqueue.value) + (pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue)) / 100;
+                if (peopleInQueue == 0){
+                    content = (pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue + pricesArray.skipqueue.skipqueue.dollarOrPercentage;
+                    cost = (Number(pricesArray.skipqueue.skipqueue.value) + (pricesArray.skipqueue.skipqueue.increaseValuePerPerson * peopleInQueue)) / 100;
+                }
+                else if (peopleInQueue > 0){
+                    content = (pricesArray.skipqueue.skipqueue.value - 100) + pricesArray.skipqueue.skipqueue.increaseValuePerPerson * (peopleInQueue + 1) + pricesArray.skipqueue.skipqueue.dollarOrPercentage;
+                    cost = (Number(pricesArray.skipqueue.skipqueue.value) + (pricesArray.skipqueue.skipqueue.increaseValuePerPerson * (peopleInQueue + 1))) / 100;
+                }
+                
             } else if (skipQueueRadio[i].value == "skipqueueasap") {
                 content = (pricesArray.skipqueue.rushpriority.value - 100) + pricesArray.skipqueue.rushpriority.increaseValuePerPerson * (peopleInQueue + peopleSkippingQueue) + pricesArray.skipqueue.rushpriority.dollarOrPercentage;
                 cost = (Number(pricesArray.skipqueue.rushpriority.value) + (pricesArray.skipqueue.rushpriority.increaseValuePerPerson * (peopleInQueue + peopleSkippingQueue))) / 100;
@@ -2045,8 +2059,6 @@ function updateLewdTextAndPrice() {
 }
 
 function carouselStart() {
-    carouselElements = document.getElementsByName("carouselElement");
-
     for (var i = 0; i < carouselElements.length; i++) {
         if (carouselElements[i].classList.contains("carousel-prev2")) {
             cp2pos = i;
@@ -2070,7 +2082,7 @@ function carouselStart() {
 function carouselAutomaticMoving() {
     // Update the count down every 3 second
     setInterval(function () {
-        if (!carouselClickedRecently) {
+        if (!carouselClickedRecently && !carouselMouseOver) {
             carouselElements[cp2pos].classList.remove("carousel-prev2");
             carouselElements[cp1pos].classList.remove("carousel-prev1");
             carouselElements[cnapos].classList.remove("carousel-active");
@@ -2092,57 +2104,77 @@ function carouselAutomaticMoving() {
     }, 4000);
 }
 
-function carouselChangeStyle() {
-    carouselImg = document.getElementsByName("carouselImg");
+function mouseOverImgCarousel(value) {
+    carouselMouseOver = value;
+}
 
+function carouselChangeStyle() {
     if (style.value == "") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.featured[i];
         }
+        carouselImgTextElements[0].innerHTML = "Clean Colors";
+        carouselImgTextElements[1].innerHTML = "Hybrid";
+        carouselImgTextElements[2].innerHTML = "Colored Sketch";
+        carouselImgTextElements[3].innerHTML = "Emote";
+        carouselImgTextElements[4].innerHTML = "Sketch";
+        carouselImgTextElements[5].innerHTML = "Doodle";
+        carouselImgTextElements[6].innerHTML = "Scribble";
+        carouselImgTextElements[7].innerHTML = "Logo";
+        carouselImgTextElements[8].innerHTML = "Other";
     }
     else if (style.value == "cleanColors") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.cleanColors[i];
+            carouselImgTextElements[i].innerHTML = "Clean Colors";
         }
     }
     else if (style.value == "hybrid") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.hybrid[i];
+            carouselImgTextElements[i].innerHTML = "Hybrid";
         }
     }
     else if (style.value == "coloredSketch") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.coloredSketch[i];
+            carouselImgTextElements[i].innerHTML = "Colored Sketch";
         }
     }
     else if (style.value == "emote") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.emote[i];
+            carouselImgTextElements[i].innerHTML = "Emote";
         }
     }
     else if (style.value == "sketch") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.sketch[i];
+            carouselImgTextElements[i].innerHTML = "Sketch";
         }
     }
     else if (style.value == "doodle") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.doodle[i];
+            carouselImgTextElements[i].innerHTML = "Doodle";
         }
     }
     else if (style.value == "scribble") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.scribble[i];
+            carouselImgTextElements[i].innerHTML = "Scribble";
         }
     }
     else if (style.value == "logo") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.logo[i];
+            carouselImgTextElements[i].innerHTML = "Logo";
         }
     }
     else if (style.value == "other") {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.other[i];
+            carouselImgTextElements[i].innerHTML = "Other";
         }
     }
 
@@ -2172,6 +2204,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                             commercialRadio = document.getElementsByName("Is Commercial");
                             updateCommercialRadios();
+
+                            carouselElements = document.getElementsByName("carouselElement");
+                            carouselImg = document.getElementsByName("carouselImg");
+                            carouselImgTextElements = document.getElementsByName("carousel-img-text");
 
                             designCharactersRadio = document.getElementsByName("Design Character?");
                             updateDesignCharactersTextAndPrice();
