@@ -1,6 +1,8 @@
 var pricesArray = [];
 var commissionsArray = [];
 var workinprogressArray = [];
+var NFTRadio;
+var NFTCurrencyRadio;
 var designCharactersRadio;
 var style;
 var bodyRadio;
@@ -21,6 +23,8 @@ var peopleSkippingRushingQueue = 0;
 var peopleInQueueNotHold = 0;
 var peopleInQueueHold = 0;
 
+var numberNFT = 1.0;
+var numberNFTCurrency = 1.0;
 var numberDesigningCharacter = 1.0;
 var numberStyleShading = 0;
 var numberBody = 0;
@@ -111,6 +115,73 @@ function giveMeNextElementsNumber(number, length) {
 
 ////////////////////////////////////////////////////////////////////
 
+function updateNFTPrice() {
+    let content = "";
+    let cost = 1;
+    let noCost = (100 - 100) + "%";
+    let yesCost = (150 - 100) + "%";
+
+    for (var i = 0; i < NFTRadio.length; i++) {
+        if (NFTRadio[i].checked) {
+            if (NFTRadio[i].value == "no") {
+                content = noCost;
+                cost = 100 / 100;
+            }
+            else if (NFTRadio[i].value == "yesPersonal") {
+                content = yesCost;
+                cost = 150 / 100;
+            }
+            else if (NFTRadio[i].value == "yesGenerative") {
+                content = noCost;
+                cost = 100 / 100;
+            }
+            else if (NFTRadio[i].value == "yesConcept") {
+                content = noCost;
+                cost = 100 / 100;
+            }
+        }
+    }
+
+    numberNFT = Number(cost);
+    updateTotal();
+
+    if (content == "") {
+        document.getElementById("NFTIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("NFTIDValue").classList.remove("d-none");
+        document.getElementById("NFTIDValue").innerText = content;
+    }
+}
+
+function updateNFTCurrencyPrice() {
+    let content = "";
+    let cost = 1;
+    let fiatCost = (120 - 100) + "%";
+    let cryptoCost = (100 - 100) + "%";
+
+    for (var i = 0; i < NFTCurrencyRadio.length; i++) {
+        if (NFTCurrencyRadio[i].checked) {
+            if (NFTCurrencyRadio[i].value == "fiat") {
+                content = fiatCost;
+                cost = 120 / 100;
+            }
+            else if (NFTCurrencyRadio[i].value == "crypto") {
+                content = cryptoCost;
+                cost = 100 / 100;
+            }
+        }
+    }
+
+    numberNFTCurrency = Number(cost);
+    updateTotal();
+
+    if (content == "") {
+        document.getElementById("NFTCurrencyIDValue").classList.add("d-none");
+    } else {
+        document.getElementById("NFTCurrencyIDValue").classList.remove("d-none");
+        document.getElementById("NFTCurrencyIDValue").innerText = content;
+    }
+}
 
 function updateDesignCharactersPrice() {
     let cost = document.getElementById("designCharacter").value;
@@ -1631,7 +1702,7 @@ function updateOtherFeesPrice() {
 function updateTotal() {
     var total = 0;
 
-    total = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacter - 1)) * numberAmountCharacters) + numberExtras) * numberLewd) + numberBackground) * numberSkip) * numberPrivate) + numberOtherFees;
+    total = (((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacter - 1)) * numberAmountCharacters) + numberExtras) * numberLewd) + numberBackground) * numberSkip) * numberPrivate) + numberOtherFees) * (numberNFT + numberNFTCurrency - 1);
 
     document.getElementById("totalIDValue").innerText = `$${total.toFixed(2)}`;
 }
@@ -1648,6 +1719,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     getJSONData(PRICES_URL).then(function (resultObj) {
                         if (resultObj.status === "ok") {
                             pricesArray = resultObj.data;
+
+                            NFTRadio = document.getElementsByName("NFT?");
+                            NFTCurrencyRadio = document.getElementsByName("NFTcurrency?");
 
                             style = document.getElementById("inputStyle");
                             styleShadingRadio = document.getElementsByName("Doodle/Scribble Shading");

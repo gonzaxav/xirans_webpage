@@ -42,6 +42,106 @@
 
                     <div class="col-1">
                         <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="NFTIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Is this an NFT?
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFT?" id="noNFTRadio" value="no"
+                                    onchange="updateNFTPrice()">
+                                <label class="form-check-label text-light" for="noNFTRadio">
+                                    <span>Not an NFT</span>
+                                    <span id="noPrivateText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTPersonalRadio"
+                                    value="yesPersonal" onchange="updateNFTPrice()">
+                                <label class="form-check-label text-light" for="yesNFTPersonalRadio">
+                                    <span>Yes, its personal (50%)</span>
+                                    <span id="yesPrivateText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTGenerativeRadio"
+                                    value="yesGenerative" onchange="updateNFTPrice()">
+                                <label class="form-check-label text-light" for="yesNFTGenerativeRadio">
+                                    <span>Yes, its generative</span>
+                                    <span id="yesPrivateText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTConceptRadio"
+                                    value="yesConcept" onchange="updateNFTPrice()">
+                                <label class="form-check-label text-light" for="yesNFTConceptRadio">
+                                    <span>Yes, its concept</span>
+                                    <span id="yesPrivateText"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="NFTCurrencyIDValue">20%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Paying in?
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTFiat"
+                                    value="fiat" onchange="updateNFTCurrencyPrice()">
+                                <label class="form-check-label text-light" for="NFTFiat">
+                                    <span>Fiat (20%)</span>
+                                    <span id="noPrivateText"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTCrypto"
+                                    value="crypto" onchange="updateNFTCurrencyPrice()">
+                                <label class="form-check-label text-light" for="NFTCrypto">
+                                    <span>Crypto (0%)</span>
+                                    <span id="yesPrivateText"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
                         <p class="xiransgreen text-center d-none" id="styleShadingIDValue">50%</p>
                     </div>
 
@@ -49,7 +149,7 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Style 
+                                Style
                             </span>
                         </div>
 
@@ -112,7 +212,7 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Body 
+                                Body
                             </span>
                         </div>
 
@@ -184,7 +284,7 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Solo, Duo, or Multiple Characters 
+                                Solo, Duo, or Multiple Characters
                             </span>
                         </div>
 
@@ -241,61 +341,64 @@
                         <div class="row h-50"></div>
                         <p class="xiransgreen text-center d-none" id="howManyEmotesIDValue">50%</p>
                     </div>
-    
+
                     <div class="col-11 col-sm-10">
-    
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle dropdown-toggle-fix" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="h4 text-light">How many emotes? <i
-                            class="fas fa-question-circle"></i></span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-fix" aria-labelledby="dropdownMenuButton">
-                        <span class="dropdown-item dropdown-item-fix disabled"><strong>How many emotes?</strong>: <br>Emotes have a static discount at certain amounts! The more you buy, the better the discount becomes~
-                        </span>
+
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle dropdown-toggle-fix" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span class="h4 text-light">How many emotes? <i
+                                        class="fas fa-question-circle"></i></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-fix" aria-labelledby="dropdownMenuButton">
+                                <span class="dropdown-item dropdown-item-fix disabled"><strong>How many
+                                        emotes?</strong>: <br>Emotes have a static discount at certain amounts! The more
+                                    you buy, the better the discount becomes~
+                                </span>
+                            </div>
                         </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="How many emotes?" id="oneEmote"
+                                value="oneEmote" onchange="updateHowManyEmotesPrice()">
+                            <label class="form-check-label text-light" for="oneEmote">
+                                <span id="oneEmoteText">1 emote</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="How many emotes?" id="twoEmote"
+                                value="twoEmote" onchange="updateHowManyEmotesPrice()">
+                            <label class="form-check-label text-light" for="twoEmote">
+                                <span id="twoEmoteText">2 emotes</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="How many emotes?" id="threeEmote"
+                                value="threeEmote" onchange="updateHowManyEmotesPrice()">
+                            <label class="form-check-label text-light" for="threeEmote">
+                                <span id="threeEmoteText">3 emotes</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="How many emotes?" id="fourEmote"
+                                value="fourEmote" onchange="updateHowManyEmotesPrice()">
+                            <label class="form-check-label text-light" for="fourEmote">
+                                <span id="fourEmoteText">4 emotes</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="How many emotes?" id="fiveEmote"
+                                value="fiveEmote" onchange="updateHowManyEmotesPrice()">
+                            <label class="form-check-label text-light" for="fiveEmote">
+                                <span id="fiveEmoteText">5 emotes</span>
+                            </label>
+                        </div>
+
                     </div>
-    
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="How many emotes?" id="oneEmote" value="oneEmote"
-                        onchange="updateHowManyEmotesPrice()">
-                        <label class="form-check-label text-light" for="oneEmote">
-                        <span id="oneEmoteText">1 emote</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="How many emotes?" id="twoEmote" value="twoEmote"
-                        onchange="updateHowManyEmotesPrice()">
-                        <label class="form-check-label text-light" for="twoEmote">
-                        <span id="twoEmoteText">2 emotes</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="How many emotes?" id="threeEmote" value="threeEmote"
-                        onchange="updateHowManyEmotesPrice()">
-                        <label class="form-check-label text-light" for="threeEmote">
-                        <span id="threeEmoteText">3 emotes</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="How many emotes?" id="fourEmote" value="fourEmote"
-                        onchange="updateHowManyEmotesPrice()">
-                        <label class="form-check-label text-light" for="fourEmote">
-                        <span id="fourEmoteText">4 emotes</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="How many emotes?" id="fiveEmote" value="fiveEmote"
-                        onchange="updateHowManyEmotesPrice()">
-                        <label class="form-check-label text-light" for="fiveEmote">
-                        <span id="fiveEmoteText">5 emotes</span>
-                        </label>
-                    </div>
-    
-                    </div>
-    
+
                     <div class="col-0 col-sm-1"></div>
-    
+
                 </div>
 
                 <!------------------------------------------------------------------->
@@ -318,9 +421,10 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">%</span>
+                                <span class="input-group-text">%</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: 0-50% (without the %)" id="designCharacter" onchange="updateDesignCharactersPrice()">
+                            <input type="number" class="form-control" placeholder="For example: 0-50% (without the %)"
+                                id="designCharacter" onchange="updateDesignCharactersPrice()">
                         </div>
                     </div>
 
@@ -342,15 +446,16 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Lewd? 
+                                Lewd?
                             </span>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">%</span>
+                                <span class="input-group-text">%</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: 0-25% (without the %)"  id="lewd" onchange="updateLewdPrice()">
+                            <input type="number" class="form-control" placeholder="For example: 0-25% (without the %)"
+                                id="lewd" onchange="updateLewdPrice()">
                         </div>
                     </div>
 
@@ -372,16 +477,17 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Outfit Complexity 
+                                Outfit Complexity
                             </span>
                         </div>
 
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">%</span>
+                                <span class="input-group-text">%</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)" id="outfitComplexity" onchange="updateOutfitOptionsPrice()">
+                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)"
+                                id="outfitComplexity" onchange="updateOutfitOptionsPrice()">
                         </div>
                     </div>
 
@@ -402,30 +508,36 @@
                     <div class="col-11 col-sm-10">
 
                         <div>
-                                <span class="h4 text-light">
-                                    Pets/Props/Weapons
-                                </span>
+                            <span class="h4 text-light">
+                                Pets/Props/Weapons
+                            </span>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Pets $</span>
+                                <span class="input-group-text">Pets $</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasPets" onchange="updateExtrasPrice()">
+                            <input type="number" class="form-control"
+                                placeholder="For example: $0-35/ea (without the $)" id="extrasPets"
+                                onchange="updateExtrasPrice()">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Props $</span>
+                                <span class="input-group-text">Props $</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasProps" onchange="updateExtrasPrice()">
+                            <input type="number" class="form-control"
+                                placeholder="For example: $0-35/ea (without the $)" id="extrasProps"
+                                onchange="updateExtrasPrice()">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Weapons $</span>
+                                <span class="input-group-text">Weapons $</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: $0-35/ea (without the $)" id="extrasWeapons" onchange="updateExtrasPrice()">
+                            <input type="number" class="form-control"
+                                placeholder="For example: $0-35/ea (without the $)" id="extrasWeapons"
+                                onchange="updateExtrasPrice()">
                         </div>
 
                     </div>
@@ -447,16 +559,17 @@
                     <div class="col-11 col-sm-10">
 
                         <div class="dropdown">
-                                <span class="h4 text-light">
-                                    Background 
-                                </span>
+                            <span class="h4 text-light">
+                                Background
+                            </span>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">$</span>
+                                <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: $0-180 (without the $)" id="background" onchange="updateBackgroundPrice()">
+                            <input type="number" class="form-control" placeholder="For example: $0-180 (without the $)"
+                                id="background" onchange="updateBackgroundPrice()">
                         </div>
                     </div>
 
@@ -477,16 +590,17 @@
                     <div class="col-11 col-sm-10">
 
                         <div>
-                                <span class="h4 text-light">
-                                    Skip Queue/Rush/Deadline 
-                                </span>
+                            <span class="h4 text-light">
+                                Skip Queue/Rush/Deadline
+                            </span>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">%</span>
+                                <span class="input-group-text">%</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)" id="skipqueue" onchange="updateSkipQueuePrice()">
+                            <input type="number" class="form-control" placeholder="For example: 0-90+% (without the %)"
+                                id="skipqueue" onchange="updateSkipQueuePrice()">
                         </div>
                     </div>
 
@@ -508,20 +622,22 @@
 
                         <div>
                             <span class="h4 text-light">
-                                Private? 
+                                Private?
                             </span>
                         </div>
 
                         <div class="mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="Private?" id="noPrivateRadio" value="no" onchange="updatePrivatePrice()">
+                                <input class="form-check-input" type="radio" name="Private?" id="noPrivateRadio"
+                                    value="no" onchange="updatePrivatePrice()">
                                 <label class="form-check-label text-light" for="noStyleRadio">
                                     <span>Not private</span>
                                     <span id="noPrivateText"></span>
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="Private?" id="yesPrivateRadio" value="yes" onchange="updatePrivatePrice()">
+                                <input class="form-check-input" type="radio" name="Private?" id="yesPrivateRadio"
+                                    value="yes" onchange="updatePrivatePrice()">
                                 <label class="form-check-label text-light" for="yesStyleRadio">
                                     <span>Yes, its private (100%)</span>
                                     <span id="yesPrivateText"></span>
@@ -556,7 +672,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="For example: $30 (without the $)" id="otherfees" onchange="updateOtherFeesPrice()">
+                            <input type="number" class="form-control" placeholder="For example: $30 (without the $)"
+                                id="otherfees" onchange="updateOtherFeesPrice()">
                         </div>
                     </div>
 
@@ -585,7 +702,7 @@
                 </div>
 
                 <!------------------------------------------------------------------->
-        </div>
+            </div>
     </main>
 
     <footer class="bg-dark text-muted">
