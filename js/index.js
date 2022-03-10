@@ -2,6 +2,9 @@ var pricesArray = [];
 var commissionsArray = [];
 var workinprogressArray = [];
 var commercialRadio;
+var NFTRadio;
+var NFTType;
+var NFTPayment;
 var designCharactersRadio;
 var style;
 var bodyRadio;
@@ -32,6 +35,9 @@ var peopleSkippingQueue = 0;
 var peopleSkippingRushingQueue = 0;
 var peopleInQueueNotHold = 0;
 var peopleInQueueHold = 0;
+
+var numberBaseNFT = 1.0;
+var numberNFTFiatorCrypto = 1.0;
 
 var numberDesigningCharacterMin = 1.0;
 var numberDesigningCharacterMax = 1.0;
@@ -163,7 +169,6 @@ function carouselNext() {
 }
 ////////////////////////////////////////////////////////////////////
 
-
 function updateCommercialRadios() {
 
     for (var i = 0; i < commercialRadio.length; i++) {
@@ -176,6 +181,57 @@ function updateCommercialRadios() {
             }
         }
     }
+}
+
+function updateNFTRadios() {
+
+    for (var i = 0; i < NFTRadio.length; i++) {
+        if (NFTRadio[i].checked) {
+            if (NFTRadio[i].value == "no") {
+                document.getElementById("NFTIDText").classList.add("d-none");
+            }
+            else if (NFTRadio[i].value == "yes") {
+                document.getElementById("NFTIDText").classList.remove("d-none");
+            }
+        }
+    }
+}
+
+function updateNFTPrice() {
+
+    let noCost = (pricesArray.designing.no.value - 100) + pricesArray.designing.no.dollarOrPercentage;
+    let yesCost = (pricesArray.designing.yes.minValue - 100);
+    yesCost += " ~ " + (pricesArray.designing.yes.maxValue - 100) + pricesArray.designing.yes.dollarOrPercentage;
+
+    document.getElementById("noDesignRadioText").innerHTML = `(<span class="xiransgreen">${noCost}</span>)`;
+    document.getElementById("yesDesignRadioText").innerHTML = `(<span class="xiransgreen">+${yesCost}</span>)`;
+
+    for (var i = 0; i < NFTType.length; i++) {
+        if (NFTType[i].checked) {
+            if (NFTType[i].value == "Personal") {
+                numberBaseNFT = Number(150 / 100);
+            }
+            else if (NFTType[i].value == "Generative") {
+                numberBaseNFT = Number(100 / 100);
+            }
+            else if (NFTType[i].value == "Concept") {
+                numberBaseNFT = Number(100 / 100);
+            }
+        }
+    }
+
+    for (var i = 0; i < NFTPayment.length; i++) {
+        if (NFTPayment[i].checked) {
+            if (NFTPayment[i].value == "fiat") {
+                numberNFTFiatorCrypto = Number(120 / 100);
+            }
+            else if (NFTPayment[i].value == "crypto") {
+                numberNFTFiatorCrypto = Number(100 / 100);
+            }
+        }
+    }
+
+    updateTotal();
 }
 
 function updateDesignCharactersTextAndPrice() {
@@ -2204,8 +2260,8 @@ function carouselChangeStyle() {
 function updateTotal() {
     var totalMin = 0;
     var totalMax = 0;
-    totalMin = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtrasMin) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate);
-    totalMax = ((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtrasMax) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate);
+    totalMin = (((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMin - 1)) * numberAmountCharacters) + numberExtrasMin) * numberLewdMin) + numberBackgroundMin) * numberSkip) * numberPrivate) * (numberBaseNFT + numberNFTFiatorCrypto - 1));
+    totalMax = (((((((((numberBody + numberStyleShading) * (numberOutfitComplexity + numberDesigningCharacterMax - 1)) * numberAmountCharacters) + numberExtrasMax) * numberLewdMax) + numberBackgroundMax) * numberSkip) * numberPrivate) * (numberBaseNFT + numberNFTFiatorCrypto - 1));
 
     document.getElementById("totalIDValue").innerText = `$${totalMin.toFixed(2)}~${totalMax.toFixed(2)}`;
 }
@@ -2225,6 +2281,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                             commercialRadio = document.getElementsByName("Is Commercial");
                             updateCommercialRadios();
+
+                            NFTRadio = document.getElementsByName("Is NFT");
+                            NFTType = document.getElementsByName("NFT type");
+                            NFTPayment = document.getElementsByName("NFT fiat or crypto");
+                            updateNFTRadios();
 
                             carouselElements = document.getElementsByName("carouselElement");
                             carouselImg = document.getElementsByName("carouselImg");
