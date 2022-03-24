@@ -189,9 +189,29 @@ function updateNFTRadios() {
         if (NFTRadio[i].checked) {
             if (NFTRadio[i].value == "no") {
                 document.getElementById("NFTIDText").classList.add("d-none");
+
+                var NFTType = document.getElementsByName("NFT type");
+                var NFTCurrency = document.getElementsByName("NFT fiat or crypto");
+
+                for (var e = 0; e < NFTType.length; e++){
+                    NFTType[e].removeAttribute('required', "");
+                }
+                for (var e = 0; e < NFTCurrency.length; e++){
+                    NFTCurrency[e].removeAttribute('required', "");
+                }
             }
             else if (NFTRadio[i].value == "yes") {
                 document.getElementById("NFTIDText").classList.remove("d-none");
+
+                var NFTType = document.getElementsByName("NFT type");
+                var NFTCurrency = document.getElementsByName("NFT fiat or crypto");
+
+                for (var e = 0; e < NFTType.length; e++){
+                    NFTType[e].setAttribute('required', "");
+                }
+                for (var e = 0; e < NFTCurrency.length; e++){
+                    NFTCurrency[e].setAttribute('required', "");
+                }
             }
         }
     }
@@ -1880,7 +1900,7 @@ function updateExtras() {
 
 }
 
-function changeExtras(type, amount) {
+function changeScore(type, amount) {
     var Pets = document.getElementById("extraPetsInput");
     var Props = document.getElementById("extraPropsInput");
     var Weapons = document.getElementById("extraWeaponsInput");
@@ -2343,21 +2363,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
     document.getElementById("btnPetsMinus").addEventListener("click", function () {
-        changeExtras("pets", -1)
+        changeScore("pets", -1)
     }, false);
     document.getElementById("btnPetsPlus").addEventListener("click", function () {
-        changeExtras("pets", 1)
+        changeScore("pets", 1)
     }, false);
     document.getElementById("btnPropsMinus").addEventListener("click", function () {
-        changeExtras("props", -1)
+        changeScore("props", -1)
     }, false);
     document.getElementById("btnPropsPlus").addEventListener("click", function () {
-        changeExtras("props", 1)
+        changeScore("props", 1)
     }, false);
     document.getElementById("btnWeaponsMinus").addEventListener("click", function () {
-        changeExtras("weapons", -1)
+        changeScore("weapons", -1)
     }, false);
     document.getElementById("btnWeaponsPlus").addEventListener("click", function () {
-        changeExtras("weapons", 1)
+        changeScore("weapons", 1)
     }, false);
 });
