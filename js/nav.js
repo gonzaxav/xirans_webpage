@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav w-100">
                     <li class="nav-item col active d-flex align-items-center justify-content-center">
+                        <a class="nav-link" href="gallery.html">
+                            <i class="fas fa-palette"></i>
+                            Gallery
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item col active d-flex align-items-center justify-content-center">
                         <a class="nav-link" href="discounts.html">
                             <i class="fas fa-chart-line"></i>
                             Discounts

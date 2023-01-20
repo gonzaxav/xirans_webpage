@@ -1,6 +1,8 @@
+var commissionInfoArray = [];
 var pricesArray = [];
 var commissionsArray = [];
 var workinprogressArray = [];
+var completedPreviewArray = [];
 var commercialRadio;
 var NFTRadio;
 var NFTType;
@@ -54,6 +56,18 @@ var numberLewdMax = 1.0;
 var numberExtrasMin = 0;
 var numberExtrasMax = 0;
 
+var featuredID = "63c9cb1a58fa9001aadf30dd";
+var omitID = "63c33f97e803e201c4c53a97"
+var cleanColorsID = "5f7cb19ecdabcf46c0010e50";
+var hybridID = "5f7cb19ecdabcf46c0010e45";
+var coloredSketchID = "5f8b90b3896477188ab0ac58";
+var emoteID = "5f7cb19ecdabcf46c0010e51";
+var sketchID = "5f8b9b49fc20524ea302a6f7";
+var doodleID = "5f8b91048c7a20055f4501ef";
+var scribbleID = "5f8b9423e0b7921c38e5f058";
+var logoID = "";
+var otherID = "5f7cb19ecdabcf46c0010e48";
+
 ///////////////////small functions///////////////////////////////
 function enableBodyButton(i) {
     bodyButtons[i].classList.remove("disabled");
@@ -63,6 +77,41 @@ function enableBodyButton(i) {
 function disableBodyButton(i) {
     bodyButtons[i].classList.add("disabled");
     bodyButtons[i].classList.add("disabledd");
+}
+
+function checkStatus() {
+    let xiStatusText = document.getElementById("xiStatusID");
+    let xiStatusDescriptionText = document.getElementById("xiStatusDescriptionID");
+
+    let xiStatus = commissionInfoArray[3].name;
+    let xiStatusDescription = commissionInfoArray[3].desc;
+
+    xiStatusDescription = xiStatusDescription.replace("\n", "");
+    //xiStatusDescription = xiStatusDescription.replace(">", "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    xiStatusDescription = xiStatusDescription.replace(">", `<br><p class="ml-4 mb-0">`);
+    xiStatusDescription = xiStatusDescription.replace("===", "<br>");
+    xiStatusDescription = xiStatusDescription.replace("Board's creation date: Oct 17, 2020", ``);
+    
+    if (xiStatus.toUpperCase().includes("OPEN")){
+        xiStatus = xiStatus.replace("◆ | *** STATUS: ", `◆ | *** STATUS: <span class="xiransgreen">`)
+    }
+    else if (xiStatus.toUpperCase().includes("CLOSED")){
+        xiStatus = xiStatus.replace("◆ | *** STATUS: ", `◆ | *** STATUS: <span class="xiransred">`)
+    }
+    else{
+        xiStatus = xiStatus.replace("◆ | *** STATUS: ", `◆ | *** STATUS: <span class="xiransblue">`)
+    }
+    xiStatus = xiStatus.replace("*** | ◆", `</span>*** | ◆`)
+
+    xiStatusText.innerHTML = `${(xiStatus)}`;
+    xiStatusDescriptionText.innerHTML = `${(xiStatusDescription)}`;
+
+
+
+    skipqueueasapText.innerHTML = `+${(pricesArray.skipqueue.rushpriority.value - 100) + pricesArray.skipqueue.rushpriority.increaseValuePerPerson * (peopleInQueue + peopleSkippingQueue) + pricesArray.skipqueue.rushpriority.dollarOrPercentage}`;
+    skipIDpeopleInQueue.innerHTML = `${(peopleInQueue)}`;
+    skipIDpeopleSkipping.innerHTML = `${(peopleSkippingQueue)}`;
+    skipIDpeopleRushing.innerHTML = `${(peopleSkippingRushingQueue)}`;
 }
 
 function enableAmountCharactersButton(i) {
@@ -2205,6 +2254,185 @@ function mouseOverImgCarousel(value) {
     carouselMouseOver = value;
 }
 
+function updatePricesArrayImg() {
+    var foundFeaturedCleanColors = false;
+    var foundFeaturedHybrid = false;
+    var foundFeaturedColoredSketch = false;
+    var foundFeaturedEmote = false;
+    var foundFeaturedSketch = false;
+    var foundFeaturedDoodle = false;
+    var foundFeaturedScribble = false;
+    var foundFeaturedLogo = false;
+    var foundFeaturedOther = false;
+
+    var cleanColorsFound = 0;
+    var hybridFound = 0;
+    var coloredSketchFound = 0;
+    var emoteFound = 0;
+    var sketchFound = 0;
+    var doodleFound = 0;
+    var scribbleFound = 0;
+    var logoFound = 0;
+    var otherFound = 0;
+
+    for (var i = 2; i < completedPreviewArray.length; i++){
+        var featured = false;
+        var style = "";
+        var ignore = false;
+
+        var current = completedPreviewArray[i];
+
+        firstID = completedPreviewArray[i].id;
+        secondID = completedPreviewArray[i].idAttachmentCover;
+        var currentLink = `https://trello.com/1/cards/${firstID}/attachments/${secondID}/download/`;
+
+        for (var u = 0; u < current.idLabels.length; u++){
+
+            currentLabel = current.idLabels[u];
+
+            if (currentLabel == omitID){
+                ignore = true;
+            }
+            else{
+                if (!ignore){
+                    if (currentLabel == featuredID){
+                        featured = true;
+                    }
+                    if (currentLabel == cleanColorsID){
+                        style = "cleanColors";
+                    }
+                    else if (currentLabel == hybridID){
+                        style = "hybrid";
+                    }
+                    else if (currentLabel == coloredSketchID){
+                        style = "coloredSketch";
+                    }
+                    else if (currentLabel == emoteID){
+                        style = "emote";
+                    }
+                    else if (currentLabel == sketchID){
+                        style = "sketch";
+                    }
+                    else if (currentLabel == doodleID){
+                        style = "doodle";
+                    }
+                    else if (currentLabel == scribbleID){
+                        style = "scribble";
+                    }
+                    else if (currentLabel == logoID){
+                        style = "logo";
+                    }
+                    else if (currentLabel == otherID){
+                        style = "other";
+                    }
+                }
+            }
+        }
+
+        if (!ignore){
+            if (style == "cleanColors"){
+                if (featured){
+                    if (!foundFeaturedCleanColors){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (cleanColorsFound < 9){
+                    pricesArray.carousel.cleanColors[cleanColorsFound] = currentLink;
+                    cleanColorsFound++;
+                }
+            }
+            if (style == "hybrid"){
+                if (featured){
+                    if (!foundFeaturedHybrid){
+                        pricesArray.carousel.featured[1] = currentLink;
+                    }
+                }
+                if (hybridFound < 9){
+                    pricesArray.carousel.hybrid[hybridFound] = currentLink;
+                    hybridFound++;
+                }
+            }
+            if (style == "coloredSketch"){
+                if (featured){
+                    if (!foundFeaturedColoredSketch){
+                        pricesArray.carousel.featured[2] = currentLink;
+                    }
+                }
+                if (coloredSketchFound < 9){
+                    pricesArray.carousel.coloredSketch[coloredSketchFound] = currentLink;
+                    coloredSketchFound++;
+                }
+            }
+            if (style == "emote"){
+                if (featured){
+                    if (!foundFeaturedEmote){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (emoteFound < 9){
+                    pricesArray.carousel.emote[emoteFound] = currentLink;
+                    emoteFound++;
+                }
+            }
+            if (style == "sketch"){
+                if (featured){
+                    if (!foundFeaturedSketch){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (sketchFound < 9){
+                    pricesArray.carousel.sketch[sketchFound] = currentLink;
+                    sketchFound++;
+                }
+            }
+            if (style == "doodle"){
+                if (featured){
+                    if (!foundFeaturedDoodle){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (doodleFound < 9){
+                    pricesArray.carousel.doodle[doodleFound] = currentLink;
+                    doodleFound++;
+                }
+            }
+            if (style == "scribble"){
+                if (featured){
+                    if (!foundFeaturedScribble){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (scribbleFound < 9){
+                    pricesArray.carousel.scribble[scribbleFound] = currentLink;
+                    scribbleFound++;
+                }
+            }
+            if (style == "logo"){
+                if (featured){
+                    if (!foundFeaturedLogo){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (logoFound < 9){
+                    pricesArray.carousel.logo[logoFound] = currentLink;
+                    logoFound++;
+                }
+            }
+            if (style == "other"){
+                if (featured){
+                    if (!foundFeaturedOther){
+                        pricesArray.carousel.featured[0] = currentLink;
+                    }
+                }
+                if (otherFound < 9){
+                    pricesArray.carousel.other[otherFound] = currentLink;
+                    otherFound++;
+                }
+            }
+        }
+    }
+}
+
 function carouselChangeStyle() {
     if (style.value == "") {
         for (var i = 0; i < carouselImg.length; i++) {
@@ -2287,75 +2515,91 @@ function updateTotal() {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(AMOUNT_OF_COMMISSIONS_URL).then(function (resultObj) {
+    getJSONData(COMMISSION_INFORMATION_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            commissionsArray = resultObj.data;
+            commissionInfoArray = resultObj.data;
 
-            getJSONData(WORK_IN_PROGRESS_URL).then(function (resultObj) {
+            getJSONData(AMOUNT_OF_COMMISSIONS_URL).then(function (resultObj) {
                 if (resultObj.status === "ok") {
-                    workinprogressArray = resultObj.data;
+                    commissionsArray = resultObj.data;
 
-                    getJSONData(PRICES_URL).then(function (resultObj) {
+                    getJSONData(WORK_IN_PROGRESS_URL).then(function (resultObj) {
                         if (resultObj.status === "ok") {
-                            pricesArray = resultObj.data;
+                            workinprogressArray = resultObj.data;
 
-                            commercialRadio = document.getElementsByName("Is Commercial");
-                            updateCommercialRadios();
+                            getJSONData(COMPLETED_URL).then(function (resultObj) {
+                                if (resultObj.status === "ok") {
+                                    completedPreviewArray = resultObj.data;
+                                    
+                                    getJSONData(PRICES_URL).then(function (resultObj) {
+                                        if (resultObj.status === "ok") {
+                                            pricesArray = resultObj.data;
 
-                            NFTRadio = document.getElementsByName("Is NFT");
-                            NFTType = document.getElementsByName("NFT type");
-                            NFTPayment = document.getElementsByName("NFT fiat or crypto");
-                            updateNFTRadios();
+                                            updatePricesArrayImg();
 
-                            carouselElements = document.getElementsByName("carouselElement");
-                            carouselImg = document.getElementsByName("carouselImg");
-                            carouselImgTextElements = document.getElementsByName("carousel-img-text");
+                                            checkStatus();
 
-                            designCharactersRadio = document.getElementsByName("Design Character?");
-                            updateDesignCharactersTextAndPrice();
+                                            commercialRadio = document.getElementsByName("Is Commercial");
+                                            updateCommercialRadios();
 
-                            style = document.getElementById("inputStyle");
-                            styleShadingRadio = document.getElementsByName("Doodle/Scribble Shading");
+                                            NFTRadio = document.getElementsByName("Is NFT");
+                                            NFTType = document.getElementsByName("NFT type");
+                                            NFTPayment = document.getElementsByName("NFT fiat or crypto");
+                                            updateNFTRadios();
 
-                            bodyRadio = document.getElementsByName("Body Amount");
-                            bodyButtons = document.getElementsByName("buttonBody");
+                                            carouselElements = document.getElementsByName("carouselElement");
+                                            carouselImg = document.getElementsByName("carouselImg");
+                                            carouselImgTextElements = document.getElementsByName("carousel-img-text");
 
-                            amountCharactersRadio = document.getElementsByName("How many characters");
-                            amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
+                                            designCharactersRadio = document.getElementsByName("Design Character?");
+                                            updateDesignCharactersTextAndPrice();
 
-                            amountEmotesRadio = document.getElementsByName("How many emotes?");
+                                            style = document.getElementById("inputStyle");
+                                            styleShadingRadio = document.getElementsByName("Doodle/Scribble Shading");
 
-                            updateStyleShowShadingPriceAndCallOtherFunctions(false);
-                            checkIfAButtonWasClicked();
-                            //updateBodyPrice();
-                            //updateAmountCharactersPrice();
-                            //updateHowManyEmotesPrice();
+                                            bodyRadio = document.getElementsByName("Body Amount");
+                                            bodyButtons = document.getElementsByName("buttonBody");
 
-                            outfit = document.getElementById("inputOutfit");
-                            outfitOptions = document.getElementsByName("outfitOptions");
-                            updateOutfitOptionsTextAndPrice();
+                                            amountCharactersRadio = document.getElementsByName("How many characters");
+                                            amountCharactersButtons = document.getElementsByName("buttonAmountCharacters");
 
-                            inputBackground = document.getElementById("inputBackground");
-                            backgroundOptions = document.getElementsByName("backgroundOptions");
-                            updateBackgroundOptionsTextAndPrice();
+                                            amountEmotesRadio = document.getElementsByName("How many emotes?");
 
-                            privateRadio = document.getElementsByName("Private?");
-                            updatePrivateTextAndPrice();
+                                            updateStyleShowShadingPriceAndCallOtherFunctions(false);
+                                            checkIfAButtonWasClicked();
+                                            //updateBodyPrice();
+                                            //updateAmountCharactersPrice();
+                                            //updateHowManyEmotesPrice();
 
-                            lewdRadio = document.getElementsByName("Lewd?");
-                            updateLewdTextAndPrice();
+                                            outfit = document.getElementById("inputOutfit");
+                                            outfitOptions = document.getElementsByName("outfitOptions");
+                                            updateOutfitOptionsTextAndPrice();
 
-                            skipQueueRadio = document.getElementsByName("RUSH/Skip Queue/Add Queue");
-                            skipQueueButtons = document.getElementsByName("skipQueueButtons");
-                            updateSkipQueueButtons();
-                            updateSkipQueuePrice();
+                                            inputBackground = document.getElementById("inputBackground");
+                                            backgroundOptions = document.getElementsByName("backgroundOptions");
+                                            updateBackgroundOptionsTextAndPrice();
 
-                            updateExtras();
+                                            privateRadio = document.getElementsByName("Private?");
+                                            updatePrivateTextAndPrice();
 
-                            carouselStart();
-                            carouselChangeStyle();
+                                            lewdRadio = document.getElementsByName("Lewd?");
+                                            updateLewdTextAndPrice();
 
-                            updateTotal();
+                                            skipQueueRadio = document.getElementsByName("RUSH/Skip Queue/Add Queue");
+                                            skipQueueButtons = document.getElementsByName("skipQueueButtons");
+                                            updateSkipQueueButtons();
+                                            updateSkipQueuePrice();
+
+                                            updateExtras();
+
+                                            carouselStart();
+                                            carouselChangeStyle();
+
+                                            updateTotal();
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 }

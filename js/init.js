@@ -1,6 +1,8 @@
 const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/json/prices.json";
+const COMMISSION_INFORMATION_URL = "https://api.trello.com/1/lists/5f7cb19e1f25c258301d2734/cards";
 const AMOUNT_OF_COMMISSIONS_URL = "https://api.trello.com/1/lists/5f7cb19ee26f79442887834e/cards";
 const WORK_IN_PROGRESS_URL = "https://api.trello.com/1/lists/5f7cb19e78b3ae03f247d058/cards";
+const COMPLETED_URL = "https://api.trello.com/1/lists/5f8b9f2c645a831dfec7adab/cards";
 const COMMISSION_DISCOUNT_SS_URL = "https://sheets.googleapis.com/v4/spreadsheets/1hnZIYbsV7wUGfhKzpqLDIgeIFYWMCG3D2OVDNJ_obkE/values/public!A1:V101?key=AIzaSyDEl89HU6IEVqW9Nk6OuxbEWNq7csd1TXE";
 
 const POST_NEW_COMMENT = "/new-comment";
@@ -9,16 +11,6 @@ const GET_1 = "/get_1";
 const POST = "/post";
 const PUT = "/put";
 const DELETE = "/delete";
-
-/*const CATEGORIES_URL = "http://localhost:3000/json/categories_url";
-const PUBLISH_PRODUCT_URL = "http://localhost:3000/json/publish_product";
-const CATEGORY_INFO_URL = "http://localhost:3000/json/category_info";
-const PRODUCTS_URL = "http://localhost:3000/json/products_url";
-const PRODUCT_INFO_URL = "http://localhost:3000/json/product_info";
-const PRODUCT_INFO_COMMENTS_URL = "http://localhost:3000/json/product_info_comments";
-const CART_INFO_URL = "http://localhost:3000/json/cart_info";
-const CART_BUY_URL = "http://localhost:3000/json/cart_buy";
-const CART_INFO_URL_2 = "http://localhost:3000/json/cart_info2";*/
 
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";

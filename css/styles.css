@@ -348,16 +348,24 @@ hr.solid{
   transform: translate(0, 0);
 }
 
+.xiransblue{
+  color: #7da8e8 !important;
+}
+
 .xiransgreen{
-  color: #7de896;
+  color: #7de896 !important;
 }
 
 .xiransorange{
-  color: #e8b67d;
+  color: #e8b67d !important;
 }
 
 .xiranspurple{
-  color: #b98fe9;
+  color: #b98fe9 !important;
+}
+
+.xiransred{
+  color: #e87d7d !important;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .xiranstextshadow{
@@ -368,10 +376,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .xiranstextshadow{
   color: #212529;
   background-color: #babfc5;
   border-color: #babfc5;
-}
-
-.xiransred{
-  color: #e87d7d;
 }
 
 .dropdown-menu-fix{
@@ -813,4 +817,17 @@ li.xiransindent {
   .carousel-next{
     right: 80px;
   }
+}
+
+.modal-transparent .modal-content{
+  background-color: transparent;
+  border: none;
+}
+
+.modal-transparent .modal-header{
+  border: none;
+}
+
+.modal-fullscreen{
+  max-width: 100%;
 }
