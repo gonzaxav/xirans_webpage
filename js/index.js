@@ -2366,7 +2366,7 @@ function updatePricesArrayImg() {
             if (style == "emote"){
                 if (featured){
                     if (!foundFeaturedEmote){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[3] = currentLink;
                     }
                 }
                 if (emoteFound < 9){
@@ -2377,7 +2377,7 @@ function updatePricesArrayImg() {
             if (style == "sketch"){
                 if (featured){
                     if (!foundFeaturedSketch){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[4] = currentLink;
                     }
                 }
                 if (sketchFound < 9){
@@ -2388,7 +2388,7 @@ function updatePricesArrayImg() {
             if (style == "doodle"){
                 if (featured){
                     if (!foundFeaturedDoodle){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[5] = currentLink;
                     }
                 }
                 if (doodleFound < 9){
@@ -2399,7 +2399,7 @@ function updatePricesArrayImg() {
             if (style == "scribble"){
                 if (featured){
                     if (!foundFeaturedScribble){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[6] = currentLink;
                     }
                 }
                 if (scribbleFound < 9){
@@ -2410,7 +2410,7 @@ function updatePricesArrayImg() {
             if (style == "logo"){
                 if (featured){
                     if (!foundFeaturedLogo){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[7] = currentLink;
                     }
                 }
                 if (logoFound < 9){
@@ -2421,7 +2421,7 @@ function updatePricesArrayImg() {
             if (style == "other"){
                 if (featured){
                     if (!foundFeaturedOther){
-                        pricesArray.carousel.featured[0] = currentLink;
+                        pricesArray.carousel.featured[8] = currentLink;
                     }
                 }
                 if (otherFound < 9){
