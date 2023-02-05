@@ -2334,6 +2334,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedCleanColors){
                         pricesArray.carousel.featured[0] = currentLink;
+                        foundFeaturedCleanColors = true;
                     }
                 }
                 if (cleanColorsFound < 9){
@@ -2345,6 +2346,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedHybrid){
                         pricesArray.carousel.featured[1] = currentLink;
+                        foundFeaturedHybrid = true;
                     }
                 }
                 if (hybridFound < 9){
@@ -2356,6 +2358,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedColoredSketch){
                         pricesArray.carousel.featured[2] = currentLink;
+                        foundFeaturedColoredSketch = true;
                     }
                 }
                 if (coloredSketchFound < 9){
@@ -2367,6 +2370,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedEmote){
                         pricesArray.carousel.featured[3] = currentLink;
+                        foundFeaturedEmote = true;
                     }
                 }
                 if (emoteFound < 9){
@@ -2378,6 +2382,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedSketch){
                         pricesArray.carousel.featured[4] = currentLink;
+                        foundFeaturedSketch = true;
                     }
                 }
                 if (sketchFound < 9){
@@ -2389,6 +2394,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedDoodle){
                         pricesArray.carousel.featured[5] = currentLink;
+                        foundFeaturedDoodle = true;
                     }
                 }
                 if (doodleFound < 9){
@@ -2400,6 +2406,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedScribble){
                         pricesArray.carousel.featured[6] = currentLink;
+                        foundFeaturedScribble = true;
                     }
                 }
                 if (scribbleFound < 9){
@@ -2411,6 +2418,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedLogo){
                         pricesArray.carousel.featured[7] = currentLink;
+                        foundFeaturedLogo = true;
                     }
                 }
                 if (logoFound < 9){
@@ -2422,6 +2430,7 @@ function updatePricesArrayImg() {
                 if (featured){
                     if (!foundFeaturedOther){
                         pricesArray.carousel.featured[8] = currentLink;
+                        foundFeaturedOther = true;
                     }
                 }
                 if (otherFound < 9){

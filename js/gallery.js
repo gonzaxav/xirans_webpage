@@ -39,6 +39,12 @@ function excludeTags(){
 }
 
 function fillGallery(){
+
+    var galleryContent =
+    `
+    <ul class="ul-style-none">
+    `
+
     for (var i = 0; i < galleryCleanedArray.length; i++){
 
         var number = galleryCleanedArray[i];
@@ -50,52 +56,61 @@ function fillGallery(){
         secondID = galleryArray[number].idAttachmentCover;
 
         var name = galleryArray[number].name;
+        name = name.substring(0, name.indexOf('|')).trimEnd();
         var link = `https://trello.com/1/cards/${firstID}/attachments/${secondID}/download/`;
 
         var content =
         `
-        <div class="p-1 col-6 mb-3">
-            <div id="${"ImgNumber" + i}" class="card text-white bg-darker h-100">
-                <img class="card-img-top" src="${link}" alt="${name}" data-target="#imgCarousel" data-slide-to="${i}">
-                <div class="card-body h-0 m-0 p-0"></div>
-                <div class="card-footer border-0">
-                    <h5 class="card-title">${name}</h5>
+        <li>
+            <a href="${link}" id="${"ImgNumber" + i}" data-toggle="modal" data-target="#imgModal">
+                <div class="card text-white bg-darker">
+                    <img class="card-img-top gallery-img-max-height" src="${link}" alt="${name}">
+                    <div class="card-body card-body-padding-fix">
+                        <h6 class="card-text text-center">${name}</h6>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </a>
+        </li>
         `;
 
-        document.getElementById("galleryID").innerHTML += content;
+        galleryContent += content;
+    }
 
-        if (i == 0){
-            var contentCarousel =
-            `
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="${link}">
-            </div>
-            `
-        }
-        else{
-            var contentCarousel =
-            `
-            <div class="carousel-item">
-                <img class="d-block" src="${link}">
-            </div>
-            `
-        }
+    var end =
+    `
+    </ul>
+    `
+    galleryContent += end;
+    document.getElementById("galleryID").innerHTML += galleryContent;
 
 
 
-        document.getElementById("carouselImgID").innerHTML += contentCarousel;
+
+    for (var i = 0; i < galleryCleanedArray.length; i++){
+
+        let element = document.getElementById(`ImgNumber${i}`);
+        let link = element.href;
+        element.onclick = function() {SetModalImg(link)};
     }
 }
 
+function SetModalImg(link){
+    document.getElementById("modalImg").src = link;
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(COMPLETED_URL).then(function (resultObj) {
+    getJSONData(GALLERY_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             galleryArray = resultObj.data;
 
             excludeTags();
         }
+    })
+
+    document.getElementById("modalImg").addEventListener("mouseover", event => {
+        event.target.classList.add("zoom");
+    })
+    document.getElementById("modalImg").addEventListener("mouseout", event => {
+        event.target.classList.remove("zoom");
     })
 });

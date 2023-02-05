@@ -3,6 +3,7 @@ const COMMISSION_INFORMATION_URL = "https://api.trello.com/1/lists/5f7cb19e1f25c
 const AMOUNT_OF_COMMISSIONS_URL = "https://api.trello.com/1/lists/5f7cb19ee26f79442887834e/cards";
 const WORK_IN_PROGRESS_URL = "https://api.trello.com/1/lists/5f7cb19e78b3ae03f247d058/cards";
 const COMPLETED_URL = "https://api.trello.com/1/lists/5f8b9f2c645a831dfec7adab/cards";
+const GALLERY_URL = "https://api.trello.com/1/lists/63c848b2e5727f0357dac581/cards";
 const COMMISSION_DISCOUNT_SS_URL = "https://sheets.googleapis.com/v4/spreadsheets/1hnZIYbsV7wUGfhKzpqLDIgeIFYWMCG3D2OVDNJ_obkE/values/public!A1:V101?key=AIzaSyDEl89HU6IEVqW9Nk6OuxbEWNq7csd1TXE";
 
 const POST_NEW_COMMENT = "/new-comment";
