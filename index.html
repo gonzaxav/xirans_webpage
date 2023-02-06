@@ -118,7 +118,8 @@
                 </div>
 
                 <div class="p-5 d-none" id="commercialIDText">
-                  <h4 class="text-center xiransred"><u>Please do not fill out this form; message Xiran directly!</u>
+                  <h4 class="text-center xiransred"><u>Please do not fill out this form without messaging Xiran directly first! 
+                    Depending on what permissions you request, the percentage fee will change.</u>
                   </h4>
                 </div>
               </div>
@@ -218,7 +219,7 @@
 
                   <div class="pt-5">
                     <label class="form-check-label text-light">
-                      <span>Royalties will range from <span class="xiransgreen">3%-10%</span> depending on the
+                      <span>Royalties will range from <span class="xiransgreen">5%-25%</span> depending on the
                         project.</span>
                     </label>
                   </div>
@@ -1216,11 +1217,41 @@
                   </label>
 
                 </div>
+
+                <div class="mt-3 mb-1">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle dropdown-toggle-fix" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="h4 text-light">Do you have a deadline? <i class="fas fa-question-circle"></i></span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-fix" aria-labelledby="dropdownMenuButton">
+                      <span class="dropdown-item dropdown-item-fix disabled"><strong>Deadline</strong>:
+                        <br><u>Deadline</u> - if you have a deadline, please be realistic with your choice. I work on 1
+                        commission at a time, in the order they came in. Check the waitlist to see how many & what
+                        styles
+                        are queued, and see if your request is reasonable. For reference, 1 character fullbody clean
+                        colors pieces usually take ~2 weeks from being started & paid. The fastest a clean colors piece
+                        can be completed is 1 week as a rush order.
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Deadline</span>
+                    </div>
+                    <textarea class="form-control" name="Due Date" placeholder="Yes, its a birthday gift, due April 20 2023."
+                      aria-label="dueDate"></textarea>
+                  </div>
+                </div>
+
+
+
               </div>
 
               <div class="col-1">
                 <div class="row h-50"></div>
-                <p class="xiransgreen text-center d-none" id="skipIDValue">50%</p>
+                <output class="xiransgreen text-center d-none" id="skipIDValue" name="Skip Percent">50%</output>
               </div>
 
             </div>
