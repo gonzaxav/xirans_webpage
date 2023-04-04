@@ -217,7 +217,7 @@
             },
             "emote": {
                 "isItPossible": true,
-                "value": "25",
+                "value": "35",
                 "dollarOrPercentage": "$"
             },
             "sketch": {
