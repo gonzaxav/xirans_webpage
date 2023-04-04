@@ -493,12 +493,12 @@
         },
         "four": {
             "discount": true,
-            "amount": "5",
+            "amount": "10",
             "dollarOrPercentage": "$"
         },
         "five": {
             "discount": true,
-            "amount": "25",
+            "amount": "20",
             "dollarOrPercentage": "$"
         }
     },
