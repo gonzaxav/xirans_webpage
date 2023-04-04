@@ -498,7 +498,7 @@
         },
         "five": {
             "discount": true,
-            "amount": "15",
+            "amount": "25",
             "dollarOrPercentage": "$"
         }
     },
