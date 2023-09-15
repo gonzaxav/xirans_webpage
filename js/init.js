@@ -1,4 +1,4 @@
-const PRICES_URL = "https://raw.githubusercontent.com/gonzaxav/xirans_webpage/main/json/prices.json";
+const PRICES_URL = "https://raw.githubusercontent.com/xiran-art/xirans_webpage/main/json/prices.json";
 const COMMISSION_INFORMATION_URL = "https://api.trello.com/1/lists/5f7cb19e1f25c258301d2734/cards";
 const AMOUNT_OF_COMMISSIONS_URL = "https://api.trello.com/1/lists/5f7cb19ee26f79442887834e/cards";
 const WORK_IN_PROGRESS_URL = "https://api.trello.com/1/lists/5f7cb19e78b3ae03f247d058/cards";
