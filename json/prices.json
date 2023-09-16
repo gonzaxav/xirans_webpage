@@ -27,6 +27,11 @@
                 "value": "45",
                 "dollarOrPercentage": "$"
             },
+            "sticker": {
+                "isItPossible": false,
+                "value": "0",
+                "dollarOrPercentage": "$"
+            },
             "emote": {
                 "isItPossible": false,
                 "value": "0",
@@ -72,6 +77,11 @@
             "coloredSketch": {
                 "isItPossible": true,
                 "value": "52",
+                "dollarOrPercentage": "$"
+            },
+            "sticker": {
+                "isItPossible": true,
+                "value": "45",
                 "dollarOrPercentage": "$"
             },
             "emote": {
@@ -121,6 +131,11 @@
                 "value": "75",
                 "dollarOrPercentage": "$"
             },
+            "sticker": {
+                "isItPossible": false,
+                "value": "0",
+                "dollarOrPercentage": "$"
+            },
             "emote": {
                 "isItPossible": false,
                 "value": "0",
@@ -168,6 +183,11 @@
                 "value": "95",
                 "dollarOrPercentage": "$"
             },
+            "sticker": {
+                "isItPossible": true,
+                "value": "60",
+                "dollarOrPercentage": "$"
+            },
             "emote": {
                 "isItPossible": false,
                 "value": "0",
@@ -211,6 +231,11 @@
                 "dollarOrPercentage": "$"
             },
             "coloredSketch": {
+                "isItPossible": false,
+                "value": "0",
+                "dollarOrPercentage": "$"
+            },
+            "sticker": {
                 "isItPossible": false,
                 "value": "0",
                 "dollarOrPercentage": "$"
@@ -302,6 +327,11 @@
                 "value": "100",
                 "dollarOrPercentage": "%"
             },
+            "sticker": {
+                "isItPossible": true,
+                "value": "100",
+                "dollarOrPercentage": "%"
+            },
             "emote": {
                 "isItPossible": true,
                 "value": "100",
@@ -345,6 +375,11 @@
                 "dollarOrPercentage": "%"
             },
             "coloredSketch": {
+                "isItPossible": true,
+                "value": "220",
+                "dollarOrPercentage": "%"
+            },
+            "sticker": {
                 "isItPossible": true,
                 "value": "220",
                 "dollarOrPercentage": "%"
@@ -396,6 +431,11 @@
                 "value": "345",
                 "dollarOrPercentage": "%"
             },
+            "sticker": {
+                "isItPossible": false,
+                "value": "100",
+                "dollarOrPercentage": "%"
+            },
             "emote": {
                 "isItPossible": false,
                 "value": "100",
@@ -441,6 +481,11 @@
             "coloredSketch": {
                 "isItPossible": true,
                 "value": "475",
+                "dollarOrPercentage": "%"
+            },
+            "sticker": {
+                "isItPossible": false,
+                "value": "100",
                 "dollarOrPercentage": "%"
             },
             "emote": {
