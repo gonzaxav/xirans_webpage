@@ -80,7 +80,7 @@
                 "dollarOrPercentage": "$"
             },
             "sticker": {
-                "isItPossible": yes,
+                "isItPossible": true,
                 "value": "45",
                 "dollarOrPercentage": "$"
             },
