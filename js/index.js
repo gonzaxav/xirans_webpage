@@ -1688,25 +1688,29 @@ function updateHowManyEmotesText(){
     } else {
         one.innerHTML = `1 emote&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.one.dollarOrPercentage} ${(costForAnEmote*1)-pricesArray.emotesAmount.one.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.one.dollarOrPercentage} ${pricesArray.emotesAmount.one.amount} OFF!</span>`;
     }
+
     if (!pricesArray.emotesAmount.two.discount){
         two.innerHTML = `2 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${costForAnEmote*2}</span>`;
     } else {
         two.innerHTML = `2 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${(costForAnEmote*2)-pricesArray.emotesAmount.two.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.two.dollarOrPercentage} ${pricesArray.emotesAmount.two.amount} OFF!</span>`;
     }
+
     if (!pricesArray.emotesAmount.three.discount){
         three.innerHTML = `3 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${costForAnEmote*3}</span>`;
     } else {
-        three.innerHTML = `3 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${(costForAnEmote*3)-pricesArray.emotesAmount.three.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${pricesArray.emotesAmount.three.amount} OFF!</span>`;
+        three.innerHTML = `3 emotes&nbsp;&nbsp;<span class="xiransorange"><s> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${(costForAnEmote*3)}</s></span>&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.three.dollarOrPercentage} ${(costForAnEmote*3)-pricesArray.emotesAmount.three.amount} </span>`;
     }
+
     if (!pricesArray.emotesAmount.four.discount){
         four.innerHTML = `4 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${costForAnEmote*4}</span>`;
     } else {
-        four.innerHTML = `4 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${(costForAnEmote*4)-pricesArray.emotesAmount.four.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${pricesArray.emotesAmount.four.amount} OFF!</span>`;
+        four.innerHTML = `4 emotes&nbsp;&nbsp;<span class="xiransorange"><s> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${(costForAnEmote*4)}</s></span>&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.four.dollarOrPercentage} ${(costForAnEmote*4)-pricesArray.emotesAmount.four.amount} </span>`;
     }
+
     if (!pricesArray.emotesAmount.five.discount){
         five.innerHTML = `5 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${costForAnEmote*5}</span>`;
     } else {
-        five.innerHTML = `5 emotes&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${(costForAnEmote*5)-pricesArray.emotesAmount.five.amount}</span>&nbsp;&nbsp;<span class="xiransorange"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${pricesArray.emotesAmount.five.amount} OFF!</span>`;
+        five.innerHTML = `5 emotes&nbsp;&nbsp;<span class="xiransorange"><s> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${(costForAnEmote*5)}</s></span>&nbsp;&nbsp;<span class="xiransgreen"> ${pricesArray.emotesAmount.five.dollarOrPercentage} ${(costForAnEmote*5)-pricesArray.emotesAmount.five.amount} </span>`;
     }
     
 
