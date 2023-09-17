@@ -61,6 +61,7 @@ var omitID = "63c33f97e803e201c4c53a97"
 var cleanColorsID = "5f7cb19ecdabcf46c0010e50";
 var hybridID = "5f7cb19ecdabcf46c0010e45";
 var coloredSketchID = "5f8b90b3896477188ab0ac58";
+var stickerID = "65077c2bde2c50aaa713c1a2";
 var emoteID = "5f7cb19ecdabcf46c0010e51";
 var sketchID = "5f8b9b49fc20524ea302a6f7";
 var doodleID = "5f8b91048c7a20055f4501ef";
@@ -446,6 +447,10 @@ function updateStyleShowShadingPriceAndCallOtherFunctions(check) {
     }
 
     else if (style.value == "coloredSketch") {
+        hideStyleShading();
+    }
+
+    else if (style.value == "sticker") {
         hideStyleShading();
     }
 
@@ -2311,6 +2316,9 @@ function updatePricesArrayImg() {
                     else if (currentLabel == coloredSketchID){
                         style = "coloredSketch";
                     }
+                    else if (currentLabel == stickerID){
+                        style = "sticker";
+                    }
                     else if (currentLabel == emoteID){
                         style = "emote";
                     }
@@ -2454,12 +2462,13 @@ function carouselChangeStyle() {
         carouselImgTextElements[0].innerHTML = "Clean Colors";
         carouselImgTextElements[1].innerHTML = "Hybrid";
         carouselImgTextElements[2].innerHTML = "Colored Sketch";
-        carouselImgTextElements[3].innerHTML = "Emote";
-        carouselImgTextElements[4].innerHTML = "Sketch";
-        carouselImgTextElements[5].innerHTML = "Doodle";
-        carouselImgTextElements[6].innerHTML = "Scribble";
-        carouselImgTextElements[7].innerHTML = "Logo";
-        carouselImgTextElements[8].innerHTML = "Other";
+        carouselImgTextElements[3].innerHTML = "Sticker";
+        carouselImgTextElements[4].innerHTML = "Emote";
+        carouselImgTextElements[5].innerHTML = "Sketch";
+        carouselImgTextElements[6].innerHTML = "Doodle";
+        carouselImgTextElements[7].innerHTML = "Scribble";
+        carouselImgTextElements[8].innerHTML = "Logo";
+        carouselImgTextElements[9].innerHTML = "Other";
     }
     else if (style.value == "cleanColors") {
         for (var i = 0; i < carouselImg.length; i++) {
@@ -2477,6 +2486,12 @@ function carouselChangeStyle() {
         for (var i = 0; i < carouselImg.length; i++) {
             carouselImg[i].src = pricesArray.carousel.coloredSketch[i];
             carouselImgTextElements[i].innerHTML = "Colored Sketch";
+        }
+    }
+    else if (style.value == "sticker") {
+        for (var i = 0; i < carouselImg.length; i++) {
+            carouselImg[i].src = pricesArray.carousel.sticker[i];
+            carouselImgTextElements[i].innerHTML = "Sticker";
         }
     }
     else if (style.value == "emote") {
