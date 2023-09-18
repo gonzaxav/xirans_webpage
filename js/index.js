@@ -66,8 +66,8 @@ var emoteID = "5f7cb19ecdabcf46c0010e51";
 var sketchID = "5f8b9b49fc20524ea302a6f7";
 var doodleID = "5f8b91048c7a20055f4501ef";
 var scribbleID = "5f8b9423e0b7921c38e5f058";
-var logoID = "";
-var otherID = "5f7cb19ecdabcf46c0010e48";
+var logoID = "63c9d799bb4eeb05f8775f6f";
+var otherID = "63ca177059a3ef01bb297c88";
 
 ///////////////////small functions///////////////////////////////
 function enableBodyButton(i) {
@@ -2264,9 +2264,12 @@ function mouseOverImgCarousel(value) {
 }
 
 function updatePricesArrayImg() {
+    var amountOfStyles = 10;
+
     var foundFeaturedCleanColors = false;
     var foundFeaturedHybrid = false;
     var foundFeaturedColoredSketch = false;
+    var foundFeaturedSticker = false;
     var foundFeaturedEmote = false;
     var foundFeaturedSketch = false;
     var foundFeaturedDoodle = false;
@@ -2277,6 +2280,7 @@ function updatePricesArrayImg() {
     var cleanColorsFound = 0;
     var hybridFound = 0;
     var coloredSketchFound = 0;
+    var stickerFound = 0;
     var emoteFound = 0;
     var sketchFound = 0;
     var doodleFound = 0;
@@ -2349,7 +2353,7 @@ function updatePricesArrayImg() {
                         foundFeaturedCleanColors = true;
                     }
                 }
-                if (cleanColorsFound < 9){
+                if (cleanColorsFound < amountOfStyles){
                     pricesArray.carousel.cleanColors[cleanColorsFound] = currentLink;
                     cleanColorsFound++;
                 }
@@ -2361,7 +2365,7 @@ function updatePricesArrayImg() {
                         foundFeaturedHybrid = true;
                     }
                 }
-                if (hybridFound < 9){
+                if (hybridFound < amountOfStyles){
                     pricesArray.carousel.hybrid[hybridFound] = currentLink;
                     hybridFound++;
                 }
@@ -2373,19 +2377,31 @@ function updatePricesArrayImg() {
                         foundFeaturedColoredSketch = true;
                     }
                 }
-                if (coloredSketchFound < 9){
+                if (coloredSketchFound < amountOfStyles){
                     pricesArray.carousel.coloredSketch[coloredSketchFound] = currentLink;
                     coloredSketchFound++;
+                }
+            }
+            if (style == "sticker"){
+                if (featured){
+                    if (!foundFeaturedSticker){
+                        pricesArray.carousel.featured[3] = currentLink;
+                        foundFeaturedSticker = true;
+                    }
+                }
+                if (stickerFound < amountOfStyles){
+                    pricesArray.carousel.sticker[stickerFound] = currentLink;
+                    stickerFound++;
                 }
             }
             if (style == "emote"){
                 if (featured){
                     if (!foundFeaturedEmote){
-                        pricesArray.carousel.featured[3] = currentLink;
+                        pricesArray.carousel.featured[4] = currentLink;
                         foundFeaturedEmote = true;
                     }
                 }
-                if (emoteFound < 9){
+                if (emoteFound < amountOfStyles){
                     pricesArray.carousel.emote[emoteFound] = currentLink;
                     emoteFound++;
                 }
@@ -2393,11 +2409,11 @@ function updatePricesArrayImg() {
             if (style == "sketch"){
                 if (featured){
                     if (!foundFeaturedSketch){
-                        pricesArray.carousel.featured[4] = currentLink;
+                        pricesArray.carousel.featured[5] = currentLink;
                         foundFeaturedSketch = true;
                     }
                 }
-                if (sketchFound < 9){
+                if (sketchFound < amountOfStyles){
                     pricesArray.carousel.sketch[sketchFound] = currentLink;
                     sketchFound++;
                 }
@@ -2405,11 +2421,11 @@ function updatePricesArrayImg() {
             if (style == "doodle"){
                 if (featured){
                     if (!foundFeaturedDoodle){
-                        pricesArray.carousel.featured[5] = currentLink;
+                        pricesArray.carousel.featured[6] = currentLink;
                         foundFeaturedDoodle = true;
                     }
                 }
-                if (doodleFound < 9){
+                if (doodleFound < amountOfStyles){
                     pricesArray.carousel.doodle[doodleFound] = currentLink;
                     doodleFound++;
                 }
@@ -2417,11 +2433,11 @@ function updatePricesArrayImg() {
             if (style == "scribble"){
                 if (featured){
                     if (!foundFeaturedScribble){
-                        pricesArray.carousel.featured[6] = currentLink;
+                        pricesArray.carousel.featured[7] = currentLink;
                         foundFeaturedScribble = true;
                     }
                 }
-                if (scribbleFound < 9){
+                if (scribbleFound < amountOfStyles){
                     pricesArray.carousel.scribble[scribbleFound] = currentLink;
                     scribbleFound++;
                 }
@@ -2429,11 +2445,11 @@ function updatePricesArrayImg() {
             if (style == "logo"){
                 if (featured){
                     if (!foundFeaturedLogo){
-                        pricesArray.carousel.featured[7] = currentLink;
+                        pricesArray.carousel.featured[8] = currentLink;
                         foundFeaturedLogo = true;
                     }
                 }
-                if (logoFound < 9){
+                if (logoFound < amountOfStyles){
                     pricesArray.carousel.logo[logoFound] = currentLink;
                     logoFound++;
                 }
@@ -2441,11 +2457,11 @@ function updatePricesArrayImg() {
             if (style == "other"){
                 if (featured){
                     if (!foundFeaturedOther){
-                        pricesArray.carousel.featured[8] = currentLink;
+                        pricesArray.carousel.featured[amountOfStyles] = currentLink;
                         foundFeaturedOther = true;
                     }
                 }
-                if (otherFound < 9){
+                if (otherFound < amountOfStyles){
                     pricesArray.carousel.other[otherFound] = currentLink;
                     otherFound++;
                 }
