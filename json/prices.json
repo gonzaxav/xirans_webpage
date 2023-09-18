@@ -631,7 +631,7 @@
             "dollarOrPercentage": "$"
         },
         "sticker": {
-            "isItPossible": false,
+            "isItPossible": true,
             "minValue": "7",
             "maxValue": "15",
             "dollarOrPercentage": "$"

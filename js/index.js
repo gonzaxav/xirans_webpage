@@ -627,6 +627,48 @@ function updateBodyButtons() {
         }
     }
 
+    else if (style.value == "sticker") {
+        if (pricesArray.body.portrait.sticker.isItPossible) {
+            portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.portrait.sticker.dollarOrPercentage + pricesArray.body.portrait.sticker.value}</span>`;
+            enableBodyButton(0);
+        } else {
+            portraitText.innerHTML = ``;
+            disableBodyButton(0);
+        }
+
+        if (pricesArray.body.halfbody.sticker.isItPossible) {
+            halfbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.halfbody.sticker.dollarOrPercentage + pricesArray.body.halfbody.sticker.value}</span>`;
+            enableBodyButton(1);
+        } else {
+            halfbodyText.innerHTML = ``;
+            disableBodyButton(1);
+        }
+
+        if (pricesArray.body.thighs.sticker.isItPossible) {
+            thighsupText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.thighs.sticker.dollarOrPercentage + pricesArray.body.thighs.sticker.value}</span>`;
+            enableBodyButton(2);
+        } else {
+            thighsupText.innerHTML = ``;
+            disableBodyButton(2);
+        }
+
+        if (pricesArray.body.full.sticker.isItPossible) {
+            fullbodyText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.full.sticker.dollarOrPercentage + pricesArray.body.full.sticker.value}</span>`;
+            enableBodyButton(3);
+        } else {
+            fullbodyText.innerHTML = ``;
+            disableBodyButton(3);
+        }
+
+        if (pricesArray.body.other.sticker.isItPossible) {
+            otherText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.other.sticker.dollarOrPercentage + pricesArray.body.other.sticker.value}</span>`;
+            enableBodyButton(4);
+        } else {
+            otherText.innerHTML = ``;
+            disableBodyButton(4);
+        }
+    }
+
     else if (style.value == "emote") {
         if (pricesArray.body.portrait.emote.isItPossible) {
             portraitText.innerHTML = `<br><span class="xiransgreen">${pricesArray.body.portrait.emote.dollarOrPercentage + pricesArray.body.portrait.emote.value}</span>`;
@@ -902,6 +944,11 @@ function updateBodyPrice() {
                         bodyContent = pricesArray.body.portrait.coloredSketch.dollarOrPercentage + pricesArray.body.portrait.coloredSketch.value;
                         cost = pricesArray.body.portrait.coloredSketch.value;
                     }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.body.portrait.sticker.isItPossible) {
+                        bodyContent = pricesArray.body.portrait.sticker.dollarOrPercentage + pricesArray.body.portrait.sticker.value;
+                        cost = pricesArray.body.portrait.sticker.value;
+                    }
                 } else if (style.value == "emote") {
                     if (pricesArray.body.portrait.emote.isItPossible) {
                         bodyContent = pricesArray.body.portrait.emote.dollarOrPercentage + pricesArray.body.portrait.emote.value;
@@ -949,6 +996,11 @@ function updateBodyPrice() {
                     if (pricesArray.body.halfbody.coloredSketch.isItPossible) {
                         bodyContent = pricesArray.body.halfbody.coloredSketch.dollarOrPercentage + pricesArray.body.halfbody.coloredSketch.value;
                         cost = pricesArray.body.halfbody.coloredSketch.value;
+                    }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.body.halfbody.sticker.isItPossible) {
+                        bodyContent = pricesArray.body.halfbody.sticker.dollarOrPercentage + pricesArray.body.halfbody.sticker.value;
+                        cost = pricesArray.body.halfbody.sticker.value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body.halfbody.emote.isItPossible) {
@@ -998,6 +1050,11 @@ function updateBodyPrice() {
                         bodyContent = pricesArray.body.thighs.coloredSketch.dollarOrPercentage + pricesArray.body.thighs.coloredSketch.value;
                         cost = pricesArray.body.thighs.coloredSketch.value;
                     }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.body.thighs.sticker.isItPossible) {
+                        bodyContent = pricesArray.body.thighs.sticker.dollarOrPercentage + pricesArray.body.thighs.sticker.value;
+                        cost = pricesArray.body.thighs.sticker.value;
+                    }
                 } else if (style.value == "emote") {
                     if (pricesArray.body.thighs.emote.isItPossible) {
                         bodyContent = pricesArray.body.thighs.emote.dollarOrPercentage + pricesArray.body.thighs.emote.value;
@@ -1046,6 +1103,11 @@ function updateBodyPrice() {
                         bodyContent = pricesArray.body.full.coloredSketch.dollarOrPercentage + pricesArray.body.full.coloredSketch.value;
                         cost = pricesArray.body.full.coloredSketch.value;
                     }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.body.full.sticker.isItPossible) {
+                        bodyContent = pricesArray.body.full.sticker.dollarOrPercentage + pricesArray.body.full.sticker.value;
+                        cost = pricesArray.body.full.sticker.value;
+                    }
                 } else if (style.value == "emote") {
                     if (pricesArray.body.full.emote.isItPossible) {
                         bodyContent = pricesArray.body.full.emote.dollarOrPercentage + pricesArray.body.full.emote.value;
@@ -1093,6 +1155,11 @@ function updateBodyPrice() {
                     if (pricesArray.body.other.coloredSketch.isItPossible) {
                         bodyContent = pricesArray.body.other.coloredSketch.dollarOrPercentage + pricesArray.body.other.coloredSketch.value;
                         cost = pricesArray.body.other.coloredSketch.value;
+                    }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.body.other.sticker.isItPossible) {
+                        bodyContent = pricesArray.body.other.sticker.dollarOrPercentage + pricesArray.body.other.sticker.value;
+                        cost = pricesArray.body.other.sticker.value;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.body.other.emote.isItPossible) {
@@ -1251,6 +1318,40 @@ function updateAmountCharactersButtons() {
 
         if (pricesArray.amountcharacters.four.coloredSketch.isItPossible) {
             fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters.four.coloredSketch.value - 100) + pricesArray.amountcharacters.four.coloredSketch.dollarOrPercentage}</span>`;
+            enableAmountCharactersButton(3);
+        } else {
+            fourText.innerHTML = ``;
+            disableAmountCharactersButton(3);
+        }
+    }
+
+    else if (style.value == "sticker") {
+        if (pricesArray.amountcharacters.one.sticker.isItPossible) {
+            oneText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters.one.sticker.value - 100) + pricesArray.amountcharacters.one.sticker.dollarOrPercentage}</span>`;
+            enableAmountCharactersButton(0);
+        } else {
+            oneText.innerHTML = ``;
+            disableAmountCharactersButton(0);
+        }
+
+        if (pricesArray.amountcharacters.two.sticker.isItPossible) {
+            twoText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters.two.sticker.value - 100) + pricesArray.amountcharacters.two.sticker.dollarOrPercentage}</span>`;
+            enableAmountCharactersButton(1);
+        } else {
+            twoText.innerHTML = ``;
+            disableAmountCharactersButton(1);
+        }
+
+        if (pricesArray.amountcharacters.three.sticker.isItPossible) {
+            threeText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters.three.sticker.value - 100) + pricesArray.amountcharacters.three.sticker.dollarOrPercentage}</span>`;
+            enableAmountCharactersButton(2);
+        } else {
+            threeText.innerHTML = ``;
+            disableAmountCharactersButton(2);
+        }
+
+        if (pricesArray.amountcharacters.four.sticker.isItPossible) {
+            fourText.innerHTML = `<br><span class="xiransgreen">+${(pricesArray.amountcharacters.four.sticker.value - 100) + pricesArray.amountcharacters.four.sticker.dollarOrPercentage}</span>`;
             enableAmountCharactersButton(3);
         } else {
             fourText.innerHTML = ``;
@@ -1485,6 +1586,11 @@ function updateAmountCharactersPrice() {
                         bodyContent = (pricesArray.amountcharacters.one.coloredSketch.value - 100) + pricesArray.amountcharacters.one.coloredSketch.dollarOrPercentage;
                         cost = pricesArray.amountcharacters.one.coloredSketch.value / 100;
                     }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.amountcharacters.one.sticker.isItPossible) {
+                        bodyContent = (pricesArray.amountcharacters.one.sticker.value - 100) + pricesArray.amountcharacters.one.sticker.dollarOrPercentage;
+                        cost = pricesArray.amountcharacters.one.sticker.value / 100;
+                    }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters.one.emote.isItPossible) {
                         bodyContent = (pricesArray.amountcharacters.one.emote.value - 100) + pricesArray.amountcharacters.one.emote.dollarOrPercentage;
@@ -1532,6 +1638,11 @@ function updateAmountCharactersPrice() {
                     if (pricesArray.amountcharacters.two.coloredSketch.isItPossible) {
                         bodyContent = (pricesArray.amountcharacters.two.coloredSketch.value - 100) + pricesArray.amountcharacters.two.coloredSketch.dollarOrPercentage;
                         cost = pricesArray.amountcharacters.two.coloredSketch.value / 100;
+                    }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.amountcharacters.two.sticker.isItPossible) {
+                        bodyContent = (pricesArray.amountcharacters.two.sticker.value - 100) + pricesArray.amountcharacters.two.sticker.dollarOrPercentage;
+                        cost = pricesArray.amountcharacters.two.sticker.value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters.two.emote.isItPossible) {
@@ -1581,6 +1692,11 @@ function updateAmountCharactersPrice() {
                         bodyContent = (pricesArray.amountcharacters.three.coloredSketch.value - 100) + pricesArray.amountcharacters.three.coloredSketch.dollarOrPercentage;
                         cost = pricesArray.amountcharacters.three.coloredSketch.value / 100;
                     }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.amountcharacters.three.sticker.isItPossible) {
+                        bodyContent = (pricesArray.amountcharacters.three.sticker.value - 100) + pricesArray.amountcharacters.three.sticker.dollarOrPercentage;
+                        cost = pricesArray.amountcharacters.three.sticker.value / 100;
+                    }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters.three.emote.isItPossible) {
                         bodyContent = (pricesArray.amountcharacters.three.emote.value - 100) + pricesArray.amountcharacters.three.emote.dollarOrPercentage;
@@ -1628,6 +1744,11 @@ function updateAmountCharactersPrice() {
                     if (pricesArray.amountcharacters.four.coloredSketch.isItPossible) {
                         bodyContent = (pricesArray.amountcharacters.four.coloredSketch.value - 100) + pricesArray.amountcharacters.four.coloredSketch.dollarOrPercentage;
                         cost = pricesArray.amountcharacters.four.coloredSketch.value / 100;
+                    }
+                } else if (style.value == "sticker") {
+                    if (pricesArray.amountcharacters.four.sticker.isItPossible) {
+                        bodyContent = (pricesArray.amountcharacters.four.sticker.value - 100) + pricesArray.amountcharacters.four.sticker.dollarOrPercentage;
+                        cost = pricesArray.amountcharacters.four.sticker.value / 100;
                     }
                 } else if (style.value == "emote") {
                     if (pricesArray.amountcharacters.four.emote.isItPossible) {
@@ -1852,6 +1973,20 @@ function updateExtras() {
         if (pricesArray.extras.coloredSketch.isItPossible) {
             minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.minValue;
             maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.coloredSketch.maxValue;
+            extrasSection.classList.remove("d-none");
+        } else {
+            numberExtrasMin = 0;
+            numberExtrasMax = 0;
+            Pets.innerText = 0;
+            Props.innerText = 0;
+            Weapons.innerText = 0;
+            extrasSection.classList.add("d-none");
+        }
+    }
+    else if (style.value == "sticker") {
+        if (pricesArray.extras.sticker.isItPossible) {
+            minCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sticker.minValue;
+            maxCost = (numberPets + numberProps + numberWeapons) * pricesArray.extras.sticker.maxValue;
             extrasSection.classList.remove("d-none");
         } else {
             numberExtrasMin = 0;
