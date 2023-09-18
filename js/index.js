@@ -67,7 +67,7 @@ var sketchID = "5f8b9b49fc20524ea302a6f7";
 var doodleID = "5f8b91048c7a20055f4501ef";
 var scribbleID = "5f8b9423e0b7921c38e5f058";
 var logoID = "63c9d799bb4eeb05f8775f6f";
-var otherID = "63ca177059a3ef01bb297c88";
+var otherID = "5f7cb19ecdabcf46c0010e48";
 
 ///////////////////small functions///////////////////////////////
 function enableBodyButton(i) {
@@ -2457,7 +2457,7 @@ function updatePricesArrayImg() {
             if (style == "other"){
                 if (featured){
                     if (!foundFeaturedOther){
-                        pricesArray.carousel.featured[amountOfStyles] = currentLink;
+                        pricesArray.carousel.featured[9] = currentLink;
                         foundFeaturedOther = true;
                     }
                 }
