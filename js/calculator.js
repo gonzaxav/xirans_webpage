@@ -2468,13 +2468,14 @@ function updatePriceQuoteText() {
     } else if (numberOutfitComplexity >= 1.01) {
       outfitText = "V. Simple";
     }
+    let displayDesign = numberDesigningCharacter > 1;
     newText =
       newText +
       `- Outfit Complexity (${
         numberOutfitComplexity * 100 - 100
-      }% - ${outfitText}) & Design (${
+      }% - ${outfitText})${displayDesign ? ` & Design (${
         numberDesigningCharacter * 100 - 100
-      }%): +${
+      }%)` : ``}: +${
         numberOutfitComplexity * 100 -
         100 +
         numberDesigningCharacter * 100 -
