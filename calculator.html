@@ -41,51 +41,22 @@
 
 
                     <div class="col-1">
-                        <div class="row h-50"></div>
-                        <p class="xiransgreen text-center d-none" id="NFTIDValue">50%</p>
                     </div>
 
                     <div class="col-11 col-sm-10">
 
                         <div>
                             <span class="h4 text-light">
-                                Is this an NFT?
+                                References
                             </span>
                         </div>
 
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFT?" id="noNFTRadio" value="no"
-                                    onchange="updateNFTPrice()">
-                                <label class="form-check-label text-light" for="noNFTRadio">
-                                    <span>Not an NFT</span>
-                                    <span id="noPrivateText"></span>
-                                </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Url</span>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTPersonalRadio"
-                                    value="yesPersonal" onchange="updateNFTPrice()">
-                                <label class="form-check-label text-light" for="yesNFTPersonalRadio">
-                                    <span>Yes, its personal (50%)</span>
-                                    <span id="yesPrivateText"></span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTGenerativeRadio"
-                                    value="yesGenerative" onchange="updateNFTPrice()">
-                                <label class="form-check-label text-light" for="yesNFTGenerativeRadio">
-                                    <span>Yes, its generative</span>
-                                    <span id="yesPrivateText"></span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFT?" id="yesNFTConceptRadio"
-                                    value="yesConcept" onchange="updateNFTPrice()">
-                                <label class="form-check-label text-light" for="yesNFTConceptRadio">
-                                    <span>Yes, its concept</span>
-                                    <span id="yesPrivateText"></span>
-                                </label>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Imgur link"
+                                id="references" onchange="updateReferencesLink()">
                         </div>
                     </div>
 
@@ -99,35 +70,22 @@
 
 
                     <div class="col-1">
-                        <div class="row h-50"></div>
-                        <p class="xiransgreen text-center d-none" id="NFTCurrencyIDValue">20%</p>
                     </div>
 
                     <div class="col-11 col-sm-10">
 
                         <div>
                             <span class="h4 text-light">
-                                Paying in?
+                                Notes
                             </span>
                         </div>
 
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTFiat"
-                                    value="fiat" onchange="updateNFTCurrencyPrice()">
-                                <label class="form-check-label text-light" for="NFTFiat">
-                                    <span>Fiat (20%)</span>
-                                    <span id="noPrivateText"></span>
-                                </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Notes</span>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTCrypto"
-                                    value="crypto" onchange="updateNFTCurrencyPrice()">
-                                <label class="form-check-label text-light" for="NFTCrypto">
-                                    <span>Crypto (0%)</span>
-                                    <span id="yesPrivateText"></span>
-                                </label>
-                            </div>
+                            <textarea type="text" class="form-control" placeholder="Notes"
+                                id="notes" onchange="updateNotesText()"></textarea>
                         </div>
                     </div>
 
@@ -632,7 +590,6 @@
                                     value="no" onchange="updatePrivatePrice()">
                                 <label class="form-check-label text-light" for="noStyleRadio">
                                     <span>Not private</span>
-                                    <span id="noPrivateText"></span>
                                 </label>
                             </div>
                             <div class="form-check">
@@ -640,7 +597,6 @@
                                     value="yes" onchange="updatePrivatePrice()">
                                 <label class="form-check-label text-light" for="yesStyleRadio">
                                     <span>Yes, its private (100%)</span>
-                                    <span id="yesPrivateText"></span>
                                 </label>
                             </div>
                         </div>
@@ -678,6 +634,549 @@
                     </div>
 
                     <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="NFTIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                NFT Fee
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-50% (without the %)"
+                                id="NFT" onchange="updateNFTPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+
+                <!------------------------------------------------------------------->
+
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="NFTRoyaltyIDValue">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                NFT Royalty
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-30% (without the %)"
+                                id="NFTRoyalty" onchange="updateNFTRoyaltyPrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+
+                <!------------------------------------------------------------------->
+
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="NFTCurrencyIDValue">20%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Paying in?
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTFiat"
+                                    value="fiat" onchange="updateNFTCurrencyPrice()">
+                                <label class="form-check-label text-light" for="NFTFiat">
+                                    <span>Fiat (20%)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="NFTcurrency?" id="NFTCrypto"
+                                    value="crypto" onchange="updateNFTCurrencyPrice()">
+                                <label class="form-check-label text-light" for="NFTCrypto">
+                                    <span>Crypto (0%)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        <div class="row h-50"></div>
+                        <p class="xiransgreen text-center d-none" id="commercialFeeId">50%</p>
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Commercial fee
+                            </span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="For example: 0-125% (without the %)"
+                                id="commercialFee" onchange="updateCommercialFeePrice()">
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Use (design) with other artists to ---------
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignWithOtherArtists"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignWithOtherArtists"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignWithOtherArtists"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Use (design) for webtoon/comic/novel/ingame art/splash art, models, animations, etc.
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignForProyect"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignForProyect"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseDesignForProyect"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Make changes to design without Xiran's prior knowledge.
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="MakeChangesToDesign"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="MakeChangesToDesign"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="MakeChangesToDesign"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Basic usage rights for social media (incl. edit/modify/showcase)
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInSocialMedia"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInSocialMedia"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInSocialMedia"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Share the design with the art team
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ShareDesignWithArtTeam"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ShareDesignWithArtTeam"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ShareDesignWithArtTeam"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Reuse for future events
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ReuseInFutureEvents"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ReuseInFutureEvents"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ReuseInFutureEvents"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Use for Twitch/YouTube banners (Twitch Handle, etc.)
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInStreamingPlatformsBanner"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInStreamingPlatformsBanner"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseInStreamingPlatformsBanner"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Re-sell the design (as an adoptable or otherwise).
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ResellDesign"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ResellDesign"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ResellDesign"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10 mb-4">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Publicly share/sell full resolution files
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="PubliclyShareSellFile"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="PubliclyShareSellFile"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="PubliclyShareSellFile"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                    <!------------------------------------------------------------------->
+                    
+                    <div class="col-1"></div>
+
+                    <div class="col-11 col-sm-10">
+
+                        <div>
+                            <span class="h4 text-light">
+                                Redistribute/resell/make merchandise/prints, etc. for any direct profit
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseToSellMerch"
+                                    value="n/a" onchange="updateCommercialPermits()" checked>
+                                <label class="form-check-label text-light" for="n/a">
+                                    <span>N/A</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseToSellMerch"
+                                    value="allowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="allowed">
+                                    <span>Allowed</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="UseToSellMerch"
+                                    value="notallowed" onchange="updateCommercialPermits()">
+                                <label class="form-check-label text-light" for="notallowed">
+                                    <span>Not Allowed</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-0 col-sm-1"></div>
+
+                </div>
+
+                <!------------------------------------------------------------------->
+
+                <div class="row mb-4 xiranssection p-2">
+
+
+                    <div class="col-1">
+                        
+                    </div>
+
+                    <div class="col-11 col-sm-10">
+                        <div class="py-5">
+                            <span class="text-light" id="priceQuote">
+                                
+                            </span>
+                        </div>
+                    </div>
 
                 </div>
 
