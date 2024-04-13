@@ -2445,7 +2445,7 @@ function updatePriceQuoteText() {
   }
 
   let previousValue = 0;
-  previousValue = Number(numberBody).toFixed(2);
+  previousValue = Number(numberBody * numberAmountCharacters).toFixed(2);
   newText = newText + `[ Subtotal ]: $${previousValue}\n`;
 
   if (numberStyleShading > 0) {
